@@ -1556,6 +1556,15 @@
   .qf-submit:hover { transform:translateY(-2px) scale(1.01); box-shadow:0 0 36px rgba(76,187,23,0.6),0 8px 24px rgba(0,0,0,0.4); }
   .qf-submit:active { transform:translateY(0) scale(0.99); }
   .qf-privacy { text-align:center; font-size:0.6rem; color:rgba(255,255,255,0.2); font-family:'Inter',sans-serif; margin-top:7px; }
+  .qf-success { display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px 24px 32px; gap:14px; min-height:260px; }
+  .qf-success-icon { width:68px; height:68px; border-radius:50%; background:linear-gradient(135deg,#4CBB17 0%,#8DFF4F 100%); display:flex; align-items:center; justify-content:center; box-shadow:0 0 40px rgba(76,187,23,0.5),0 8px 24px rgba(0,0,0,0.4); }
+  .qf-success-icon svg { width:32px; height:32px; }
+  .qf-success-title { font-family:'Anton',sans-serif; font-size:1.7rem; text-transform:uppercase; color:#fff; letter-spacing:-0.01em; line-height:1; }
+  .qf-success-sub { font-size:0.83rem; color:rgba(255,255,255,0.55); line-height:1.65; max-width:230px; }
+  .qf-success-note { font-size:0.7rem; color:rgba(255,255,255,0.28); font-family:'Inter',sans-serif; }
+  .qf-success-phone { font-family:'Anton',sans-serif; font-size:1.3rem; color:var(--lime); text-decoration:none; letter-spacing:0.02em; transition:text-shadow 0.2s ease; }
+  .qf-success-phone:hover { text-shadow:0 0 20px rgba(141,255,79,0.5); }
+  .qf-success.active { display:flex; }
 
   /* TRUST TICKER */
   .trust-ticker { position:fixed; top:0; left:0; right:0; height:36px; background:rgba(0,0,0,0.94); border-bottom:1px solid rgba(76,187,23,0.2); z-index:101; overflow:hidden; display:flex; align-items:center; }
@@ -1698,60 +1707,69 @@
           <div class="qf-eyebrow">No Obligation, Free Quote</div>
           <div class="qf-title">Get Your <span>Free</span> Quote</div>
         </div>
-        <form onsubmit="return false;">
+        <form id="form-hero" onsubmit="handleQuote(event,this)">
+          <input type="hidden" name="_subject" value="New Quote Request — ACLEAN Exterior Cleaning"/>
+          <input type="hidden" name="services" value=""/>
           <div class="qf-row">
             <div class="qf-field">
               <label for="qf-name">First Name</label>
-              <input type="text" id="qf-name" placeholder="Your first name"/>
+              <input type="text" id="qf-name" name="name" placeholder="Your first name"/>
             </div>
             <div class="qf-field">
               <label for="qf-phone">Phone</label>
-              <input type="tel" id="qf-phone" placeholder="(604) 000-0000"/>
+              <input type="tel" id="qf-phone" name="phone" placeholder="(604) 000-0000"/>
             </div>
           </div>
           <div class="qf-row">
             <div class="qf-field">
               <label for="qf-email">Email</label>
-              <input type="email" id="qf-email" placeholder="your@email.com"/>
+              <input type="email" id="qf-email" name="email" placeholder="your@email.com"/>
             </div>
             <div class="qf-field">
               <label for="qf-address">Address / City</label>
-              <input type="text" id="qf-address" placeholder="Langley, Abbotsford…"/>
+              <input type="text" id="qf-address" name="address" placeholder="Chilliwack, Abbotsford…"/>
             </div>
           </div>
 
           <div class="qf-section-label">Property Type</div>
           <div class="qf-pills">
-            <div class="qf-pill"><input type="radio" name="prop" id="pt-sfh" checked/><label for="pt-sfh">Single Family</label></div>
-            <div class="qf-pill"><input type="radio" name="prop" id="pt-th"/><label for="pt-th">Townhouse</label></div>
-            <div class="qf-pill"><input type="radio" name="prop" id="pt-co"/><label for="pt-co">Condo</label></div>
-            <div class="qf-pill"><input type="radio" name="prop" id="pt-cm"/><label for="pt-cm">Commercial</label></div>
-            <div class="qf-pill"><input type="radio" name="prop" id="pt-mu"/><label for="pt-mu">Multi-Unit</label></div>
+            <div class="qf-pill"><input type="radio" name="property_type" id="pt-sfh" value="Single Family" checked/><label for="pt-sfh">Single Family</label></div>
+            <div class="qf-pill"><input type="radio" name="property_type" id="pt-th" value="Townhouse"/><label for="pt-th">Townhouse</label></div>
+            <div class="qf-pill"><input type="radio" name="property_type" id="pt-co" value="Condo"/><label for="pt-co">Condo</label></div>
+            <div class="qf-pill"><input type="radio" name="property_type" id="pt-cm" value="Commercial"/><label for="pt-cm">Commercial</label></div>
+            <div class="qf-pill"><input type="radio" name="property_type" id="pt-mu" value="Multi-Unit"/><label for="pt-mu">Multi-Unit</label></div>
           </div>
 
           <div class="qf-section-label">Services Needed</div>
           <div class="qf-checks">
             <label class="qf-check"><input type="checkbox" checked/><span class="qf-check-box"></span><span class="qf-check-label">Window Cleaning</span></label>
             <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Pressure Washing</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Roof Washing</span></label>
             <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Gutter Cleaning</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">House Washing</span></label>
             <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Soft Washing</span></label>
+            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Solar Panels</span></label>
             <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Commercial</span></label>
+            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Screen Cleaning</span></label>
             <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">LED Lighting</span></label>
           </div>
 
           <div class="qf-section-label">Preferred Frequency</div>
           <div class="qf-freq">
-            <div class="qf-freq-item"><input type="radio" name="freq" id="fr-q" checked/><label for="fr-q">Quarterly</label></div>
-            <div class="qf-freq-item"><input type="radio" name="freq" id="fr-b"/><label for="fr-b">Bi-Annual</label></div>
-            <div class="qf-freq-item"><input type="radio" name="freq" id="fr-m"/><label for="fr-m">Monthly</label></div>
-            <div class="qf-freq-item"><input type="radio" name="freq" id="fr-o"/><label for="fr-o">One-Time</label></div>
+            <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-q" value="Quarterly" checked/><label for="fr-q">Quarterly</label></div>
+            <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-b" value="Bi-Annual"/><label for="fr-b">Bi-Annual</label></div>
+            <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-m" value="Monthly"/><label for="fr-m">Monthly</label></div>
+            <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-o" value="One-Time"/><label for="fr-o">One-Time</label></div>
           </div>
 
           <button type="submit" class="qf-submit">Get My Free Quote →</button>
           <p class="qf-privacy">🔒 No spam. We respond within 2 hours.</p>
         </form>
+        <div class="qf-success">
+          <div class="qf-success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="qf-success-title">Request Received!</div>
+          <div class="qf-success-sub">Your info has been received — we'll reply within 2 hours with your free quote.</div>
+          <div class="qf-success-note">Or call us directly:</div>
+          <a href="tel:+16043782130" class="qf-success-phone">(604) 378-2130</a>
+        </div>
       </div>
     </div>
   </div>
@@ -2556,65 +2574,74 @@
           <div class="qf-eyebrow">No Obligation</div>
           <div class="qf-title">Submit Your <span>Quote</span> Request</div>
         </div>
-        <form onsubmit="return false;">
+        <form id="form-contact" onsubmit="handleQuote(event,this)">
+          <input type="hidden" name="_subject" value="New Quote Request — ACLEAN Exterior Cleaning"/>
+          <input type="hidden" name="services" value=""/>
           <div class="qf-row">
             <div class="qf-field">
               <label for="cf-name">First Name</label>
-              <input type="text" id="cf-name" placeholder="Your first name"/>
+              <input type="text" id="cf-name" name="name" placeholder="Your first name"/>
             </div>
             <div class="qf-field">
               <label for="cf-phone">Phone</label>
-              <input type="tel" id="cf-phone" placeholder="(604) 000-0000"/>
+              <input type="tel" id="cf-phone" name="phone" placeholder="(604) 000-0000"/>
             </div>
           </div>
           <div class="qf-row">
             <div class="qf-field">
               <label for="cf-email">Email</label>
-              <input type="email" id="cf-email" placeholder="your@email.com"/>
+              <input type="email" id="cf-email" name="email" placeholder="your@email.com"/>
             </div>
             <div class="qf-field">
               <label for="cf-address">Address</label>
-              <input type="text" id="cf-address" placeholder="City or full address"/>
+              <input type="text" id="cf-address" name="address" placeholder="City or full address"/>
             </div>
           </div>
 
           <div class="qf-section-label">Property Type</div>
           <div class="qf-pills">
-            <div class="qf-pill"><input type="radio" name="cprop" id="cp-sfh" checked/><label for="cp-sfh">Single Family</label></div>
-            <div class="qf-pill"><input type="radio" name="cprop" id="cp-th"/><label for="cp-th">Townhouse</label></div>
-            <div class="qf-pill"><input type="radio" name="cprop" id="cp-co"/><label for="cp-co">Condo</label></div>
-            <div class="qf-pill"><input type="radio" name="cprop" id="cp-cm"/><label for="cp-cm">Commercial</label></div>
-            <div class="qf-pill"><input type="radio" name="cprop" id="cp-mu"/><label for="cp-mu">Multi-Unit</label></div>
+            <div class="qf-pill"><input type="radio" name="property_type" id="cp-sfh" value="Single Family" checked/><label for="cp-sfh">Single Family</label></div>
+            <div class="qf-pill"><input type="radio" name="property_type" id="cp-th" value="Townhouse"/><label for="cp-th">Townhouse</label></div>
+            <div class="qf-pill"><input type="radio" name="property_type" id="cp-co" value="Condo"/><label for="cp-co">Condo</label></div>
+            <div class="qf-pill"><input type="radio" name="property_type" id="cp-cm" value="Commercial"/><label for="cp-cm">Commercial</label></div>
+            <div class="qf-pill"><input type="radio" name="property_type" id="cp-mu" value="Multi-Unit"/><label for="cp-mu">Multi-Unit</label></div>
           </div>
 
           <div class="qf-section-label">Services Needed</div>
           <div class="qf-checks">
             <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Window Cleaning</span></label>
             <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Pressure Washing</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Roof Washing</span></label>
             <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Gutter Cleaning</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">House Washing</span></label>
             <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Soft Washing</span></label>
+            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Solar Panels</span></label>
             <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Commercial</span></label>
+            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Screen Cleaning</span></label>
             <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">LED Lighting</span></label>
           </div>
 
           <div class="qf-section-label">Preferred Frequency</div>
           <div class="qf-freq">
-            <div class="qf-freq-item"><input type="radio" name="cfreq" id="cf-q" checked/><label for="cf-q">Quarterly</label></div>
-            <div class="qf-freq-item"><input type="radio" name="cfreq" id="cf-b"/><label for="cf-b">Bi-Annual</label></div>
-            <div class="qf-freq-item"><input type="radio" name="cfreq" id="cf-m"/><label for="cf-m">Monthly</label></div>
-            <div class="qf-freq-item"><input type="radio" name="cfreq" id="cf-o"/><label for="cf-o">One-Time</label></div>
+            <div class="qf-freq-item"><input type="radio" name="frequency" id="cf-fq" value="Quarterly" checked/><label for="cf-fq">Quarterly</label></div>
+            <div class="qf-freq-item"><input type="radio" name="frequency" id="cf-fb" value="Bi-Annual"/><label for="cf-fb">Bi-Annual</label></div>
+            <div class="qf-freq-item"><input type="radio" name="frequency" id="cf-fm" value="Monthly"/><label for="cf-fm">Monthly</label></div>
+            <div class="qf-freq-item"><input type="radio" name="frequency" id="cf-fo" value="One-Time"/><label for="cf-fo">One-Time</label></div>
           </div>
 
           <div class="qf-section-label">Additional Details</div>
           <div class="qf-field">
-            <textarea id="cf-msg" rows="3" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 11px;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.8rem;outline:none;resize:vertical;transition:border-color 0.2s ease;" placeholder="Tell us about your property, any specific concerns…" onfocus="this.style.borderColor='rgba(76,187,23,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"></textarea>
+            <textarea id="cf-msg" name="message" rows="3" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 11px;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.8rem;outline:none;resize:vertical;transition:border-color 0.2s ease;" placeholder="Tell us about your property, any specific concerns…" onfocus="this.style.borderColor='rgba(76,187,23,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"></textarea>
           </div>
 
           <button type="submit" class="qf-submit">Submit Quote Request →</button>
           <p class="qf-privacy">🔒 No spam. We respond within 2 hours.</p>
         </form>
+        <div class="qf-success">
+          <div class="qf-success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="qf-success-title">Request Received!</div>
+          <div class="qf-success-sub">Your info has been received — we'll reply within 2 hours with your free quote.</div>
+          <div class="qf-success-note">Or call us directly:</div>
+          <a href="tel:+16043782130" class="qf-success-phone">(604) 378-2130</a>
+        </div>
       </div>
     </div>
   </div>
@@ -2773,6 +2800,35 @@
 
   // Auto-update copyright year
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ── QUOTE FORM HANDLER ────────────────────────────────────────────────
+  window.handleQuote = function(e, form) {
+    e.preventDefault();
+    // Collect checked services from checkboxes (no name attr on checkboxes)
+    const services = [...form.querySelectorAll('input[type="checkbox"]:checked')]
+      .map(cb => cb.closest('.qf-check').querySelector('.qf-check-label').textContent)
+      .join(', ');
+    const svcField = form.querySelector('input[name="services"]');
+    if (svcField) svcField.value = services || 'None selected';
+
+    const btn = form.querySelector('.qf-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const fd = new FormData(form);
+
+    // Submit to Formspree — replace YOUR_FORM_ID after signing up at formspree.io
+    fetch('https://formspree.io/f/meenyplk', {
+      method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+    }).finally(() => {
+      const card = form.closest('.quote-form-card');
+      const header = card.querySelector('.qf-header');
+      const success = card.querySelector('.qf-success');
+      if (header) header.style.display = 'none';
+      form.style.display = 'none';
+      if (success) success.classList.add('active');
+    });
+  };
 
   // ── FAQ ACCORDION ─────────────────────────────────────────────────────
   document.querySelectorAll('.faq-q').forEach(btn => {
