@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block crawling of utility and asset files
+Disallow: /node_modules/
+Disallow: /temporary screenshots/
+Disallow: /*.mjs$
+
+# Sitemap location
+Sitemap: https://acleanexterior.com/sitemap.xml
