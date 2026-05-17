@@ -7,132 +7,169 @@
   <!-- Homepage -->
   <url>
     <loc>https://acleanexterior.com/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Service pages (to be created) -->
+  <!-- Service pages -->
   <url>
     <loc>https://acleanexterior.com/services/window-cleaning/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://acleanexterior.com/services/exterior-window-cleaning/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://acleanexterior.com/services/interior-window-cleaning/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://acleanexterior.com/services/pure-water-window-cleaning/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://acleanexterior.com/services/screen-cleaning/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://acleanexterior.com/services/track-detailing/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://acleanexterior.com/services/roof-washing/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://acleanexterior.com/services/gutter-cleaning/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://acleanexterior.com/services/house-washing/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://acleanexterior.com/services/pressure-washing/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://acleanexterior.com/services/soft-washing/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://acleanexterior.com/services/solar-panel-cleaning/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://acleanexterior.com/services/commercial-cleaning/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://acleanexterior.com/services/commercial-exterior-cleaning/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://acleanexterior.com/services/permanent-led-lighting/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Location pages (to be created) -->
+  <!-- Area pages -->
   <url>
-    <loc>https://acleanexterior.com/langley/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <loc>https://acleanexterior.com/areas/langley/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://acleanexterior.com/abbotsford/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <loc>https://acleanexterior.com/areas/surrey/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://acleanexterior.com/surrey/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <loc>https://acleanexterior.com/areas/cloverdale/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://acleanexterior.com/areas/abbotsford/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://acleanexterior.com/chilliwack/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <loc>https://acleanexterior.com/areas/chilliwack/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://acleanexterior.com/mission/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <loc>https://acleanexterior.com/areas/mission/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://acleanexterior.com/maple-ridge/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <loc>https://acleanexterior.com/areas/maple-ridge/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://acleanexterior.com/cloverdale/</loc>
-    <lastmod>2025-05-15</lastmod>
+    <loc>https://acleanexterior.com/areas/hope/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
-
-  <!-- Service + Location combination pages (high-value targets) -->
-  <url><loc>https://acleanexterior.com/langley/window-cleaning/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://acleanexterior.com/langley/roof-washing/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://acleanexterior.com/langley/pressure-washing/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://acleanexterior.com/langley/gutter-cleaning/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acleanexterior.com/langley/house-washing/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <url><loc>https://acleanexterior.com/abbotsford/window-cleaning/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://acleanexterior.com/abbotsford/roof-washing/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://acleanexterior.com/abbotsford/pressure-washing/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://acleanexterior.com/abbotsford/gutter-cleaning/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acleanexterior.com/abbotsford/house-washing/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <url><loc>https://acleanexterior.com/surrey/window-cleaning/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://acleanexterior.com/surrey/roof-washing/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://acleanexterior.com/surrey/pressure-washing/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-
-  <url><loc>https://acleanexterior.com/chilliwack/window-cleaning/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acleanexterior.com/chilliwack/pressure-washing/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <url><loc>https://acleanexterior.com/maple-ridge/window-cleaning/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acleanexterior.com/maple-ridge/roof-washing/</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url>
+    <loc>https://acleanexterior.com/areas/agassiz/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://acleanexterior.com/areas/rosedale/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://acleanexterior.com/areas/cultus-lake/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>
