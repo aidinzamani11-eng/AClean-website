@@ -1575,15 +1575,18 @@
   .qf-submit:hover { transform:translateY(-2px) scale(1.01); box-shadow:0 0 36px rgba(76,187,23,0.6),0 8px 24px rgba(0,0,0,0.4); }
   .qf-submit:active { transform:translateY(0) scale(0.99); }
   .qf-privacy { text-align:center; font-size:0.6rem; color:rgba(255,255,255,0.2); font-family:'Inter',sans-serif; margin-top:7px; }
-  /* Google Places autocomplete dropdown — dark theme */
-  .pac-container { background:#1a1a1a; border:1px solid rgba(76,187,23,0.35); border-radius:10px; box-shadow:0 12px 40px rgba(0,0,0,0.7); font-family:'Inter',sans-serif; margin-top:4px; overflow:hidden; }
-  .pac-item { padding:10px 14px; color:rgba(255,255,255,0.65); font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.05); cursor:pointer; transition:background 0.15s ease; }
-  .pac-item:first-child { border-top:none; }
-  .pac-item:hover, .pac-item-selected { background:rgba(76,187,23,0.1); color:#fff; }
-  .pac-item-query { color:#fff; font-size:0.82rem; font-weight:600; }
-  .pac-matched { color:#8DFF4F; font-weight:700; }
-  .pac-icon { display:none; }
-  .pac-logo::after { display:none; }
+  /* Google Extended Component Library — dark theme */
+  gmpx-place-picker {
+    --gmpx-color-surface: #1a1a1a;
+    --gmpx-color-on-surface: #ffffff;
+    --gmpx-color-on-surface-variant: rgba(255,255,255,0.5);
+    --gmpx-color-primary: #4CBB17;
+    --gmpx-color-outline: rgba(255,255,255,0.1);
+    --gmpx-font-family-base: 'Montserrat', sans-serif;
+    --gmpx-font-size-base: 0.8rem;
+    width: 100%;
+    display: block;
+  }
   .qf-success { display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px 24px 32px; gap:14px; min-height:260px; }
   .qf-success-icon { width:68px; height:68px; border-radius:50%; background:linear-gradient(135deg,#4CBB17 0%,#8DFF4F 100%); display:flex; align-items:center; justify-content:center; box-shadow:0 0 40px rgba(76,187,23,0.5),0 8px 24px rgba(0,0,0,0.4); }
   .qf-success-icon svg { width:32px; height:32px; }
@@ -1639,9 +1642,10 @@
 </style>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChKpbshKST5pbiMDzkYitKYMvPxQfRQIM&libraries=places&callback=initPlacesAutocomplete" async defer></script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
 </head>
 <body>
+<gmpx-api-loader key="AIzaSyChKpbshKST5pbiMDzkYitKYMvPxQfRQIM" solution-channel="GMP_GE_placepicker_v2"></gmpx-api-loader>
 
 <!-- TRUST TICKER -->
 <div class="trust-ticker" aria-hidden="true">
@@ -1766,8 +1770,9 @@
               <input type="email" id="qf-email" name="email" placeholder="your@email.com" required/>
             </div>
             <div class="qf-field">
-              <label for="qf-address">Address / City</label>
-              <input type="text" id="qf-address" name="address" placeholder="Start typing your address…" autocomplete="new-password"/>
+              <label>Address</label>
+              <input type="hidden" id="qf-address" name="address"/>
+              <gmpx-place-picker id="qf-place-picker" placeholder="Start typing your address…" country="ca"></gmpx-place-picker>
             </div>
           </div>
 
@@ -2546,8 +2551,9 @@
               <input type="email" id="cf-email" name="email" placeholder="your@email.com" required/>
             </div>
             <div class="qf-field">
-              <label for="cf-address">Address</label>
-              <input type="text" id="cf-address" name="address" placeholder="Start typing your address…" autocomplete="new-password"/>
+              <label>Address</label>
+              <input type="hidden" id="cf-address" name="address"/>
+              <gmpx-place-picker id="cf-place-picker" placeholder="Start typing your address…" country="ca"></gmpx-place-picker>
             </div>
           </div>
 
@@ -2754,51 +2760,21 @@
   // Auto-update copyright year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // ── GOOGLE PLACES AUTOCOMPLETE ────────────────────────────────────────
-  window.initPlacesAutocomplete = function() {
-    ['qf-address', 'cf-address'].forEach(function(id) {
-      var input = document.getElementById(id);
-      if (!input) return;
-      input.dataset.placeSelected = 'false';
-      var ac = new google.maps.places.Autocomplete(input, {
-        types: ['address'],
-        componentRestrictions: { country: 'ca' },
-        fields: ['formatted_address']
-      });
-      input.addEventListener('input', function() {
-        input.dataset.placeSelected = 'false';
-        input.style.borderColor = '';
-      });
-      ac.addListener('place_changed', function() {
-        var place = ac.getPlace();
-        if (place && place.formatted_address) {
-          input.value = place.formatted_address;
-          input.dataset.placeSelected = 'true';
-          input.setCustomValidity('');
-        }
-      });
-    });
-  };
 
   // ── QUOTE FORM HANDLER ────────────────────────────────────────────────
   window.handleQuote = function(e, form) {
     e.preventDefault();
-    // Validate address was picked from autocomplete dropdown
+    // Pull selected address from gmpx-place-picker into the hidden input
+    var picker = form.querySelector('gmpx-place-picker');
     var addrInput = form.querySelector('input[name="address"]');
-    if (addrInput) {
-      if (!addrInput.value.trim()) {
-        addrInput.style.borderColor = 'rgba(255,80,80,0.6)';
-        addrInput.focus();
+    if (picker && addrInput) {
+      var place = picker.value;
+      if (!place || (!place.formattedAddress && !place.displayName)) {
+        picker.style.setProperty('--gmpx-color-outline', 'rgba(255,80,80,0.6)');
         return;
       }
-      if (addrInput.dataset.placeSelected === 'false') {
-        addrInput.style.borderColor = 'rgba(255,80,80,0.6)';
-        addrInput.placeholder = 'Please pick an address from the suggestions';
-        addrInput.value = '';
-        addrInput.focus();
-        return;
-      }
-      addrInput.style.borderColor = '';
+      addrInput.value = place.formattedAddress || place.displayName || '';
+      picker.style.setProperty('--gmpx-color-outline', 'rgba(255,255,255,0.1)');
     }
     // Collect checked services from checkboxes (no name attr on checkboxes)
     const services = [...form.querySelectorAll('input[type="checkbox"]:checked')]
