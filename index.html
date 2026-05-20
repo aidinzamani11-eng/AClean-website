@@ -1575,6 +1575,9 @@
   .qf-submit:hover { transform:translateY(-2px) scale(1.01); box-shadow:0 0 36px rgba(76,187,23,0.6),0 8px 24px rgba(0,0,0,0.4); }
   .qf-submit:active { transform:translateY(0) scale(0.99); }
   .qf-privacy { text-align:center; font-size:0.6rem; color:rgba(255,255,255,0.2); font-family:'Inter',sans-serif; margin-top:7px; }
+  .qf-field-error { font-size:0.65rem; color:#ff6b6b; font-family:'Inter',sans-serif; margin-top:4px; display:none; }
+  .qf-field.has-error input { border-color:rgba(255,80,80,0.6) !important; }
+  .qf-field.has-error .qf-field-error { display:block; }
   .qf-success { display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px 24px 32px; gap:14px; min-height:260px; }
   .qf-success-icon { width:68px; height:68px; border-radius:50%; background:linear-gradient(135deg,#4CBB17 0%,#8DFF4F 100%); display:flex; align-items:center; justify-content:center; box-shadow:0 0 40px rgba(76,187,23,0.5),0 8px 24px rgba(0,0,0,0.4); }
   .qf-success-icon svg { width:32px; height:32px; }
@@ -1744,20 +1747,24 @@
             <div class="qf-field">
               <label for="qf-name">First Name</label>
               <input type="text" id="qf-name" name="name" placeholder="Your first name" required/>
+              <span class="qf-field-error">Please enter a valid name</span>
             </div>
             <div class="qf-field">
               <label for="qf-phone">Phone</label>
               <input type="tel" id="qf-phone" name="phone" placeholder="(604) 000-0000" required/>
+              <span class="qf-field-error">Please enter a valid 10-digit phone number</span>
             </div>
           </div>
           <div class="qf-row">
             <div class="qf-field">
               <label for="qf-email">Email</label>
               <input type="email" id="qf-email" name="email" placeholder="your@email.com" required/>
+              <span class="qf-field-error">Please enter a valid email address</span>
             </div>
             <div class="qf-field">
               <label>Address</label>
               <input type="text" id="qf-address" name="address" placeholder="Your address or city" required/>
+              <span class="qf-field-error">Please enter a valid address or city</span>
             </div>
           </div>
 
@@ -2526,20 +2533,24 @@
             <div class="qf-field">
               <label for="cf-name">First Name</label>
               <input type="text" id="cf-name" name="name" placeholder="Your first name" required/>
+              <span class="qf-field-error">Please enter a valid name</span>
             </div>
             <div class="qf-field">
               <label for="cf-phone">Phone</label>
               <input type="tel" id="cf-phone" name="phone" placeholder="(604) 000-0000" required/>
+              <span class="qf-field-error">Please enter a valid 10-digit phone number</span>
             </div>
           </div>
           <div class="qf-row">
             <div class="qf-field">
               <label for="cf-email">Email</label>
               <input type="email" id="cf-email" name="email" placeholder="your@email.com" required/>
+              <span class="qf-field-error">Please enter a valid email address</span>
             </div>
             <div class="qf-field">
               <label>Address</label>
               <input type="text" id="cf-address" name="address" placeholder="Your address or city" required/>
+              <span class="qf-field-error">Please enter a valid address or city</span>
             </div>
           </div>
 
@@ -2750,8 +2761,65 @@
 
 
   // ── QUOTE FORM HANDLER ────────────────────────────────────────────────
+  // ── FORM VALIDATION ───────────────────────────────────────────────────
+  function isGibberish(str) {
+    var letters = str.replace(/[^a-zA-Z]/g, '');
+    if (!letters.length) return false;
+    var vowels = (letters.match(/[aeiou]/gi) || []).length;
+    if (vowels / letters.length < 0.15) return true;   // less than 15% vowels
+    if (/[bcdfghjklmnpqrstvwxyz]{5,}/i.test(str)) return true; // 5+ consonants in a row
+    return false;
+  }
+  function isValidPhone(str) {
+    return str.replace(/\D/g, '').length >= 10;
+  }
+  function isValidEmail(str) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(str);
+  }
+  function isValidAddress(str) {
+    str = str.trim();
+    if (str.length < 3) return false;
+    if (isGibberish(str)) return false;
+    return true;
+  }
+  function isValidName(str) {
+    str = str.trim();
+    if (str.length < 2) return false;
+    if (isGibberish(str)) return false;
+    return true;
+  }
+  function setFieldError(input, valid) {
+    var field = input.closest('.qf-field');
+    if (!field) return;
+    if (valid) {
+      field.classList.remove('has-error');
+    } else {
+      field.classList.add('has-error');
+    }
+    return valid;
+  }
+
   window.handleQuote = function(e, form) {
     e.preventDefault();
+    var valid = true;
+    var firstError = null;
+    function check(input, isValidFn) {
+      var ok = isValidFn(input.value);
+      setFieldError(input, ok);
+      if (!ok && !firstError) firstError = input;
+      if (!ok) valid = false;
+    }
+    check(form.querySelector('input[name="name"]'),    isValidName);
+    check(form.querySelector('input[name="phone"]'),   isValidPhone);
+    check(form.querySelector('input[name="email"]'),   isValidEmail);
+    check(form.querySelector('input[name="address"]'), isValidAddress);
+    // Clear error on input
+    form.querySelectorAll('input').forEach(function(inp) {
+      inp.addEventListener('input', function() {
+        setFieldError(inp, true);
+      }, { once: true });
+    });
+    if (!valid) { if (firstError) firstError.focus(); return; }
     // Collect checked services from checkboxes (no name attr on checkboxes)
     const services = [...form.querySelectorAll('input[type="checkbox"]:checked')]
       .map(cb => cb.closest('.qf-check').querySelector('.qf-check-label').textContent)
