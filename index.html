@@ -1575,15 +1575,6 @@
   .qf-submit:hover { transform:translateY(-2px) scale(1.01); box-shadow:0 0 36px rgba(76,187,23,0.6),0 8px 24px rgba(0,0,0,0.4); }
   .qf-submit:active { transform:translateY(0) scale(0.99); }
   .qf-privacy { text-align:center; font-size:0.6rem; color:rgba(255,255,255,0.2); font-family:'Inter',sans-serif; margin-top:7px; }
-  /* Google Places autocomplete dropdown — dark theme */
-  .pac-container { background:#1a1a1a !important; border:1px solid rgba(76,187,23,0.35) !important; border-radius:10px !important; box-shadow:0 12px 40px rgba(0,0,0,0.7) !important; font-family:'Inter',sans-serif; margin-top:4px; overflow:hidden; }
-  .pac-item { padding:10px 14px; color:rgba(255,255,255,0.65); font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.05); cursor:pointer; }
-  .pac-item:first-child { border-top:none; }
-  .pac-item:hover, .pac-item-selected { background:rgba(76,187,23,0.1) !important; color:#fff; }
-  .pac-item-query { color:#fff; font-size:0.82rem; font-weight:600; }
-  .pac-matched { color:#8DFF4F; font-weight:700; }
-  .pac-icon { display:none; }
-  .pac-logo::after { display:none !important; }
   .qf-success { display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px 24px 32px; gap:14px; min-height:260px; }
   .qf-success-icon { width:68px; height:68px; border-radius:50%; background:linear-gradient(135deg,#4CBB17 0%,#8DFF4F 100%); display:flex; align-items:center; justify-content:center; box-shadow:0 0 40px rgba(76,187,23,0.5),0 8px 24px rgba(0,0,0,0.4); }
   .qf-success-icon svg { width:32px; height:32px; }
@@ -1639,7 +1630,6 @@
 </style>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBANxeZa1o6lRBUySAzgKnSH0RreWcFyY8&libraries=places" async defer></script>
 </head>
 <body>
 
@@ -1747,7 +1737,7 @@
           <div class="qf-eyebrow">No Obligation, Free Quote</div>
           <div class="qf-title">Get Your <span>Free</span> Quote</div>
         </div>
-        <form id="form-hero" onsubmit="handleQuote(event,this)" novalidate>
+        <form id="form-hero" onsubmit="handleQuote(event,this)">
           <input type="hidden" name="_subject" value="New Quote Request — ACLEAN Exterior Cleaning"/>
           <input type="hidden" name="services" value=""/>
           <div class="qf-row">
@@ -1767,7 +1757,7 @@
             </div>
             <div class="qf-field">
               <label>Address</label>
-              <input type="text" id="qf-address" name="address" placeholder="Start typing your address…" autocomplete="off"/>
+              <input type="text" id="qf-address" name="address" placeholder="Your address or city" required/>
             </div>
           </div>
 
@@ -2529,7 +2519,7 @@
           <div class="qf-eyebrow">No Obligation</div>
           <div class="qf-title">Submit Your <span>Quote</span> Request</div>
         </div>
-        <form id="form-contact" onsubmit="handleQuote(event,this)" novalidate>
+        <form id="form-contact" onsubmit="handleQuote(event,this)">
           <input type="hidden" name="_subject" value="New Quote Request — ACLEAN Exterior Cleaning"/>
           <input type="hidden" name="services" value=""/>
           <div class="qf-row">
@@ -2549,7 +2539,7 @@
             </div>
             <div class="qf-field">
               <label>Address</label>
-              <input type="text" id="cf-address" name="address" placeholder="Start typing your address…" autocomplete="off"/>
+              <input type="text" id="cf-address" name="address" placeholder="Your address or city" required/>
             </div>
           </div>
 
@@ -2760,52 +2750,8 @@
 
 
   // ── QUOTE FORM HANDLER ────────────────────────────────────────────────
-  // ── GOOGLE PLACES AUTOCOMPLETE ────────────────────────────────────────
-  function initPlacesAutocomplete() {
-    ['qf-address', 'cf-address'].forEach(function(id) {
-      var input = document.getElementById(id);
-      if (!input) return;
-      var ac = new google.maps.places.Autocomplete(input, {
-        componentRestrictions: { country: 'ca' },
-        fields: ['formatted_address']
-      });
-      ac.addListener('place_changed', function() {
-        var place = ac.getPlace();
-        if (place && place.formatted_address) {
-          input.value = place.formatted_address;
-          input.style.borderColor = '';
-        }
-      });
-    });
-  }
-  if (window.google && window.google.maps) {
-    initPlacesAutocomplete();
-  } else {
-    window.initPlacesAutocomplete = initPlacesAutocomplete;
-    document.querySelector('script[src*="maps.googleapis"]')
-      .addEventListener('load', initPlacesAutocomplete);
-  }
-
-  function highlightError(el) {
-    el.style.borderColor = 'rgba(255,80,80,0.6)';
-    el.focus();
-    el.addEventListener('input', function(){ el.style.borderColor = ''; }, { once: true });
-  }
-
   window.handleQuote = function(e, form) {
     e.preventDefault();
-
-    // Manual validation — novalidate disables browser UI
-    var name  = form.querySelector('input[name="name"]');
-    var phone = form.querySelector('input[name="phone"]');
-    var email = form.querySelector('input[name="email"]');
-    if (name && !name.value.trim())  { highlightError(name);  return; }
-    if (phone && !phone.value.trim()){ highlightError(phone); return; }
-    if (email && !email.value.trim()){ highlightError(email); return; }
-
-    // Validate address
-    var addrInput = form.querySelector('input[name="address"]');
-    if (addrInput && !addrInput.value.trim()) { highlightError(addrInput); return; }
     // Collect checked services from checkboxes (no name attr on checkboxes)
     const services = [...form.querySelectorAll('input[type="checkbox"]:checked')]
       .map(cb => cb.closest('.qf-check').querySelector('.qf-check-label').textContent)
