@@ -1751,7 +1751,7 @@
           <div class="qf-eyebrow">No Obligation, Free Quote</div>
           <div class="qf-title">Get Your <span>Free</span> Quote</div>
         </div>
-        <form id="form-hero" onsubmit="handleQuote(event,this)">
+        <form id="form-hero" onsubmit="handleQuote(event,this)" novalidate>
           <input type="hidden" name="_subject" value="New Quote Request — ACLEAN Exterior Cleaning"/>
           <input type="hidden" name="services" value=""/>
           <div class="qf-row">
@@ -2534,7 +2534,7 @@
           <div class="qf-eyebrow">No Obligation</div>
           <div class="qf-title">Submit Your <span>Quote</span> Request</div>
         </div>
-        <form id="form-contact" onsubmit="handleQuote(event,this)">
+        <form id="form-contact" onsubmit="handleQuote(event,this)" novalidate>
           <input type="hidden" name="_subject" value="New Quote Request — ACLEAN Exterior Cleaning"/>
           <input type="hidden" name="services" value=""/>
           <div class="qf-row">
@@ -2766,10 +2766,25 @@
 
 
   // ── QUOTE FORM HANDLER ────────────────────────────────────────────────
+  function highlightError(el) {
+    el.style.borderColor = 'rgba(255,80,80,0.6)';
+    el.focus();
+    el.addEventListener('input', function(){ el.style.borderColor = ''; }, { once: true });
+  }
+
   window.handleQuote = function(e, form) {
     e.preventDefault();
+
+    // Manual validation — novalidate disables browser UI
+    var name  = form.querySelector('input[name="name"]');
+    var phone = form.querySelector('input[name="phone"]');
+    var email = form.querySelector('input[name="email"]');
+    if (name && !name.value.trim())  { highlightError(name);  return; }
+    if (phone && !phone.value.trim()){ highlightError(phone); return; }
+    if (email && !email.value.trim()){ highlightError(email); return; }
+
     // Pull selected address from gmpx-place-picker into the hidden input
-    var picker = form.querySelector('gmpx-place-picker');
+    var picker   = form.querySelector('gmpx-place-picker');
     var addrInput = form.querySelector('input[name="address"]');
     if (picker && addrInput) {
       var place = picker.value;
