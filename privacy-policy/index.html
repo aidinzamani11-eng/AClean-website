@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy | AClean</title>
+<meta name="description" content="AClean's Privacy Policy. Learn how we collect, use, and protect your personal information in compliance with BC's PIPA and Canada's PIPEDA."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://goaclean.com/privacy-policy/"/>
+<link rel="icon" type="image/png" href="/brand_assets/aclean%20logo.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root { --green:#4CBB17; --lime:#8DFF4F; --charcoal:#0D0D0D; --surface:#131313; --elevated:#1c1c1c; }
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--charcoal); color:#fff; font-family:'Inter',sans-serif; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+  body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.5; }
+
+  /* Trust ticker */
+  .trust-ticker { position:fixed; top:0; left:0; right:0; z-index:200; height:36px; background:rgba(13,13,13,0.95); border-bottom:1px solid rgba(76,187,23,0.2); overflow:hidden; display:flex; align-items:center; }
+  .trust-track { display:flex; align-items:center; white-space:nowrap; animation:ticker-scroll 30s linear infinite; }
+  @keyframes ticker-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  .trust-item { display:inline-flex; align-items:center; gap:7px; padding:0 28px; font-size:0.67rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55); font-family:'Inter',sans-serif; white-space:nowrap; flex-shrink:0; }
+  .trust-item .ti { color:var(--lime); }
+  .trust-sep { color:rgba(76,187,23,0.38); font-size:0.5rem; padding:0 2px; flex-shrink:0; }
+
+  /* Nav */
+  nav#navbar { position:fixed; top:36px; left:0; right:0; z-index:100; padding:0 40px; height:80px; overflow:visible; display:flex; align-items:center; justify-content:space-between; background:rgba(13,13,13,0.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid rgba(76,187,23,0.1); }
+  .nav-logo { display:flex; align-items:center; text-decoration:none; }
+  .nav-logo img { height:130px; width:auto; transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+  .nav-logo img:hover { transform:scale(1.12); }
+  .nav-links { display:flex; align-items:center; gap:32px; }
+  .nav-links a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.82rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s ease; }
+  .nav-links a:hover { color:var(--lime); }
+  .nav-dropdown { position:relative; }
+  .nav-dropdown > a { display:flex; align-items:center; gap:5px; }
+  .nav-dropdown > a::after { content:''; width:6px; height:6px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(45deg) translateY(-2px); transition:transform 0.2s ease; display:inline-block; opacity:0.7; }
+  .nav-dropdown:hover > a::after { transform:rotate(-135deg) translateY(-2px); }
+  .nav-dropdown-menu { display:none; position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%); background:rgba(18,18,18,0.98); backdrop-filter:blur(20px); border:1px solid rgba(76,187,23,0.2); border-radius:16px; padding:12px; min-width:260px; z-index:200; box-shadow:0 20px 60px rgba(0,0,0,0.6); }
+  .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+  .nav-dropdown-menu a { display:flex; align-items:center; gap:10px; padding:10px 14px; border-radius:8px; color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.82rem; font-weight:500; letter-spacing:0.02em; text-transform:none; transition:background 0.15s ease,color 0.15s ease; }
+  .nav-dropdown-menu a:hover { background:rgba(76,187,23,0.1); color:#fff; }
+  .nav-dropdown-divider { height:1px; background:rgba(255,255,255,0.07); margin:6px 0; }
+  .ddicon { font-size:1rem; }
+  .nav-phone { color:var(--lime); font-weight:700; font-size:0.88rem; letter-spacing:0.04em; text-decoration:none; }
+  .mobile-menu-btn { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+  .mobile-menu-btn span { width:24px; height:2px; background:#fff; border-radius:2px; }
+
+  /* Page header */
+  .page-hero { padding-top:160px; padding-bottom:80px; position:relative; text-align:center; border-bottom:1px solid rgba(76,187,23,0.1); }
+  .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(76,187,23,0.07) 0%,transparent 70%); pointer-events:none; }
+  .hero-eyebrow { display:inline-flex; align-items:center; gap:8px; background:rgba(76,187,23,0.1); border:1px solid rgba(76,187,23,0.25); border-radius:50px; padding:6px 16px; font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--lime); margin-bottom:20px; }
+  .page-title { font-family:'Anton',sans-serif; font-size:clamp(40px,5vw,72px); line-height:1; text-transform:uppercase; letter-spacing:-0.01em; color:#fff; margin-bottom:16px; }
+  .page-title span { color:var(--green); }
+  .page-meta { font-size:0.85rem; color:rgba(255,255,255,0.35); }
+
+  /* Content */
+  .doc-wrap { max-width:860px; margin:0 auto; padding:80px 40px 120px; position:relative; z-index:1; }
+  .doc-toc { background:var(--surface); border:1px solid rgba(76,187,23,0.15); border-radius:16px; padding:32px 36px; margin-bottom:64px; }
+  .doc-toc-title { font-size:0.72rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--lime); margin-bottom:20px; display:flex; align-items:center; gap:8px; }
+  .doc-toc-title::before { content:''; width:24px; height:2px; background:var(--green); border-radius:2px; }
+  .doc-toc ol { padding-left:20px; display:grid; grid-template-columns:1fr 1fr; gap:6px 40px; }
+  .doc-toc li { font-size:0.875rem; color:rgba(255,255,255,0.5); line-height:1.6; }
+  .doc-toc a { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s ease; }
+  .doc-toc a:hover { color:var(--lime); }
+
+  .doc-section { margin-bottom:56px; scroll-margin-top:140px; }
+  .doc-section-num { display:inline-block; font-family:'Anton',sans-serif; font-size:0.75rem; letter-spacing:0.15em; color:var(--green); text-transform:uppercase; margin-bottom:10px; }
+  .doc-section h2 { font-family:'Anton',sans-serif; font-size:clamp(22px,2.5vw,32px); text-transform:uppercase; letter-spacing:-0.01em; color:#fff; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid rgba(76,187,23,0.15); }
+  .doc-section p { font-size:0.95rem; color:rgba(255,255,255,0.65); line-height:1.8; margin-bottom:16px; }
+  .doc-section p:last-child { margin-bottom:0; }
+  .doc-section ul, .doc-section ol { padding-left:20px; margin-bottom:16px; }
+  .doc-section li { font-size:0.95rem; color:rgba(255,255,255,0.65); line-height:1.8; margin-bottom:6px; }
+  .doc-section strong { color:rgba(255,255,255,0.85); font-weight:600; }
+  .doc-section a { color:var(--lime); text-decoration:none; }
+  .doc-section a:hover { text-decoration:underline; }
+
+  .highlight-box { background:rgba(76,187,23,0.06); border:1px solid rgba(76,187,23,0.2); border-radius:12px; padding:24px 28px; margin:24px 0; }
+  .highlight-box p { color:rgba(255,255,255,0.75); margin-bottom:0; }
+
+  .contact-card { background:var(--elevated); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:32px; display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px; }
+  .contact-card-item { display:flex; flex-direction:column; gap:4px; }
+  .contact-card-label { font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+  .contact-card-value { font-size:0.95rem; color:rgba(255,255,255,0.75); }
+  .contact-card-value a { color:var(--lime); text-decoration:none; }
+
+  /* Footer */
+  footer { background:var(--surface); border-top:1px solid rgba(76,187,23,0.15); padding:80px 0 40px; position:relative; z-index:1; }
+  .footer-inner { max-width:1200px; margin:0 auto; padding:0 40px; }
+  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:60px; }
+  .footer-brand p { font-size:0.85rem; color:rgba(255,255,255,0.4); line-height:1.7; max-width:280px; margin-top:16px; }
+  .footer-logo img { height:130px; width:auto; }
+  .footer-col-title { font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:20px; }
+  .footer-links { list-style:none; }
+  .footer-links li { margin-bottom:10px; }
+  .footer-links a { color:rgba(255,255,255,0.5); text-decoration:none; font-size:0.85rem; transition:color 0.2s ease; }
+  .footer-links a:hover { color:var(--lime); }
+  .footer-bottom { display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:32px; }
+  .footer-copy { font-size:0.78rem; color:rgba(255,255,255,0.25); }
+  .footer-legal { display:flex; gap:20px; }
+  .footer-legal a { font-size:0.78rem; color:rgba(255,255,255,0.25); text-decoration:none; transition:color 0.2s ease; }
+  .footer-legal a:hover { color:rgba(255,255,255,0.5); }
+
+  @media (max-width:768px) {
+    nav#navbar { padding:0 20px; }
+    .nav-links { display:none; }
+    .mobile-menu-btn { display:flex; }
+    .doc-wrap { padding:60px 24px 80px; }
+    .doc-toc ol { grid-template-columns:1fr; }
+    .contact-card { grid-template-columns:1fr; }
+    .footer-top { grid-template-columns:1fr 1fr; gap:32px; }
+    .footer-bottom { flex-direction:column; gap:16px; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="trust-ticker" aria-hidden="true"><div class="trust-track"><span class="trust-item"><span class="ti">&#x2705;</span>WorkSafeBC Registered</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F6E1;&#xFE0F;</span>Fully Insured &mdash; $5M</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F4CD;</span>Locally Owned &amp; Operated</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x2B50;</span>5-Star Rated</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F4AC;</span>Free Quotes &mdash; Fast Response</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F3D4;&#xFE0F;</span>Fraser Valley Based</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F512;</span>Satisfaction Guaranteed</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x26A1;</span>Same-Week Booking</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x2705;</span>WorkSafeBC Registered</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F6E1;&#xFE0F;</span>Fully Insured &mdash; $5M</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F4CD;</span>Locally Owned &amp; Operated</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x2B50;</span>5-Star Rated</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F4AC;</span>Free Quotes &mdash; Fast Response</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F3D4;&#xFE0F;</span>Fraser Valley Based</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F512;</span>Satisfaction Guaranteed</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x26A1;</span>Same-Week Booking</span><span class="trust-sep">&#9670;</span></div></div>
+
+<nav id="navbar">
+  <a href="/" class="nav-logo">
+    <img src="/brand_assets/aclean logo.png" alt="AClean" fetchpriority="high" width="370" height="130"/>
+  </a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <div class="nav-dropdown">
+      <a href="/#services">Services</a>
+      <div class="nav-dropdown-menu">
+        <a href="/services/exterior-window-cleaning/"><span class="ddicon">🪟</span>Exterior Window Cleaning</a>
+        <a href="/services/interior-window-cleaning/"><span class="ddicon">🏠</span>Interior Window Cleaning</a>
+        <a href="/services/screen-cleaning/"><span class="ddicon">🔲</span>Screen Cleaning</a>
+        <a href="/services/track-detailing/"><span class="ddicon">🔧</span>Track Detailing</a>
+        <a href="/services/solar-panel-cleaning/"><span class="ddicon">☀️</span>Solar Panel Cleaning</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/gutter-cleaning/"><span class="ddicon">🍃</span>Gutter Cleaning</a>
+        <a href="/services/soft-washing/"><span class="ddicon">🌊</span>Soft Washing</a>
+        <a href="/services/pressure-washing/"><span class="ddicon">⚡</span>Pressure Washing</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/commercial-cleaning/"><span class="ddicon">🏢</span>Commercial Cleaning</a>
+        <a href="/services/permanent-led-lighting/"><span class="ddicon">💡</span>Permanent LED Lighting</a>
+      </div>
+    </div>
+    <a href="/#commercial">Commercial</a>
+    <a href="/#plans">Plans</a>
+    <a href="/#contact">Contact</a>
+  </div>
+  <div class="nav-cta">
+    <a href="tel:+16043782130" class="nav-phone">📞 (604) 378-2130</a>
+  </div>
+  <button class="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-eyebrow">Legal Document</div>
+  <h1 class="page-title">Privacy <span>Policy</span></h1>
+  <p class="page-meta">Effective Date: May 24, 2026 &nbsp;|&nbsp; Last Updated: May 24, 2026</p>
+</div>
+
+<div class="doc-wrap">
+
+  <div class="doc-toc">
+    <div class="doc-toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#s1">About This Policy</a></li>
+      <li><a href="#s2">Who We Are</a></li>
+      <li><a href="#s3">Information We Collect</a></li>
+      <li><a href="#s4">How We Collect Information</a></li>
+      <li><a href="#s5">How We Use Your Information</a></li>
+      <li><a href="#s6">Disclosure of Information</a></li>
+      <li><a href="#s7">Data Retention</a></li>
+      <li><a href="#s8">Cookies &amp; Tracking</a></li>
+      <li><a href="#s9">Your Rights</a></li>
+      <li><a href="#s10">Data Security</a></li>
+      <li><a href="#s11">Third-Party Links</a></li>
+      <li><a href="#s12">Children's Privacy</a></li>
+      <li><a href="#s13">Changes to This Policy</a></li>
+      <li><a href="#s14">Contact Our Privacy Officer</a></li>
+    </ol>
+  </div>
+
+  <div class="doc-section" id="s1">
+    <span class="doc-section-num">Section 01</span>
+    <h2>About This Policy</h2>
+    <p>This Privacy Policy describes how AClean ("<strong>AClean</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") collects, uses, discloses, and safeguards personal information in the course of operating our exterior cleaning business and this website.</p>
+    <p>This Policy is intended to comply with British Columbia's <em>Personal Information Protection Act</em> (PIPA, SBC 2003, c. 63) and, where applicable, Canada's <em>Personal Information Protection and Electronic Documents Act</em> (PIPEDA). By providing us with your personal information — whether through our website, by telephone, or in person — you consent to the collection, use, and disclosure of that information in accordance with this Policy.</p>
+    <div class="highlight-box">
+      <p><strong>Plain-language summary:</strong> We collect only the information we need to provide you with a quote, schedule a service, and communicate with you. We do not sell your data. We do not share it with advertisers. You can request access to or deletion of your information at any time.</p>
+    </div>
+  </div>
+
+  <div class="doc-section" id="s2">
+    <span class="doc-section-num">Section 02</span>
+    <h2>Who We Are</h2>
+    <p>AClean is a locally owned and operated exterior cleaning company based in Chilliwack, British Columbia, Canada. We provide residential and commercial services including window cleaning, pressure washing, gutter cleaning, soft washing, roof washing, and related services throughout the Fraser Valley.</p>
+    <p>Our registered business address is Chilliwack, BC, Canada. We are registered with WorkSafeBC and carry full commercial liability insurance.</p>
+  </div>
+
+  <div class="doc-section" id="s3">
+    <span class="doc-section-num">Section 03</span>
+    <h2>Information We Collect</h2>
+    <p>We may collect the following categories of personal information:</p>
+    <ul>
+      <li><strong>Identity Information:</strong> First name and last name.</li>
+      <li><strong>Contact Information:</strong> Email address, telephone number, and service address (including municipality and postal code).</li>
+      <li><strong>Property Information:</strong> Property type (residential, commercial, strata), approximate square footage, number of storeys, and specific service requirements you describe.</li>
+      <li><strong>Transaction &amp; Service History:</strong> Details of services requested, quotes provided, services rendered, and payment records.</li>
+      <li><strong>Communications:</strong> The content of messages, emails, or voicemails you send to us, including follow-up correspondence related to your service.</li>
+      <li><strong>Technical Information:</strong> IP address, browser type and version, time zone, operating system, device identifiers, and pages visited on our website (collected automatically — see Section 8).</li>
+      <li><strong>Marketing Preferences:</strong> Whether you have opted in or out of receiving promotional communications from us.</li>
+    </ul>
+    <p>We do not collect sensitive personal information such as Social Insurance Numbers, financial account numbers, health information, or government-issued identification, except where you voluntarily provide such information and it is strictly necessary for a specific purpose.</p>
+  </div>
+
+  <div class="doc-section" id="s4">
+    <span class="doc-section-num">Section 04</span>
+    <h2>How We Collect Information</h2>
+    <p>We collect personal information through the following means:</p>
+    <ul>
+      <li><strong>Website Forms:</strong> When you submit a quote request, contact form, or inquiry through our website.</li>
+      <li><strong>Telephone &amp; Email:</strong> When you contact us directly by phone or email to request a quote or communicate about services.</li>
+      <li><strong>In Person:</strong> When you meet with our technicians at your property for an on-site estimate or during service delivery.</li>
+      <li><strong>Automated Technologies:</strong> Cookies and similar tracking technologies that collect technical usage data when you navigate our website (see Section 8).</li>
+      <li><strong>Third-Party Referrals:</strong> Where a referral partner (such as a real estate agent or property manager) provides your contact information with your knowledge and consent.</li>
+    </ul>
+    <p>We will always identify the purpose for which personal information is being collected at or before the time of collection, or as soon as practicable thereafter.</p>
+  </div>
+
+  <div class="doc-section" id="s5">
+    <span class="doc-section-num">Section 05</span>
+    <h2>How We Use Your Information</h2>
+    <p>We use the personal information we collect for the following purposes:</p>
+    <ul>
+      <li>To prepare and deliver free quotes and estimates for requested services.</li>
+      <li>To schedule, confirm, and coordinate service appointments.</li>
+      <li>To communicate with you before, during, and after service delivery, including follow-up and re-cleaning requests.</li>
+      <li>To process payments and maintain accurate transaction records.</li>
+      <li>To send you service reminders, seasonal promotions, and newsletters — only where you have provided express consent or where permitted by applicable law.</li>
+      <li>To respond to your inquiries, complaints, or feedback.</li>
+      <li>To improve our website, services, and customer experience through aggregated, anonymized analytics.</li>
+      <li>To comply with legal and regulatory obligations, including tax records and WorkSafeBC compliance documentation.</li>
+      <li>To detect and prevent fraud or misuse of our services.</li>
+    </ul>
+    <p>We will not use your personal information for any purpose other than those listed above without first obtaining your consent, unless required by law.</p>
+  </div>
+
+  <div class="doc-section" id="s6">
+    <span class="doc-section-num">Section 06</span>
+    <h2>Disclosure of Information</h2>
+    <p>We do not sell, rent, or trade your personal information to any third party under any circumstances. We may disclose your personal information only in the following limited circumstances:</p>
+    <ul>
+      <li><strong>Service Providers:</strong> Third-party contractors who assist us in operating our business, including scheduling software providers, website hosting providers, email delivery services, and payment processors. All such parties are bound by confidentiality obligations and are prohibited from using your data for any purpose other than providing services to AClean.</li>
+      <li><strong>Legal Obligations:</strong> Where we are required to disclose information by applicable law, court order, regulatory authority, or government agency, including the Canada Revenue Agency (CRA) and WorkSafeBC.</li>
+      <li><strong>Protection of Rights:</strong> Where disclosure is necessary to protect the rights, property, or safety of AClean, our employees, our clients, or the public, including in connection with fraud prevention or credit risk assessment.</li>
+      <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, amalgamation, or sale of substantially all of our business assets, personal information we hold may be transferred to the acquiring entity, provided that entity agrees to be bound by this Policy or an equivalent standard of protection. We will notify you prior to any such transfer.</li>
+      <li><strong>With Your Consent:</strong> For any other purpose, with your prior express consent.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section" id="s7">
+    <span class="doc-section-num">Section 07</span>
+    <h2>Data Retention</h2>
+    <p>We retain personal information only for as long as is necessary to fulfill the purposes for which it was collected, or as required by applicable law:</p>
+    <ul>
+      <li><strong>Quote &amp; Service Records:</strong> Retained for a minimum of seven (7) years following the last service, as required for tax and business records under the <em>Income Tax Act</em> and applicable BC provincial legislation.</li>
+      <li><strong>Contact &amp; Scheduling Information:</strong> Retained for the duration of our business relationship and for up to two (2) years thereafter, to enable re-engagement and service continuity.</li>
+      <li><strong>Marketing Communications:</strong> Opt-in records are retained for as long as you remain subscribed. Upon unsubscription, your email will be added to our suppression list and retained indefinitely solely to prevent future unsolicited contact.</li>
+      <li><strong>Website Usage Data:</strong> Anonymized and aggregated analytics data may be retained indefinitely.</li>
+    </ul>
+    <p>When personal information is no longer required, we securely destroy, delete, or anonymize it.</p>
+  </div>
+
+  <div class="doc-section" id="s8">
+    <span class="doc-section-num">Section 08</span>
+    <h2>Cookies &amp; Tracking Technologies</h2>
+    <p>Our website may use cookies and similar tracking technologies (such as web beacons and pixels) to enhance your browsing experience and collect usage analytics.</p>
+    <ul>
+      <li><strong>Strictly Necessary Cookies:</strong> Required for the website to function. These cannot be disabled.</li>
+      <li><strong>Analytics Cookies:</strong> Allow us to understand how visitors use our site (e.g., pages visited, time spent, referral source). This data is aggregated and anonymized. We may use Vercel Analytics or similar tools.</li>
+      <li><strong>Preference Cookies:</strong> Remember your settings and preferences for a better experience on return visits.</li>
+    </ul>
+    <p>Most web browsers allow you to control cookies through browser settings. Disabling certain cookies may affect the functionality of our website. We do not use advertising or tracking cookies for third-party targeted advertising purposes.</p>
+  </div>
+
+  <div class="doc-section" id="s9">
+    <span class="doc-section-num">Section 09</span>
+    <h2>Your Rights</h2>
+    <p>Subject to limited exceptions set out in PIPA, you have the following rights in respect of your personal information:</p>
+    <ul>
+      <li><strong>Right of Access:</strong> You may request access to the personal information we hold about you, how it is being used, and to whom it has been disclosed.</li>
+      <li><strong>Right of Correction:</strong> If any personal information we hold is inaccurate or incomplete, you may request that it be corrected.</li>
+      <li><strong>Right to Withdraw Consent:</strong> You may withdraw consent for non-essential uses of your personal information at any time, subject to legal or contractual restrictions and reasonable notice. Withdrawal of consent may affect our ability to provide certain services to you.</li>
+      <li><strong>Right to Complain:</strong> If you believe we have not complied with this Policy or applicable privacy legislation, you have the right to lodge a complaint with the Office of the Information and Privacy Commissioner for British Columbia (OIPC BC) at <a href="https://www.oipc.bc.ca" target="_blank" rel="noopener">www.oipc.bc.ca</a>.</li>
+    </ul>
+    <p>To exercise any of the above rights, please contact us using the information in Section 14. We will respond to all written requests within thirty (30) days.</p>
+  </div>
+
+  <div class="doc-section" id="s10">
+    <span class="doc-section-num">Section 10</span>
+    <h2>Data Security</h2>
+    <p>We implement appropriate technical and organizational measures to protect personal information against unauthorized access, disclosure, alteration, or destruction. These measures include:</p>
+    <ul>
+      <li>TLS/SSL encryption for all data transmitted through our website.</li>
+      <li>Restricted access to personal information on a need-to-know basis among our personnel.</li>
+      <li>Use of reputable, security-certified third-party service providers for hosting and data storage.</li>
+      <li>Regular review of our data handling practices and security controls.</li>
+    </ul>
+    <p>No method of electronic transmission or storage is completely secure. While we strive to protect your personal information, we cannot guarantee absolute security. In the event of a material data breach affecting your personal information, we will notify you and the relevant regulatory authorities as required by applicable law.</p>
+  </div>
+
+  <div class="doc-section" id="s11">
+    <span class="doc-section-num">Section 11</span>
+    <h2>Third-Party Links</h2>
+    <p>Our website may contain links to third-party websites (such as review platforms or social media pages). These websites are operated independently and are not governed by this Privacy Policy. We have no control over, and assume no responsibility for, the content, privacy practices, or security of any third-party site. We encourage you to review the privacy policies of any site you visit through a link on our website.</p>
+  </div>
+
+  <div class="doc-section" id="s12">
+    <span class="doc-section-num">Section 12</span>
+    <h2>Children's Privacy</h2>
+    <p>Our services are not directed to, and we do not knowingly collect personal information from, individuals under the age of majority in British Columbia (19 years). If you are a parent or guardian and believe your minor child has provided us with personal information without your consent, please contact us immediately at the information provided in Section 14, and we will take prompt steps to delete that information.</p>
+  </div>
+
+  <div class="doc-section" id="s13">
+    <span class="doc-section-num">Section 13</span>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or service offerings. When we make material changes, we will update the "Last Updated" date at the top of this page. For significant changes, we may also provide notice by email or by a prominent notice on our website homepage.</p>
+    <p>Your continued use of our website or services after any modification constitutes your acknowledgement of, and agreement to, the updated Policy. We encourage you to review this Policy periodically.</p>
+  </div>
+
+  <div class="doc-section" id="s14">
+    <span class="doc-section-num">Section 14</span>
+    <h2>Contact Our Privacy Officer</h2>
+    <p>Questions, concerns, correction requests, or access requests regarding this Privacy Policy or our data handling practices should be directed to our Privacy Officer:</p>
+    <div class="contact-card">
+      <div class="contact-card-item">
+        <span class="contact-card-label">Company</span>
+        <span class="contact-card-value">AClean</span>
+      </div>
+      <div class="contact-card-item">
+        <span class="contact-card-label">Location</span>
+        <span class="contact-card-value">Chilliwack, BC, Canada</span>
+      </div>
+      <div class="contact-card-item">
+        <span class="contact-card-label">Phone</span>
+        <span class="contact-card-value"><a href="tel:+16043782130">(604) 378-2130</a></span>
+      </div>
+      <div class="contact-card-item">
+        <span class="contact-card-label">Email</span>
+        <span class="contact-card-value"><a href="mailto:aidinzamanibusiness@outlook.com">aidinzamanibusiness@outlook.com</a></span>
+      </div>
+    </div>
+    <p style="margin-top:20px;">All privacy-related requests will be acknowledged within five (5) business days and responded to in full within thirty (30) calendar days.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="/brand_assets/aclean logo.png" alt="AClean" loading="lazy" width="100" height="36"/></div>
+        <p>Premium exterior cleaning for residential and commercial properties across the Fraser Valley. Fully insured, WorkSafeBC covered, 5-star rated.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="/services/window-cleaning/">Window Cleaning</a></li>
+          <li><a href="/services/gutter-cleaning/">Gutter Cleaning</a></li>
+          <li><a href="/services/pressure-washing/">Pressure Washing</a></li>
+          <li><a href="/services/soft-washing/">Soft Washing</a></li>
+          <li><a href="/services/roof-washing/">Roof Washing</a></li>
+          <li><a href="/services/house-washing/">House Washing</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Service Areas</div>
+        <ul class="footer-links">
+          <li><a href="/areas/chilliwack/">Chilliwack</a></li>
+          <li><a href="/areas/abbotsford/">Abbotsford</a></li>
+          <li><a href="/areas/langley/">Langley</a></li>
+          <li><a href="/areas/surrey/">Surrey</a></li>
+          <li><a href="/areas/mission/">Mission</a></li>
+          <li><a href="/areas/maple-ridge/">Maple Ridge</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <address style="font-style:normal;">
+          <ul class="footer-links">
+            <li><strong style="color:rgba(255,255,255,0.7);font-size:0.85rem;">AClean</strong></li>
+            <li style="color:rgba(255,255,255,0.35);font-size:0.82rem;margin-bottom:8px;">Chilliwack, BC, Canada</li>
+            <li><a href="tel:+16043782130">(604) 378-2130</a></li>
+            <li><a href="mailto:aidinzamanibusiness@outlook.com">aidinzamanibusiness@outlook.com</a></li>
+          </ul>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© <span id="yr"></span> AClean. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="/privacy-policy/" aria-current="page">Privacy Policy</a>
+        <a href="/terms-of-service/">Terms of Service</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
