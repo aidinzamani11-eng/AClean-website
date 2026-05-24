@@ -770,6 +770,28 @@
   }
   .svc-card:hover .svc-cta { opacity: 1; transform: translateY(0); }
 
+  /* LED slideshow crossfade */
+  @keyframes ledFade {
+    0%   { opacity: 1; }
+    20%  { opacity: 1; }
+    30%  { opacity: 0; }
+    95%  { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  .led-slideshow { background: #05010f !important; }
+  .led-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: ledFade 20s ease-in-out infinite;
+  }
+  .led-slide:nth-child(1) { opacity: 1; animation-delay: 0s; }
+  .led-slide:nth-child(2) { animation-delay: 5s; }
+  .led-slide:nth-child(3) { animation-delay: 10s; }
+  .led-slide:nth-child(4) { animation-delay: 15s; }
+
   /* BEFORE/AFTER SLIDER */
   .before-after-section { padding: 100px 0; background: var(--surface); }
   .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
@@ -1885,7 +1907,7 @@
         </div>
       </a>
       <a href="/services/solar-panel-cleaning/" class="svc-card fade-up">
-        <div class="svc-bg" style="background:linear-gradient(145deg,#1a2210 0%,#111608 50%,#0a1005 100%);"></div>
+        <div class="svc-bg" style="background-image:url('/website pictures/solar panel cleaning.png');background-size:cover;background-position:center;"></div>
         <div class="svc-overlay"></div>
         <div class="svc-content">
           <div class="svc-name">Solar Panel Cleaning</div>
@@ -1912,7 +1934,7 @@
         </div>
       </a>
       <a href="/services/pressure-washing/" class="svc-card fade-up">
-        <div class="svc-bg" style="background:linear-gradient(145deg,#221a10 0%,#181008 50%,#100c05 100%);"></div>
+        <div class="svc-bg" style="background-image:url('/website pictures/pressure washing.webp');background-size:cover;background-position:center;"></div>
         <div class="svc-overlay"></div>
         <div class="svc-content">
           <div class="svc-name">Pressure Washing</div>
@@ -1921,7 +1943,7 @@
         </div>
       </a>
       <a href="/services/commercial-cleaning/" class="svc-card fade-up">
-        <div class="svc-bg" style="background:linear-gradient(145deg,#1a1820 0%,#100f18 50%,#0c0a10 100%);"></div>
+        <div class="svc-bg" style="background-image:url('/website pictures/commercial cleaning.jpeg');background-size:cover;background-position:center;"></div>
         <div class="svc-overlay"></div>
         <div class="svc-content">
           <div class="svc-name">Commercial Cleaning</div>
@@ -1930,7 +1952,12 @@
         </div>
       </a>
       <a href="/services/permanent-led-lighting/" class="svc-card fade-up">
-        <div class="svc-bg" style="background:linear-gradient(145deg,#100820 0%,#090518 50%,#060310 100%);"></div>
+        <div class="svc-bg led-slideshow">
+          <div class="led-slide" style="background-image:url('/website pictures/permanent led light christmas.webp');background-size:cover;background-position:center;"></div>
+          <div class="led-slide" style="background-image:url('/website pictures/permanent led light cold white.png');background-size:cover;background-position:center;"></div>
+          <div class="led-slide" style="background-image:url('/website pictures/permanent led light grinch.webp');background-size:cover;background-position:center;"></div>
+          <div class="led-slide" style="background-image:url('/website pictures/permanent led light warm white.webp');background-size:cover;background-position:center;"></div>
+        </div>
         <div class="svc-overlay"></div>
         <div class="svc-content">
           <div class="svc-name">Permanent LED Installation</div>
