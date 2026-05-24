@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms of Service | AClean</title>
+<meta name="description" content="AClean's Terms of Service. Review the terms and conditions governing our exterior cleaning services in Fraser Valley, BC."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://goaclean.com/terms-of-service/"/>
+<link rel="icon" type="image/png" href="/brand_assets/aclean%20logo.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root { --green:#4CBB17; --lime:#8DFF4F; --charcoal:#0D0D0D; --surface:#131313; --elevated:#1c1c1c; }
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--charcoal); color:#fff; font-family:'Inter',sans-serif; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+  body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.5; }
+
+  /* Trust ticker */
+  .trust-ticker { position:fixed; top:0; left:0; right:0; z-index:200; height:36px; background:rgba(13,13,13,0.95); border-bottom:1px solid rgba(76,187,23,0.2); overflow:hidden; display:flex; align-items:center; }
+  .trust-track { display:flex; align-items:center; white-space:nowrap; animation:ticker-scroll 30s linear infinite; }
+  @keyframes ticker-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  .trust-item { display:inline-flex; align-items:center; gap:7px; padding:0 28px; font-size:0.67rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55); font-family:'Inter',sans-serif; white-space:nowrap; flex-shrink:0; }
+  .trust-item .ti { color:var(--lime); }
+  .trust-sep { color:rgba(76,187,23,0.38); font-size:0.5rem; padding:0 2px; flex-shrink:0; }
+
+  /* Nav */
+  nav#navbar { position:fixed; top:36px; left:0; right:0; z-index:100; padding:0 40px; height:80px; overflow:visible; display:flex; align-items:center; justify-content:space-between; background:rgba(13,13,13,0.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid rgba(76,187,23,0.1); }
+  .nav-logo { display:flex; align-items:center; text-decoration:none; }
+  .nav-logo img { height:130px; width:auto; transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+  .nav-logo img:hover { transform:scale(1.12); }
+  .nav-links { display:flex; align-items:center; gap:32px; }
+  .nav-links a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.82rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s ease; }
+  .nav-links a:hover { color:var(--lime); }
+  .nav-dropdown { position:relative; }
+  .nav-dropdown > a { display:flex; align-items:center; gap:5px; }
+  .nav-dropdown > a::after { content:''; width:6px; height:6px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(45deg) translateY(-2px); transition:transform 0.2s ease; display:inline-block; opacity:0.7; }
+  .nav-dropdown:hover > a::after { transform:rotate(-135deg) translateY(-2px); }
+  .nav-dropdown-menu { display:none; position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%); background:rgba(18,18,18,0.98); backdrop-filter:blur(20px); border:1px solid rgba(76,187,23,0.2); border-radius:16px; padding:12px; min-width:260px; z-index:200; box-shadow:0 20px 60px rgba(0,0,0,0.6); }
+  .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+  .nav-dropdown-menu a { display:flex; align-items:center; gap:10px; padding:10px 14px; border-radius:8px; color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.82rem; font-weight:500; letter-spacing:0.02em; text-transform:none; transition:background 0.15s ease,color 0.15s ease; }
+  .nav-dropdown-menu a:hover { background:rgba(76,187,23,0.1); color:#fff; }
+  .nav-dropdown-divider { height:1px; background:rgba(255,255,255,0.07); margin:6px 0; }
+  .ddicon { font-size:1rem; }
+  .nav-phone { color:var(--lime); font-weight:700; font-size:0.88rem; letter-spacing:0.04em; text-decoration:none; }
+  .mobile-menu-btn { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+  .mobile-menu-btn span { width:24px; height:2px; background:#fff; border-radius:2px; }
+
+  /* Page header */
+  .page-hero { padding-top:160px; padding-bottom:80px; position:relative; text-align:center; border-bottom:1px solid rgba(76,187,23,0.1); }
+  .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(76,187,23,0.07) 0%,transparent 70%); pointer-events:none; }
+  .hero-eyebrow { display:inline-flex; align-items:center; gap:8px; background:rgba(76,187,23,0.1); border:1px solid rgba(76,187,23,0.25); border-radius:50px; padding:6px 16px; font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--lime); margin-bottom:20px; }
+  .page-title { font-family:'Anton',sans-serif; font-size:clamp(40px,5vw,72px); line-height:1; text-transform:uppercase; letter-spacing:-0.01em; color:#fff; margin-bottom:16px; }
+  .page-title span { color:var(--green); }
+  .page-meta { font-size:0.85rem; color:rgba(255,255,255,0.35); }
+
+  /* Content */
+  .doc-wrap { max-width:860px; margin:0 auto; padding:80px 40px 120px; position:relative; z-index:1; }
+  .doc-toc { background:var(--surface); border:1px solid rgba(76,187,23,0.15); border-radius:16px; padding:32px 36px; margin-bottom:64px; }
+  .doc-toc-title { font-size:0.72rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--lime); margin-bottom:20px; display:flex; align-items:center; gap:8px; }
+  .doc-toc-title::before { content:''; width:24px; height:2px; background:var(--green); border-radius:2px; }
+  .doc-toc ol { padding-left:20px; display:grid; grid-template-columns:1fr 1fr; gap:6px 40px; }
+  .doc-toc li { font-size:0.875rem; color:rgba(255,255,255,0.5); line-height:1.6; }
+  .doc-toc a { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s ease; }
+  .doc-toc a:hover { color:var(--lime); }
+
+  .doc-section { margin-bottom:56px; scroll-margin-top:140px; }
+  .doc-section-num { display:inline-block; font-family:'Anton',sans-serif; font-size:0.75rem; letter-spacing:0.15em; color:var(--green); text-transform:uppercase; margin-bottom:10px; }
+  .doc-section h2 { font-family:'Anton',sans-serif; font-size:clamp(22px,2.5vw,32px); text-transform:uppercase; letter-spacing:-0.01em; color:#fff; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid rgba(76,187,23,0.15); }
+  .doc-section p { font-size:0.95rem; color:rgba(255,255,255,0.65); line-height:1.8; margin-bottom:16px; }
+  .doc-section p:last-child { margin-bottom:0; }
+  .doc-section ul, .doc-section ol { padding-left:20px; margin-bottom:16px; }
+  .doc-section li { font-size:0.95rem; color:rgba(255,255,255,0.65); line-height:1.8; margin-bottom:6px; }
+  .doc-section strong { color:rgba(255,255,255,0.85); font-weight:600; }
+  .doc-section a { color:var(--lime); text-decoration:none; }
+  .doc-section a:hover { text-decoration:underline; }
+
+  .highlight-box { background:rgba(76,187,23,0.06); border:1px solid rgba(76,187,23,0.2); border-radius:12px; padding:24px 28px; margin:24px 0; }
+  .highlight-box p { color:rgba(255,255,255,0.75); margin-bottom:0; }
+
+  .warning-box { background:rgba(255,160,0,0.06); border:1px solid rgba(255,160,0,0.25); border-radius:12px; padding:24px 28px; margin:24px 0; }
+  .warning-box p { color:rgba(255,255,255,0.75); margin-bottom:0; }
+
+  .contact-card { background:var(--elevated); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:32px; display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px; }
+  .contact-card-item { display:flex; flex-direction:column; gap:4px; }
+  .contact-card-label { font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+  .contact-card-value { font-size:0.95rem; color:rgba(255,255,255,0.75); }
+  .contact-card-value a { color:var(--lime); text-decoration:none; }
+
+  /* Footer */
+  footer { background:var(--surface); border-top:1px solid rgba(76,187,23,0.15); padding:80px 0 40px; position:relative; z-index:1; }
+  .footer-inner { max-width:1200px; margin:0 auto; padding:0 40px; }
+  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:60px; }
+  .footer-brand p { font-size:0.85rem; color:rgba(255,255,255,0.4); line-height:1.7; max-width:280px; margin-top:16px; }
+  .footer-logo img { height:130px; width:auto; }
+  .footer-col-title { font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:20px; }
+  .footer-links { list-style:none; }
+  .footer-links li { margin-bottom:10px; }
+  .footer-links a { color:rgba(255,255,255,0.5); text-decoration:none; font-size:0.85rem; transition:color 0.2s ease; }
+  .footer-links a:hover { color:var(--lime); }
+  .footer-bottom { display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:32px; }
+  .footer-copy { font-size:0.78rem; color:rgba(255,255,255,0.25); }
+  .footer-legal { display:flex; gap:20px; }
+  .footer-legal a { font-size:0.78rem; color:rgba(255,255,255,0.25); text-decoration:none; transition:color 0.2s ease; }
+  .footer-legal a:hover { color:rgba(255,255,255,0.5); }
+
+  @media (max-width:768px) {
+    nav#navbar { padding:0 20px; }
+    .nav-links { display:none; }
+    .mobile-menu-btn { display:flex; }
+    .doc-wrap { padding:60px 24px 80px; }
+    .doc-toc ol { grid-template-columns:1fr; }
+    .contact-card { grid-template-columns:1fr; }
+    .footer-top { grid-template-columns:1fr 1fr; gap:32px; }
+    .footer-bottom { flex-direction:column; gap:16px; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="trust-ticker" aria-hidden="true"><div class="trust-track"><span class="trust-item"><span class="ti">&#x2705;</span>WorkSafeBC Registered</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F6E1;&#xFE0F;</span>Fully Insured &mdash; $5M</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F4CD;</span>Locally Owned &amp; Operated</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x2B50;</span>5-Star Rated</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F4AC;</span>Free Quotes &mdash; Fast Response</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F3D4;&#xFE0F;</span>Fraser Valley Based</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F512;</span>Satisfaction Guaranteed</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x26A1;</span>Same-Week Booking</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x2705;</span>WorkSafeBC Registered</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F6E1;&#xFE0F;</span>Fully Insured &mdash; $5M</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F4CD;</span>Locally Owned &amp; Operated</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x2B50;</span>5-Star Rated</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F4AC;</span>Free Quotes &mdash; Fast Response</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F3D4;&#xFE0F;</span>Fraser Valley Based</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x1F512;</span>Satisfaction Guaranteed</span><span class="trust-sep">&#9670;</span><span class="trust-item"><span class="ti">&#x26A1;</span>Same-Week Booking</span><span class="trust-sep">&#9670;</span></div></div>
+
+<nav id="navbar">
+  <a href="/" class="nav-logo">
+    <img src="/brand_assets/aclean logo.png" alt="AClean" fetchpriority="high" width="370" height="130"/>
+  </a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <div class="nav-dropdown">
+      <a href="/#services">Services</a>
+      <div class="nav-dropdown-menu">
+        <a href="/services/exterior-window-cleaning/"><span class="ddicon">🪟</span>Exterior Window Cleaning</a>
+        <a href="/services/interior-window-cleaning/"><span class="ddicon">🏠</span>Interior Window Cleaning</a>
+        <a href="/services/screen-cleaning/"><span class="ddicon">🔲</span>Screen Cleaning</a>
+        <a href="/services/track-detailing/"><span class="ddicon">🔧</span>Track Detailing</a>
+        <a href="/services/solar-panel-cleaning/"><span class="ddicon">☀️</span>Solar Panel Cleaning</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/gutter-cleaning/"><span class="ddicon">🍃</span>Gutter Cleaning</a>
+        <a href="/services/soft-washing/"><span class="ddicon">🌊</span>Soft Washing</a>
+        <a href="/services/pressure-washing/"><span class="ddicon">⚡</span>Pressure Washing</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/commercial-cleaning/"><span class="ddicon">🏢</span>Commercial Cleaning</a>
+        <a href="/services/permanent-led-lighting/"><span class="ddicon">💡</span>Permanent LED Lighting</a>
+      </div>
+    </div>
+    <a href="/#commercial">Commercial</a>
+    <a href="/#plans">Plans</a>
+    <a href="/#contact">Contact</a>
+  </div>
+  <div class="nav-cta">
+    <a href="tel:+16043782130" class="nav-phone">📞 (604) 378-2130</a>
+  </div>
+  <button class="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-eyebrow">Legal Document</div>
+  <h1 class="page-title">Terms of <span>Service</span></h1>
+  <p class="page-meta">Effective Date: May 24, 2026 &nbsp;|&nbsp; Last Updated: May 24, 2026</p>
+</div>
+
+<div class="doc-wrap">
+
+  <div class="doc-toc">
+    <div class="doc-toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#t1">Acceptance of Terms</a></li>
+      <li><a href="#t2">Services Provided</a></li>
+      <li><a href="#t3">Quotes &amp; Estimates</a></li>
+      <li><a href="#t4">Scheduling &amp; Cancellations</a></li>
+      <li><a href="#t5">Payment Terms</a></li>
+      <li><a href="#t6">Client Responsibilities</a></li>
+      <li><a href="#t7">Property Access &amp; Safety</a></li>
+      <li><a href="#t8">Satisfaction Guarantee</a></li>
+      <li><a href="#t9">Limitation of Liability</a></li>
+      <li><a href="#t10">Property Damage Claims</a></li>
+      <li><a href="#t11">Indemnification</a></li>
+      <li><a href="#t12">Warranties &amp; Disclaimers</a></li>
+      <li><a href="#t13">Governing Law &amp; Disputes</a></li>
+      <li><a href="#t14">Changes to These Terms</a></li>
+      <li><a href="#t15">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <div class="doc-section" id="t1">
+    <span class="doc-section-num">Section 01</span>
+    <h2>Acceptance of Terms</h2>
+    <p>These Terms of Service ("<strong>Terms</strong>") constitute a legally binding agreement between you ("<strong>Client</strong>," "<strong>you</strong>," or "<strong>your</strong>") and AClean ("<strong>AClean</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>"), a company operating in Chilliwack, British Columbia, Canada.</p>
+    <p>By requesting a quote, booking a service, permitting AClean personnel to access your property, making a payment, or using our website at <a href="https://goaclean.com">goaclean.com</a>, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, you must not engage our services.</p>
+    <p>If you are booking services on behalf of a company, strata, or other legal entity, you represent and warrant that you have the authority to bind that entity to these Terms.</p>
+    <div class="highlight-box">
+      <p><strong>Plain-language summary:</strong> By hiring us, you agree to these Terms. They cover how we quote, schedule, and deliver services, how payment works, and what happens if something goes wrong. Please read them — they're written to be fair to both sides.</p>
+    </div>
+  </div>
+
+  <div class="doc-section" id="t2">
+    <span class="doc-section-num">Section 02</span>
+    <h2>Services Provided</h2>
+    <p>AClean provides professional exterior cleaning services for residential and commercial properties in the Fraser Valley, British Columbia, including but not limited to:</p>
+    <ul>
+      <li>Exterior window cleaning (water-fed pole and squeegee systems)</li>
+      <li>Interior window cleaning</li>
+      <li>Screen cleaning and reinstallation</li>
+      <li>Window and door track detailing</li>
+      <li>Solar panel cleaning</li>
+      <li>Gutter cleaning and downspout flushing</li>
+      <li>Soft washing (low-pressure chemical treatment)</li>
+      <li>Pressure washing (driveways, patios, walkways, siding)</li>
+      <li>House washing</li>
+      <li>Roof washing</li>
+      <li>Commercial exterior cleaning</li>
+      <li>Permanent LED lighting installation</li>
+    </ul>
+    <p>The specific services to be performed, the scope of work, and the agreed price are as set out in the written or verbal quote accepted by you prior to service commencement. AClean reserves the right to decline any service request at its sole discretion.</p>
+  </div>
+
+  <div class="doc-section" id="t3">
+    <span class="doc-section-num">Section 03</span>
+    <h2>Quotes &amp; Estimates</h2>
+    <p>All quotes provided by AClean — whether by phone, email, website form, or in person — are <strong>free of charge</strong> and subject to the following conditions:</p>
+    <ul>
+      <li><strong>Remote Quotes:</strong> Quotes provided without an on-site inspection are estimates based on information supplied by the Client (property type, approximate size, photos, etc.) and are subject to adjustment upon arrival if actual conditions differ materially from the information provided.</li>
+      <li><strong>On-Site Quotes:</strong> Quotes following an on-site inspection are firm for thirty (30) calendar days from the date of issue, unless stated otherwise in writing.</li>
+      <li><strong>Scope Changes:</strong> If conditions discovered upon arrival (e.g., excessive debris accumulation, unusual access requirements, safety hazards, or additional services requested) require additional time or materials beyond the quoted scope, AClean will notify you before proceeding with any additional work. Additional work will be invoiced at our then-current rates.</li>
+      <li><strong>Acceptance:</strong> A quote is accepted when you confirm a booking by telephone, email, or website form. No written contract signature is required for residential services.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section" id="t4">
+    <span class="doc-section-num">Section 04</span>
+    <h2>Scheduling &amp; Cancellations</h2>
+    <p><strong>4.1 Booking Confirmation.</strong> Your appointment is confirmed once AClean has acknowledged your booking by telephone, email, or text message. You will receive a reminder within 24 hours of your scheduled service date.</p>
+    <p><strong>4.2 Cancellation by Client.</strong> You may cancel or reschedule a confirmed appointment at no charge provided you give at least <strong>24 hours' notice</strong> prior to the scheduled start time. Cancellations made with less than 24 hours' notice may be subject to a cancellation fee of up to <strong>$75.00 CAD</strong> to cover mobilization costs. Repeat last-minute cancellations may result in AClean declining future bookings.</p>
+    <p><strong>4.3 Weather &amp; Postponement.</strong> AClean reserves the right to postpone or reschedule services due to unsafe weather conditions (including rain, high winds, frost, lightning, or extreme temperatures) at any time before or during service delivery, without liability. In such cases, AClean will contact you promptly and reschedule at the earliest mutually convenient date. No cancellation fee applies to postponements initiated by AClean.</p>
+    <p><strong>4.4 No-Access.</strong> If AClean technicians arrive at your property at the scheduled time and are unable to access the site due to a locked gate, animals, absent occupants, or other Client-controlled factors, a <strong>$75.00 CAD no-access fee</strong> may be charged to cover travel and time costs. AClean will make reasonable efforts to contact you before leaving the site.</p>
+    <p><strong>4.5 Cancellation by AClean.</strong> AClean reserves the right to cancel a confirmed booking at any time. If AClean cancels, you will receive a full refund of any deposit paid. AClean will make reasonable efforts to reschedule at your convenience.</p>
+  </div>
+
+  <div class="doc-section" id="t5">
+    <span class="doc-section-num">Section 05</span>
+    <h2>Payment Terms</h2>
+    <p><strong>5.1 Due Date.</strong> Payment for all services is due in full upon completion of the work, unless alternative payment terms have been agreed in writing in advance (e.g., for commercial accounts or recurring service contracts).</p>
+    <p><strong>5.2 Accepted Payment Methods.</strong> AClean currently accepts payment by cash, e-Transfer (Interac), and major credit cards. Payment method details will be confirmed at the time of booking.</p>
+    <p><strong>5.3 Deposits.</strong> AClean may, at its discretion, require a deposit of up to 50% of the quoted price for large commercial projects or first-time residential bookings over $500.00 CAD. Deposits are non-refundable in the event of a Client-initiated cancellation with less than 24 hours' notice.</p>
+    <p><strong>5.4 Overdue Accounts.</strong> Invoices not paid within fourteen (14) calendar days of the due date will bear interest at the rate of <strong>2% per month</strong> (24% per annum), calculated and compounded monthly from the due date until paid in full. AClean reserves the right to suspend future services and to refer overdue accounts to a collections agency. All reasonable costs of collection, including legal fees on a solicitor-and-own-client basis, are the responsibility of the Client.</p>
+    <p><strong>5.5 Disputed Invoices.</strong> If you dispute any portion of an invoice, you must notify AClean in writing within five (5) business days of receipt. Undisputed amounts remain due and payable by the original due date.</p>
+    <p><strong>5.6 GST/HST.</strong> All quoted and invoiced amounts are exclusive of applicable goods and services tax (GST) unless expressly stated otherwise. GST will be added to all invoices at the applicable rate.</p>
+  </div>
+
+  <div class="doc-section" id="t6">
+    <span class="doc-section-num">Section 06</span>
+    <h2>Client Responsibilities</h2>
+    <p>To enable AClean to perform services safely and effectively, you agree to the following prior to and during service delivery:</p>
+    <ul>
+      <li>Ensure AClean personnel have unobstructed access to all areas of the property identified in the service scope, including exterior faucets and appropriate electrical outlets where required.</li>
+      <li>Secure and remove pets from service areas. AClean technicians have the right to refuse to enter areas where animals pose a safety risk.</li>
+      <li>Move vehicles, outdoor furniture, planters, and other objects that may obstruct work areas or be damaged by water or cleaning solutions.</li>
+      <li>Close all windows, doors, and skylights prior to exterior cleaning services to prevent water ingress.</li>
+      <li>Notify AClean in advance of any known fragile, pre-existing damage, special surface coatings, or other conditions that may require special handling (e.g., heritage windows, tinted glass, unsealed stone, freshly painted surfaces).</li>
+      <li>Ensure that all persons (residents, tenants, occupants) are made aware of the scheduled service to prevent interference with the work.</li>
+      <li>For interior cleaning services, ensure that the interior is reasonably accessible and that valuables near windows are moved prior to technician arrival.</li>
+    </ul>
+    <p>Failure to fulfill these responsibilities may result in postponement of service, additional charges, or reduced liability on the part of AClean for any resulting damage or incomplete work.</p>
+  </div>
+
+  <div class="doc-section" id="t7">
+    <span class="doc-section-num">Section 07</span>
+    <h2>Property Access &amp; Safety</h2>
+    <p><strong>7.1 Authorization.</strong> By booking a service, you represent that you are the property owner or an authorized agent of the property owner, and that you have authority to grant AClean access to the property for the purpose of performing the agreed services.</p>
+    <p><strong>7.2 Hazardous Conditions.</strong> AClean technicians may, in their sole professional judgment, decline to perform or continue services if they identify conditions that pose an unreasonable risk to personal safety or to the property (including but not limited to structurally unsound gutters, severely deteriorated siding, unstable surfaces, or the presence of biohazards). AClean will notify you promptly in such cases. No charge will apply for work not performed due to safety concerns.</p>
+    <p><strong>7.3 Ladders &amp; Equipment.</strong> AClean may use ladders, water-fed poles, pressure washing equipment, and other tools on your property as necessary to perform the agreed services. You consent to reasonable equipment placement and agree to ensure surfaces on which ladders will be placed are reasonably stable and free from hidden hazards.</p>
+    <p><strong>7.4 WorkSafeBC.</strong> AClean is registered with WorkSafeBC and maintains current coverage for all field personnel. You are not required to provide any form of workplace compensation for our employees.</p>
+  </div>
+
+  <div class="doc-section" id="t8">
+    <span class="doc-section-num">Section 08</span>
+    <h2>Satisfaction Guarantee</h2>
+    <p>AClean stands behind the quality of every job. If you are not satisfied with the results of any service, you must notify us within <strong>48 hours</strong> of service completion by telephone or email. We will return to the property at no additional charge to address any legitimate deficiency in our workmanship.</p>
+    <p>The guarantee applies to the quality of cleaning performed and does not cover:</p>
+    <ul>
+      <li>Hard water staining, mineral deposits, oxidation, or etching that pre-existed the service or that is permanently bonded to the surface.</li>
+      <li>Areas that were inaccessible during service due to Client-controlled obstructions.</li>
+      <li>Conditions that were not disclosed to AClean prior to service and that could not reasonably have been observed.</li>
+      <li>Re-soiling that occurs after service completion due to weather, construction activity, or other external factors.</li>
+    </ul>
+    <div class="highlight-box">
+      <p><strong>Our commitment:</strong> If we missed a spot or the result doesn't meet the standard of the quote, we'll come back and fix it — no debate, no charge. Just call or email us within 48 hours.</p>
+    </div>
+  </div>
+
+  <div class="doc-section" id="t9">
+    <span class="doc-section-num">Section 09</span>
+    <h2>Limitation of Liability</h2>
+    <p>To the fullest extent permitted by applicable law, ACLEAN's total liability to you for any claim arising out of or in connection with the provision of services — whether in contract, tort (including negligence), or otherwise — shall not exceed the total amount paid by you to AClean for the specific service giving rise to the claim.</p>
+    <p>AClean shall not be liable for:</p>
+    <ul>
+      <li>Any indirect, incidental, special, consequential, or punitive damages, including loss of profits, loss of data, or business interruption, even if AClean has been advised of the possibility of such damages.</li>
+      <li>Damage to property resulting from pre-existing defects, deterioration, or fragile conditions not disclosed to or reasonably observable by AClean prior to service.</li>
+      <li>Damage caused by the Client's failure to fulfill the responsibilities set out in Section 6.</li>
+      <li>Any damage arising from conditions outside ACLEAN's reasonable control, including extreme weather events, acts of God, or third-party interference.</li>
+    </ul>
+    <p>Nothing in these Terms limits or excludes liability for death or personal injury caused by negligence, fraudulent misrepresentation, or any other liability that cannot lawfully be limited under British Columbia law.</p>
+  </div>
+
+  <div class="doc-section" id="t10">
+    <span class="doc-section-num">Section 10</span>
+    <h2>Property Damage Claims</h2>
+    <p>AClean carries full commercial general liability insurance. In the event that you believe AClean has caused damage to your property during the performance of services, you must:</p>
+    <ol>
+      <li>Notify AClean in writing (email or written letter) within <strong>72 hours</strong> of service completion, describing the alleged damage in detail.</li>
+      <li>Preserve any damaged items and allow AClean the opportunity to inspect the damage before any repair, disposal, or remediation is undertaken.</li>
+      <li>Provide photographic evidence of the alleged damage and any supporting documentation regarding pre-existing condition (e.g., prior inspection reports, photographs).</li>
+    </ol>
+    <p>Failure to provide timely notice as required above may prejudice ACLEAN's ability to investigate the claim and may limit or void ACLEAN's liability. AClean will respond to all damage claims in writing within five (5) business days of receipt and will work cooperatively to resolve legitimate claims fairly and promptly.</p>
+    <div class="warning-box">
+      <p><strong>Important:</strong> Damage claims submitted more than 72 hours after service completion will not be accepted, as it is not possible to determine whether damage occurred during service or due to subsequent causes.</p>
+    </div>
+  </div>
+
+  <div class="doc-section" id="t11">
+    <span class="doc-section-num">Section 11</span>
+    <h2>Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless AClean, its owners, employees, subcontractors, and agents from and against any and all claims, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or relating to:</p>
+    <ul>
+      <li>Your breach of any representation, warranty, or obligation under these Terms.</li>
+      <li>Your negligence or wilful misconduct in connection with the services.</li>
+      <li>Any inaccurate or incomplete information you provided to AClean, including undisclosed property conditions.</li>
+      <li>Claims by third parties (including tenants, strata councils, or adjacent property owners) arising from your authorization of AClean to access and service the property.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section" id="t12">
+    <span class="doc-section-num">Section 12</span>
+    <h2>Warranties &amp; Disclaimers</h2>
+    <p>AClean warrants that all services will be performed in a professional and workmanlike manner consistent with industry standards for exterior cleaning in British Columbia. This warranty is subject to and limited by the Satisfaction Guarantee set out in Section 8.</p>
+    <p>Except as expressly stated in these Terms, all services are provided on an "<strong>as is</strong>" and "<strong>as available</strong>" basis, without any further warranty, express or implied, including but not limited to implied warranties of fitness for a particular purpose or merchantable quality.</p>
+    <p>AClean does not warrant that cleaning services will remove all staining, discolouration, mineral deposits, biological growth, or other surface conditions that are permanently embedded in or bonded to the substrate. The results achievable by cleaning depend on the age, condition, and material of the surface being cleaned, which is outside ACLEAN's control.</p>
+  </div>
+
+  <div class="doc-section" id="t13">
+    <span class="doc-section-num">Section 13</span>
+    <h2>Governing Law &amp; Disputes</h2>
+    <p><strong>13.1 Governing Law.</strong> These Terms and any dispute arising out of or in connection with them shall be governed by and construed in accordance with the laws of the Province of British Columbia and the federal laws of Canada applicable therein, without regard to conflicts of law principles.</p>
+    <p><strong>13.2 Jurisdiction.</strong> The parties attorn to the exclusive jurisdiction of the courts of the Province of British Columbia, sitting in the City of Chilliwack or such other city as AClean designates, for the resolution of any dispute arising under these Terms.</p>
+    <p><strong>13.3 Small Claims.</strong> Either party may bring a claim in the Civil Resolution Tribunal (CRT) of British Columbia for disputes up to $5,000.00 CAD, or the BC Small Claims Court for disputes up to $35,000.00 CAD, without waiving any rights under these Terms.</p>
+    <p><strong>13.4 Informal Resolution.</strong> Before initiating any formal legal proceeding, both parties agree to make reasonable good-faith efforts to resolve any dispute through direct negotiation. AClean commits to responding to any written dispute notice within five (5) business days.</p>
+  </div>
+
+  <div class="doc-section" id="t14">
+    <span class="doc-section-num">Section 14</span>
+    <h2>Changes to These Terms</h2>
+    <p>AClean reserves the right to update or modify these Terms at any time. When changes are made, we will update the "Last Updated" date at the top of this page. Continued use of our services after any modification constitutes your acceptance of the revised Terms.</p>
+    <p>For services booked prior to a Terms update, the Terms in effect at the time of booking shall apply to that engagement, unless you expressly agree in writing to the updated Terms.</p>
+    <p>We recommend bookmarking this page and reviewing it periodically. Material changes will be communicated by email to Clients with active bookings where reasonably practicable.</p>
+  </div>
+
+  <div class="doc-section" id="t15">
+    <span class="doc-section-num">Section 15</span>
+    <h2>Contact Us</h2>
+    <p>For questions about these Terms, to report a concern, or to exercise any right referenced herein, please contact us using the details below:</p>
+    <div class="contact-card">
+      <div class="contact-card-item">
+        <span class="contact-card-label">Company</span>
+        <span class="contact-card-value">AClean</span>
+      </div>
+      <div class="contact-card-item">
+        <span class="contact-card-label">Location</span>
+        <span class="contact-card-value">Chilliwack, BC, Canada</span>
+      </div>
+      <div class="contact-card-item">
+        <span class="contact-card-label">Phone</span>
+        <span class="contact-card-value"><a href="tel:+16043782130">(604) 378-2130</a></span>
+      </div>
+      <div class="contact-card-item">
+        <span class="contact-card-label">Email</span>
+        <span class="contact-card-value"><a href="mailto:aidinzamanibusiness@outlook.com">aidinzamanibusiness@outlook.com</a></span>
+      </div>
+    </div>
+    <p style="margin-top:20px;">Business hours: Monday – Saturday, 7:00 AM – 6:00 PM Pacific Time. We aim to respond to all written inquiries within one (1) business day.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="/brand_assets/aclean logo.png" alt="AClean" loading="lazy" width="100" height="36"/></div>
+        <p>Premium exterior cleaning for residential and commercial properties across the Fraser Valley. Fully insured, WorkSafeBC covered, 5-star rated.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="/services/window-cleaning/">Window Cleaning</a></li>
+          <li><a href="/services/gutter-cleaning/">Gutter Cleaning</a></li>
+          <li><a href="/services/pressure-washing/">Pressure Washing</a></li>
+          <li><a href="/services/soft-washing/">Soft Washing</a></li>
+          <li><a href="/services/roof-washing/">Roof Washing</a></li>
+          <li><a href="/services/house-washing/">House Washing</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Service Areas</div>
+        <ul class="footer-links">
+          <li><a href="/areas/chilliwack/">Chilliwack</a></li>
+          <li><a href="/areas/abbotsford/">Abbotsford</a></li>
+          <li><a href="/areas/langley/">Langley</a></li>
+          <li><a href="/areas/surrey/">Surrey</a></li>
+          <li><a href="/areas/mission/">Mission</a></li>
+          <li><a href="/areas/maple-ridge/">Maple Ridge</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <address style="font-style:normal;">
+          <ul class="footer-links">
+            <li><strong style="color:rgba(255,255,255,0.7);font-size:0.85rem;">AClean</strong></li>
+            <li style="color:rgba(255,255,255,0.35);font-size:0.82rem;margin-bottom:8px;">Chilliwack, BC, Canada</li>
+            <li><a href="tel:+16043782130">(604) 378-2130</a></li>
+            <li><a href="mailto:aidinzamanibusiness@outlook.com">aidinzamanibusiness@outlook.com</a></li>
+          </ul>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© <span id="yr"></span> AClean. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms-of-service/" aria-current="page">Terms of Service</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
