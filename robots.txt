@@ -7,4 +7,4 @@ Disallow: /temporary screenshots/
 Disallow: /*.mjs$
 
 # Sitemap location
-Sitemap: https://acleanexterior.com/sitemap.xml
+Sitemap: https://goaclean.com/sitemap.xml
