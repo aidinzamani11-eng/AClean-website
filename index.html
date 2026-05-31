@@ -1062,10 +1062,27 @@
     gap: 8px;
     font-size: 2rem;
     font-family: 'Inter', sans-serif;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
   }
-  .comm-icon-cell:hover { border-color: rgba(76,187,23,0.4); background: rgba(76,187,23,0.06); }
-  .comm-icon-label { font-size: 0.62rem; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; text-align: center; }
+  .comm-icon-cell::after {
+    content: '→';
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    font-size: 0.6rem;
+    color: var(--lime);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    font-family: 'Inter', sans-serif;
+  }
+  .comm-icon-cell:hover { border-color: rgba(76,187,23,0.5); background: rgba(76,187,23,0.1); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(76,187,23,0.15); }
+  .comm-icon-cell:hover::after { opacity: 1; }
+  .comm-icon-label { font-size: 0.62rem; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; text-align: center; transition: color 0.2s ease; }
+  .comm-icon-cell:hover .comm-icon-label { color: var(--lime); }
   .comm-bullet {
     display: flex;
     align-items: flex-start;
@@ -1740,15 +1757,22 @@
         <a href="/services/soft-washing/"><span class="ddicon">🌊</span>Soft Washing</a>
         <a href="/services/pressure-washing/"><span class="ddicon">⚡</span>Pressure Washing</a>
         <div class="nav-dropdown-divider"></div>
-        <a href="/services/commercial-cleaning/"><span class="ddicon">🏢</span>Commercial Cleaning</a>
-        <a href="/services/commercial-window-cleaning/"><span class="ddicon">🪟</span>Commercial Window Cleaning</a>
-        <a href="/services/commercial-power-washing/"><span class="ddicon">⚡</span>Commercial Power Washing</a>
-        <a href="/services/storefront-cleaning/"><span class="ddicon">🏪</span>Storefront Cleaning</a>
-        <div class="nav-dropdown-divider"></div>
         <a href="/services/permanent-led-lighting/"><span class="ddicon">💡</span>Permanent LED Lighting</a>
       </div>
     </div>
-    <a href="#commercial">Commercial</a>
+    <div class="nav-dropdown">
+      <a href="#commercial">Commercial</a>
+      <div class="nav-dropdown-menu">
+        <a href="/services/commercial-window-cleaning/"><span class="ddicon">🪟</span>Commercial Window Cleaning</a>
+        <a href="/services/commercial-power-washing/"><span class="ddicon">⚡</span>Commercial Power Washing</a>
+        <a href="/services/storefront-cleaning/"><span class="ddicon">🏪</span>Storefront Cleaning</a>
+        <a href="/services/building-soft-washing/"><span class="ddicon">🏗️</span>Building Soft Washing</a>
+        <a href="/services/parking-lot-cleaning/"><span class="ddicon">🅿️</span>Parking Lot Cleaning</a>
+        <a href="/services/gas-station-cleaning/"><span class="ddicon">⛽</span>Gas Station Cleaning</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/commercial-cleaning/"><span class="ddicon">🏢</span>All Commercial Services</a>
+      </div>
+    </div>
     <a href="#plans">Plans</a>
     <a href="#reviews">Reviews</a>
     <a href="#contact">Contact</a>
@@ -2149,12 +2173,12 @@
     <div class="commercial-inner">
       <div class="commercial-visual fade-up">
         <div class="commercial-icon-grid">
-          <div class="comm-icon-cell">🏢<span class="comm-icon-label">Office Buildings</span></div>
-          <div class="comm-icon-cell">🏬<span class="comm-icon-label">Storefronts</span></div>
-          <div class="comm-icon-cell">🏭<span class="comm-icon-label">Industrial</span></div>
-          <div class="comm-icon-cell">🏗️<span class="comm-icon-label">New Construction</span></div>
-          <div class="comm-icon-cell">🏘<span class="comm-icon-label">Multi-Family</span></div>
-          <div class="comm-icon-cell">🏪<span class="comm-icon-label">Retail</span></div>
+          <a class="comm-icon-cell" href="/services/commercial-window-cleaning/">🪟<span class="comm-icon-label">Window Cleaning</span></a>
+          <a class="comm-icon-cell" href="/services/commercial-power-washing/">⚡<span class="comm-icon-label">Power Washing</span></a>
+          <a class="comm-icon-cell" href="/services/storefront-cleaning/">🏪<span class="comm-icon-label">Storefront Cleaning</span></a>
+          <a class="comm-icon-cell" href="/services/building-soft-washing/">🏗️<span class="comm-icon-label">Building Soft Wash</span></a>
+          <a class="comm-icon-cell" href="/services/parking-lot-cleaning/">🅿️<span class="comm-icon-label">Parking Lots</span></a>
+          <a class="comm-icon-cell" href="/services/gas-station-cleaning/">⛽<span class="comm-icon-label">Gas Stations</span></a>
         </div>
       </div>
       <div class="fade-up" style="transition-delay:0.2s;">
@@ -2967,4 +2991,5 @@
 </script>
 </body>
 </html>
+
 
