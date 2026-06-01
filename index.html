@@ -1290,6 +1290,91 @@
   .why-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.05em; margin-bottom: 12px; color: #fff; }
   .why-text { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
 
+  /* INSTAGRAM */
+  .instagram-section { padding: 100px 0; background: var(--surface); }
+  .ig-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-top: 0;
+  }
+  .ig-post {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), border-color 0.2s ease;
+  }
+  .ig-post:hover { transform: scale(1.04); border-color: rgba(76,187,23,0.4); z-index: 2; }
+  .ig-post-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+    filter: brightness(0.85);
+  }
+  .ig-post:hover .ig-post-bg { transform: scale(1.08); filter: brightness(0.6); }
+  .ig-post-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+  }
+  .ig-post-content {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    z-index: 2;
+  }
+  .ig-type-icon { font-size: 1rem; opacity: 0.8; }
+  .ig-hover-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: 3;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+  }
+  .ig-post:hover .ig-hover-overlay { opacity: 1; }
+  .ig-follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 15px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease, opacity 0.2s ease;
+    box-shadow: 0 4px 24px rgba(131,58,180,0.35), 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .ig-follow-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 36px rgba(131,58,180,0.5), 0 4px 16px rgba(0,0,0,0.4);
+    opacity: 0.95;
+  }
+  .ig-follow-btn:active { transform: scale(0.99); }
+
   /* PROCESS */
   .process-section { padding: 100px 0; background: var(--surface); }
   .process-steps {
@@ -1817,7 +1902,6 @@
         <a href="#services" class="btn-outline">View Services</a>
       </div>
       <div class="hero-badges">
-        <div class="hero-badge"><span class="icon">⭐</span>5-Star Rated</div>
         <div class="hero-badge"><span class="icon">🛡</span>Fully Insured</div>
         <div class="hero-badge"><span class="icon">✅</span>WorkSafeBC</div>
       </div>
@@ -2258,43 +2342,27 @@
   </div>
 </section>
 
-<!-- TRUST -->
-<section class="trust-section" id="trust">
+<!-- INSTAGRAM -->
+<section class="instagram-section">
   <div class="section-inner">
-    <div class="fade-up" style="text-align:center;max-width:580px;margin:0 auto 0;">
-      <div class="section-label" style="justify-content:center;">Why AClean</div>
-      <h2 class="section-title">Your Property Is<br/><span style="color:var(--green);">In Safe Hands</span></h2>
-      <p class="section-desc" style="max-width:100%;margin:0 auto;">Every job is backed by full insurance, WorkSafeBC compliance, and a satisfaction guarantee.</p>
+    <div class="fade-up" style="text-align:center;max-width:580px;margin:0 auto 48px;">
+      <div class="section-label" style="justify-content:center;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="margin-right:4px;flex-shrink:0;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        Instagram
+      </div>
+      <h2 class="section-title">Follow <span style="color:var(--green);">Along</span></h2>
+      <p class="section-desc" style="max-width:100%;margin:12px auto 0;">Behind the scenes, before &amp; afters, and real results from Fraser Valley properties. See what we've been up to.</p>
     </div>
-    <div class="trust-grid">
-      <div class="trust-card fade-up">
-        <div class="trust-icon-wrap">🛡</div>
-        <div>
-          <h3 class="trust-title">Fully Insured — $5M Liability</h3>
-          <p class="trust-text">AClean carries comprehensive general liability insurance up to $5 million. Your home, vehicle, and property are fully protected on every service visit.</p>
-        </div>
-      </div>
-      <div class="trust-card fade-up" style="transition-delay:0.1s;">
-        <div class="trust-icon-wrap">✅</div>
-        <div>
-          <h3 class="trust-title">WorkSafeBC Registered & Covered</h3>
-          <p class="trust-text">All AClean technicians are covered under WorkSafeBC. This protects you as a homeowner from any liability during service — a non-negotiable standard we maintain.</p>
-        </div>
-      </div>
-      <div class="trust-card fade-up" style="transition-delay:0.1s;">
-        <div class="trust-icon-wrap">💧</div>
-        <div>
-          <h3 class="trust-title">Premium Pure Water Technology</h3>
-          <p class="trust-text">We invest in professional-grade pure water systems that deliver spotless, residue-free results — the same technology used by premium window cleaning companies worldwide.</p>
-        </div>
-      </div>
-      <div class="trust-card fade-up" style="transition-delay:0.2s;">
-        <div class="trust-icon-wrap">⭐</div>
-        <div>
-          <h3 class="trust-title">100% Satisfaction Guarantee</h3>
-          <p class="trust-text">Not happy with the results? We come back and make it right — no questions, no charge. We stand behind every job with an unconditional satisfaction guarantee.</p>
-        </div>
-      </div>
+    <div class="ig-widget-wrap fade-up">
+      <!-- LightWidget WIDGET -->
+      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+      <iframe src="//lightwidget.com/widgets/62571ba3148d5e3ca7f91e1d843e7424.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+    </div>
+    <div class="ig-widget-wrap fade-up" style="text-align:center;margin-top:40px;">
+      <a href="https://www.instagram.com/acleanexterior/" target="_blank" rel="noopener" class="ig-follow-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Follow @acleanexterior
+      </a>
     </div>
   </div>
 </section>
