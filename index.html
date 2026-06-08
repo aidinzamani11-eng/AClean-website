@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17440107935"></script>
@@ -32,7 +32,14 @@
 <meta property="og:image" content="https://goaclean.com/brand_assets/aclean%20logo.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="AClean — Professional Exterior Cleaning Fraser Valley BC"/>
 <meta property="og:locale" content="en_CA"/>
+
+<!-- ── GEO META ───────────────────────────────────────────────────────── -->
+<meta name="geo.region" content="CA-BC"/>
+<meta name="geo.placename" content="Chilliwack, British Columbia"/>
+<meta name="geo.position" content="49.15700;-121.95100"/>
+<meta name="ICBM" content="49.15700, -121.95100"/>
 
 <!-- ── TWITTER CARD ───────────────────────────────────────────────────── -->
 <meta name="twitter:card" content="summary_large_image"/>
@@ -55,9 +62,15 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
       "@id": "https://goaclean.com/#business",
       "name": "AClean",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://goaclean.com/brand_assets/aclean%20logo.png",
+        "width": 512,
+        "height": 512
+      },
       "image": "https://goaclean.com/brand_assets/aclean%20logo.png",
       "url": "https://goaclean.com",
       "telephone": "+16043782130",
@@ -65,23 +78,24 @@
       "description": "Premium exterior cleaning services for residential and commercial properties across the Fraser Valley. Specialising in window cleaning, commercial window cleaning, roof washing, power washing, pressure washing, gutter cleaning, and house washing.",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Langley",
+        "addressLocality": "Chilliwack",
         "addressRegion": "BC",
-        "postalCode": "V2Y",
+        "postalCode": "V2P 6H3",
         "addressCountry": "CA"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 49.1044,
-        "longitude": -122.6604
+        "latitude": 49.15700,
+        "longitude": -121.95100
       },
+      "hasMap": "https://share.google/wl6HpDg1QWoLWawkA",
       "areaServed": [
-        {"@type": "City", "name": "Langley"},
-        {"@type": "City", "name": "Abbotsford"},
-        {"@type": "City", "name": "Chilliwack"},
-        {"@type": "City", "name": "Surrey"},
-        {"@type": "City", "name": "Mission"},
-        {"@type": "City", "name": "Maple Ridge"},
+        {"@type": "City", "name": "Langley", "sameAs": "https://en.wikipedia.org/wiki/Langley,_British_Columbia"},
+        {"@type": "City", "name": "Abbotsford", "sameAs": "https://en.wikipedia.org/wiki/Abbotsford,_British_Columbia"},
+        {"@type": "City", "name": "Chilliwack", "sameAs": "https://en.wikipedia.org/wiki/Chilliwack"},
+        {"@type": "City", "name": "Surrey", "sameAs": "https://en.wikipedia.org/wiki/Surrey,_British_Columbia"},
+        {"@type": "City", "name": "Mission", "sameAs": "https://en.wikipedia.org/wiki/Mission,_British_Columbia"},
+        {"@type": "City", "name": "Maple Ridge", "sameAs": "https://en.wikipedia.org/wiki/Maple_Ridge,_British_Columbia"},
         {"@type": "City", "name": "Cloverdale"}
       ],
       "priceRange": "$$",
@@ -93,6 +107,13 @@
           "closes": "18:00"
         }
       ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+16043782130",
+        "contactType": "customer service",
+        "areaServed": "CA-BC",
+        "availableLanguage": "English"
+      },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
@@ -104,18 +125,21 @@
         {
           "@type": "Review",
           "author": {"@type": "Person", "name": "Jason M."},
+          "datePublished": "2025-03-12",
           "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
           "reviewBody": "AClean did an incredible job on our windows and gutters. The crew was professional, on time, and the results were honestly better than I expected. Our windows look brand new."
         },
         {
           "@type": "Review",
           "author": {"@type": "Person", "name": "Sarah R."},
+          "datePublished": "2025-04-08",
           "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
           "reviewBody": "Had our roof washed after years of moss buildup — the transformation was incredible. They used proper soft wash technique, protected all our plants, and the price was very reasonable."
         },
         {
           "@type": "Review",
           "author": {"@type": "Person", "name": "David K."},
+          "datePublished": "2025-05-01",
           "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
           "reviewBody": "These guys are the real deal. Commercial property, multiple storefronts — they showed up with all the right equipment and knocked it out efficiently. Professional from start to finish."
         }
@@ -124,22 +148,28 @@
         "@type": "OfferCatalog",
         "name": "Exterior Cleaning Services",
         "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Window Cleaning", "description": "Professional residential and commercial window cleaning across the Fraser Valley using traditional squeegee and reach-and-wash systems."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pure Water Window Cleaning", "description": "Ultra-pure water technology for streak-free, residue-free window cleaning — the professional standard for lasting results."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Roof Washing", "description": "Safe low-pressure soft washing removes moss, algae, and lichen from residential and commercial roofs without damage."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Cleaning", "description": "Complete gutter flushing and debris removal to prevent water damage, foundation issues, and pest infestations."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "House Washing", "description": "Full exterior soft-wash treatments for siding, stucco, brick, and painted surfaces across Fraser Valley homes."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pressure Washing", "description": "High-performance pressure washing for driveways, patios, decks, and concrete surfaces."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Soft Washing", "description": "Low-pressure chemical treatment for delicate exterior surfaces including stucco, wood siding, and painted finishes."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Exterior Cleaning", "description": "Scalable commercial cleaning for storefronts, office buildings, multi-family units, and industrial properties in the Fraser Valley."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Permanent LED Lighting", "description": "Premium architectural permanent LED lighting installation for residential and commercial properties."}}
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Window Cleaning", "url": "https://goaclean.com/services/window-cleaning/"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Roof Washing", "url": "https://goaclean.com/services/roof-washing/"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Cleaning", "url": "https://goaclean.com/services/gutter-cleaning/"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "House Washing", "url": "https://goaclean.com/services/house-washing/"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pressure Washing", "url": "https://goaclean.com/services/pressure-washing/"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Soft Washing", "url": "https://goaclean.com/services/soft-washing/"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Exterior Cleaning", "url": "https://goaclean.com/services/commercial-exterior-cleaning/"}}
         ]
       },
       "sameAs": [
         "https://www.facebook.com/acleanexterior",
-        "https://www.instagram.com/acleanservices",
-        "https://share.google/wl6HpDg1QWoLWawkA"
+        "https://www.instagram.com/acleanservices"
       ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://goaclean.com/#website",
+      "url": "https://goaclean.com",
+      "name": "AClean",
+      "description": "Fraser Valley's top-rated exterior cleaning company — window cleaning, roof washing, power washing & gutter cleaning.",
+      "publisher": {"@id": "https://goaclean.com/#business"},
+      "inLanguage": "en-CA"
     },
     {
       "@type": "FAQPage",
@@ -1837,7 +1867,7 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#" class="nav-logo">
+  <a href="/" class="nav-logo">
     <img src="brand_assets/aclean logo.webp" alt="AClean" fetchpriority="high" width="370" height="130"/>
   </a>
   <div class="nav-links">
@@ -2285,7 +2315,7 @@
           <div class="stars" style="font-size:1.2rem;">★★★★★</div>
           <span style="font-family:'Anton',sans-serif;font-size:2.4rem;color:var(--lime);line-height:1;">5.0</span>
         </div>
-        <div style="font-size:0.78rem;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;">Based on 100+ Google Reviews</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;">Based on 165+ Google Reviews</div>
       </div>
     </div>
     <script defer async src='https://cdn.trustindex.io/loader.js?822ed3b73222122e4316f4fcba9'></script>
@@ -2725,9 +2755,9 @@
         </div>
         <p>Premium exterior cleaning for residential and commercial properties across the Fraser Valley. Fully insured, WorkSafeBC covered, and 5-star rated.</p>
         <div style="margin-top:20px;display:flex;gap:12px;">
-          <a href="#" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:0.9rem;transition:border-color 0.2s ease;" onmouseover="this.style.borderColor='rgba(76,187,23,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">f</a>
-          <a href="#" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:0.9rem;transition:border-color 0.2s ease;" onmouseover="this.style.borderColor='rgba(76,187,23,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">ig</a>
-          <a href="#" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:0.9rem;transition:border-color 0.2s ease;" onmouseover="this.style.borderColor='rgba(76,187,23,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">g</a>
+          <a href="https://www.facebook.com/acleanexterior" target="_blank" rel="noopener" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:0.9rem;transition:border-color 0.2s ease;" onmouseover="this.style.borderColor='rgba(76,187,23,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">f</a>
+          <a href="https://www.instagram.com/acleanservices" target="_blank" rel="noopener" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:0.9rem;transition:border-color 0.2s ease;" onmouseover="this.style.borderColor='rgba(76,187,23,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">ig</a>
+          <a href="https://share.google/wl6HpDg1QWoLWawkA" target="_blank" rel="noopener" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:0.9rem;transition:border-color 0.2s ease;" onmouseover="this.style.borderColor='rgba(76,187,23,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">g</a>
         </div>
       </div>
       <div>
@@ -2780,7 +2810,7 @@
       <div class="footer-legal">
         <a href="/privacy-policy/">Privacy Policy</a>
         <a href="/terms-of-service/">Terms of Service</a>
-        <a href="#">Sitemap</a>
+        <a href="/sitemap.xml">Sitemap</a>
       </div>
     </div>
   </div>
