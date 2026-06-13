@@ -173,15 +173,10 @@
   .choice input:hover + span { border-color:rgba(76,187,23,0.4); color:#fff; }
   .choice input:checked + span { border-color:var(--green); background:rgba(76,187,23,0.14); color:var(--lime); box-shadow:0 0 0 3px rgba(76,187,23,0.12); }
   .choice input:focus-visible + span { border-color:var(--lime); box-shadow:0 0 0 3px rgba(141,255,79,0.3); }
-  /* File upload */
-  .file-drop { display:flex; align-items:center; gap:16px; border:1.5px dashed rgba(76,187,23,0.35); border-radius:14px; padding:20px 22px; background:#0e0e0e; cursor:pointer; transition:border-color 0.2s ease,background 0.2s ease; }
-  .file-drop:hover { border-color:var(--green); background:rgba(76,187,23,0.05); }
-  .file-drop input { position:absolute; width:1px; height:1px; opacity:0; overflow:hidden; }
-  .file-icon { width:44px; height:44px; flex-shrink:0; border-radius:12px; background:rgba(76,187,23,0.12); border:1px solid rgba(76,187,23,0.25); display:flex; align-items:center; justify-content:center; color:var(--lime); }
-  .file-text { display:flex; flex-direction:column; gap:3px; }
-  .file-title { font-size:0.88rem; font-weight:700; color:#fff; font-family:'Inter',sans-serif; }
-  .file-sub { font-size:0.74rem; color:rgba(255,255,255,0.42); font-family:'Inter',sans-serif; }
-  .file-title.has-file { color:var(--lime); }
+  .resume-note { display:flex; gap:12px; align-items:flex-start; background:rgba(76,187,23,0.06); border:1px solid rgba(76,187,23,0.18); border-radius:12px; padding:14px 16px; font-family:'Inter',sans-serif; font-size:0.83rem; color:rgba(255,255,255,0.6); line-height:1.6; }
+  .resume-note-icon { flex-shrink:0; font-size:1.05rem; line-height:1.5; }
+  .resume-note a { color:var(--lime); text-decoration:none; font-weight:700; transition:opacity 0.2s ease; }
+  .resume-note a:hover { opacity:0.8; text-decoration:underline; }
   .form-consent { display:flex; gap:12px; align-items:flex-start; margin-top:4px; }
   .form-consent input { width:18px; height:18px; flex-shrink:0; margin-top:2px; accent-color:var(--green); cursor:pointer; }
   .form-consent label { font-size:0.8rem; color:rgba(255,255,255,0.55); font-family:'Inter',sans-serif; line-height:1.6; font-weight:400; letter-spacing:0; text-transform:none; }
@@ -367,12 +362,10 @@
     </div>
 
     <div class="form-card fade-up">
-      <!-- Web3Forms endpoint — AClean Careers -->
-      <form id="apply-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
-        <input type="hidden" name="access_key" value="0538583d-3c62-4fd7-b16a-6e731b2af59c"/>
-        <input type="hidden" name="subject" value="New Technician Application — AClean Careers"/>
-        <input type="hidden" name="from_name" value="AClean Careers Page"/>
-        <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off"/>
+      <!-- Formspree endpoint — AClean Careers -->
+      <form id="apply-form" action="https://formspree.io/f/mqeogldq" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New Technician Application — AClean Careers"/>
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off"/>
 
         <div class="form-grid">
           <div class="field">
@@ -460,18 +453,10 @@
           </div>
 
           <div class="field full">
-            <label>Resume / CV</label>
-            <span class="hint">PDF, Word, or an image of your resume. Max ~10MB. Don't have one? Just describe your experience above.</span>
-            <label class="file-drop" for="resume">
-              <span class="file-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
-              </span>
-              <span class="file-text">
-                <span class="file-title" id="file-title">Click to upload your resume</span>
-                <span class="file-sub">PDF · DOC · DOCX · JPG · PNG</span>
-              </span>
-              <input type="file" id="resume" name="Resume" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
-            </label>
+            <p class="resume-note">
+              <span class="resume-note-icon">📄</span>
+              <span>Have a resume? It's optional, but it helps. After you submit, email it to <a href="mailto:aidinzamanibusiness@outlook.com?subject=Resume%20—%20Technician%20Application">aidinzamanibusiness@outlook.com</a> and we'll match it to your application.</span>
+            </p>
           </div>
 
           <div class="field full">
@@ -582,19 +567,6 @@
   window.addEventListener('scroll', () => { navbar.style.background = window.scrollY > 60 ? 'rgba(0,0,0,0.95)' : 'rgba(13,13,13,0.85)'; }, { passive: true });
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // ── Resume filename display ────────────────────────────────────────────
-  const resumeInput = document.getElementById('resume');
-  const fileTitle = document.getElementById('file-title');
-  resumeInput.addEventListener('change', () => {
-    if (resumeInput.files && resumeInput.files.length) {
-      fileTitle.textContent = resumeInput.files[0].name;
-      fileTitle.classList.add('has-file');
-    } else {
-      fileTitle.textContent = 'Click to upload your resume';
-      fileTitle.classList.remove('has-file');
-    }
-  });
-
   // ── AJAX submit to Formspree with on-brand success state ──────────────
   const form = document.getElementById('apply-form');
   const errorBox = document.getElementById('form-error');
@@ -623,14 +595,14 @@
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       });
-      const data = await res.json().catch(() => ({}));
-      if (res.ok && data.success) {
+      if (res.ok) {
         form.style.display = 'none';
         successBox.classList.add('show');
         successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         if (window.gtag) gtag('event', 'conversion', { 'send_to': 'AW-17440107935', 'event_category': 'careers', 'event_label': 'technician_application' });
       } else {
-        const msg = data && data.message ? data.message
+        const data = await res.json().catch(() => ({}));
+        const msg = data && data.errors && data.errors.length ? data.errors.map(er => er.message).join(', ')
           : 'Something went wrong submitting your application. Please call or text us at (604) 378-2130.';
         errorBox.textContent = msg;
         errorBox.classList.add('show');
