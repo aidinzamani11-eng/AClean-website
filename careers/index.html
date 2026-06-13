@@ -367,10 +367,12 @@
     </div>
 
     <div class="form-card fade-up">
-      <!-- IMPORTANT: replace YOUR_FORM_ID with your Formspree form ID (https://formspree.io) -->
-      <form id="apply-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data" novalidate>
-        <input type="hidden" name="_subject" value="New Technician Application — AClean Careers"/>
-        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off"/>
+      <!-- Web3Forms endpoint — AClean Careers. Replace YOUR_ACCESS_KEY with your free key from https://web3forms.com -->
+      <form id="apply-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY"/>
+        <input type="hidden" name="subject" value="New Technician Application — AClean Careers"/>
+        <input type="hidden" name="from_name" value="AClean Careers Page"/>
+        <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off"/>
 
         <div class="form-grid">
           <div class="field">
@@ -621,14 +623,14 @@
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       });
-      if (res.ok) {
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
         form.style.display = 'none';
         successBox.classList.add('show');
         successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         if (window.gtag) gtag('event', 'conversion', { 'send_to': 'AW-17440107935', 'event_category': 'careers', 'event_label': 'technician_application' });
       } else {
-        const data = await res.json().catch(() => ({}));
-        const msg = data && data.errors && data.errors.length ? data.errors.map(er => er.message).join(', ')
+        const msg = data && data.message ? data.message
           : 'Something went wrong submitting your application. Please call or text us at (604) 378-2130.';
         errorBox.textContent = msg;
         errorBox.classList.add('show');
