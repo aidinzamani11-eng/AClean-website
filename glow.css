@@ -1,0 +1,171 @@
+/* ============================================================
+   AClean — LED / Glow Enhancement Layer
+   Shared across all pages. Loaded AFTER each page's inline <style>,
+   so equal-specificity rules here win intentionally.
+   Built entirely from the existing brand green/lime.
+   Tune the variables below to dial the whole effect up or down.
+   ============================================================ */
+
+:root {
+  --glow-green: 76, 187, 23;     /* #4CBB17 as RGB */
+  --glow-lime: 141, 255, 79;     /* #8DFF4F as RGB */
+  --glow-card-rest: 0.16;        /* card outline opacity at rest */
+  --glow-card-hover: 0.55;       /* card outline opacity on hover */
+  --glow-speed: 7s;              /* LED travel speed on buttons */
+}
+
+/* ------------------------------------------------------------
+   1. GLOWING CARD OUTLINES  (services, reviews, plans, before/after)
+   A soft lit rim at rest that brightens + lifts on hover.
+   box-shadow is used (not a bordered pseudo) so it survives
+   overflow:hidden on image cards.
+   ------------------------------------------------------------ */
+.svc-card,
+.service-card,
+.feature-card,
+.review-card,
+.ba-card,
+.plan-card {
+  box-shadow:
+    0 0 0 1px rgba(var(--glow-green), var(--glow-card-rest)),
+    0 0 22px -8px rgba(var(--glow-green), 0.35),
+    0 18px 40px -22px rgba(0, 0, 0, 0.7);
+  transition:
+    box-shadow 0.4s ease,
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.3s ease;
+}
+
+.svc-card:hover,
+.service-card:hover,
+.feature-card:hover,
+.review-card:hover,
+.ba-card:hover,
+.plan-card:hover {
+  box-shadow:
+    0 0 0 1px rgba(var(--glow-lime), var(--glow-card-hover)),
+    0 0 34px -4px rgba(var(--glow-green), 0.55),
+    0 26px 60px -22px rgba(0, 0, 0, 0.8);
+}
+
+/* Keep the "popular" plan clearly hero — a stronger, steady lime rim. */
+.plan-card.popular {
+  box-shadow:
+    0 0 0 1px rgba(var(--glow-lime), 0.55),
+    0 0 46px -6px rgba(var(--glow-green), 0.5),
+    0 24px 70px -20px rgba(0, 0, 0, 0.75);
+}
+.plan-card.popular:hover {
+  box-shadow:
+    0 0 0 1px rgba(var(--glow-lime), 0.8),
+    0 0 60px -4px rgba(var(--glow-green), 0.7),
+    0 30px 80px -20px rgba(0, 0, 0, 0.85);
+}
+
+/* ------------------------------------------------------------
+   2. LED BUTTONS  (traveling light around primary CTAs)
+   A conic-gradient sits just behind the pill; only a thin rim
+   shows past the opaque button face, reading as a lit trim that
+   slowly orbits. Hover intensifies the bloom.
+   ------------------------------------------------------------ */
+.btn-primary {
+  position: relative;
+  z-index: 0;              /* contain the ::before within this stacking context */
+  isolation: isolate;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 52px;
+  z-index: -1;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(var(--glow-lime), 0.95) 40deg,
+    rgba(var(--glow-green), 0.6) 80deg,
+    transparent 150deg,
+    transparent 360deg
+  );
+  filter: blur(3px);
+  opacity: 0.75;
+  animation: ledOrbit var(--glow-speed) linear infinite;
+}
+.btn-primary:hover::before {
+  opacity: 1;
+  inset: -3px;
+  filter: blur(4px);
+  animation-duration: 3.5s;   /* light races a little faster on hover */
+}
+
+@keyframes ledOrbit {
+  to { transform: rotate(360deg); }
+}
+
+/* ------------------------------------------------------------
+   3. GLOWING HEADER LINE  (lit underline beneath the fixed nav)
+   A gradient beam that softly sweeps across the header.
+   ------------------------------------------------------------ */
+nav::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(var(--glow-green), 0.15) 20%,
+    rgba(var(--glow-lime), 0.9) 50%,
+    rgba(var(--glow-green), 0.15) 80%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  box-shadow: 0 0 12px rgba(var(--glow-green), 0.45);
+  opacity: 0.85;
+  animation: headerSweep 9s ease-in-out infinite;
+}
+
+@keyframes headerSweep {
+  0%, 100% { background-position: 120% 0; }
+  50%      { background-position: -20% 0; }
+}
+
+/* ------------------------------------------------------------
+   4. STAT STRIP  — glowing top/bottom rails
+   ------------------------------------------------------------ */
+.stats-strip {
+  position: relative;
+}
+.stats-strip::before,
+.stats-strip::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--glow-green), 0.5),
+    rgba(var(--glow-lime), 0.7),
+    rgba(var(--glow-green), 0.5),
+    transparent
+  );
+  box-shadow: 0 0 10px rgba(var(--glow-green), 0.35);
+}
+.stats-strip::before { top: 0; }
+.stats-strip::after { bottom: 0; }
+
+/* ------------------------------------------------------------
+   Accessibility — honour reduced-motion: keep the glow, drop motion.
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary::before,
+  nav::after {
+    animation: none;
+  }
+}
