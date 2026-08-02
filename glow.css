@@ -11,7 +11,6 @@
   --glow-lime: 141, 255, 79;     /* #8DFF4F as RGB */
   --glow-card-rest: 0.16;        /* card outline opacity at rest */
   --glow-card-hover: 0.55;       /* card outline opacity on hover */
-  --glow-speed: 7s;              /* LED travel speed on buttons */
 }
 
 /* ------------------------------------------------------------
@@ -63,47 +62,7 @@
 }
 
 /* ------------------------------------------------------------
-   2. LED BUTTONS  (traveling light around primary CTAs)
-   A conic-gradient sits just behind the pill; only a thin rim
-   shows past the opaque button face, reading as a lit trim that
-   slowly orbits. Hover intensifies the bloom.
-   ------------------------------------------------------------ */
-.btn-primary {
-  position: relative;
-  z-index: 0;              /* contain the ::before within this stacking context */
-  isolation: isolate;
-}
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: 52px;
-  z-index: -1;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(var(--glow-lime), 0.95) 40deg,
-    rgba(var(--glow-green), 0.6) 80deg,
-    transparent 150deg,
-    transparent 360deg
-  );
-  filter: blur(3px);
-  opacity: 0.75;
-  animation: ledOrbit var(--glow-speed) linear infinite;
-}
-.btn-primary:hover::before {
-  opacity: 1;
-  inset: -3px;
-  filter: blur(4px);
-  animation-duration: 3.5s;   /* light races a little faster on hover */
-}
-
-@keyframes ledOrbit {
-  to { transform: rotate(360deg); }
-}
-
-/* ------------------------------------------------------------
-   3. GLOWING HEADER LINE  (lit underline beneath the fixed nav)
+   2. GLOWING HEADER LINE  (lit underline beneath the fixed nav)
    A gradient beam that softly sweeps across the header.
    ------------------------------------------------------------ */
 nav::after {
@@ -134,7 +93,7 @@ nav::after {
 }
 
 /* ------------------------------------------------------------
-   4. STAT STRIP  — glowing top/bottom rails
+   3. STAT STRIP  — glowing top/bottom rails
    ------------------------------------------------------------ */
 .stats-strip {
   position: relative;
@@ -164,7 +123,6 @@ nav::after {
    Accessibility — honour reduced-motion: keep the glow, drop motion.
    ------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
-  .btn-primary::before,
   nav::after {
     animation: none;
   }
