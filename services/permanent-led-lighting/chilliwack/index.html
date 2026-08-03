@@ -147,11 +147,14 @@
   .pro-spec span:last-child { color:#fff; font-weight:700; }
   .pro-col.pro .pro-spec span:last-child { color:var(--lime); }
   .pro-badge { display:inline-block; background:linear-gradient(135deg,var(--green),var(--lime)); color:#000; font-size:0.58rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; padding:4px 11px; border-radius:50px; margin-bottom:12px; }
-  .led-gallery { display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:180px; gap:12px; margin-top:16px; }
-  .g-item { position:relative; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); }
+  .led-gallery { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:200px; grid-auto-flow:dense; gap:14px; margin-top:44px; }
+  .g-item { position:relative; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); }
   .g-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
   .g-item:hover img { transform:scale(1.06); }
+  .g-item::after { content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.45),transparent 55%); pointer-events:none; }
   .g-item.big { grid-column:span 2; grid-row:span 2; }
+  .g-item.wide { grid-column:span 2; }
+  .g-tag { position:absolute; left:14px; bottom:12px; z-index:1; font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.05em; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,0.6); }
   .chip-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
   .chip { background:var(--elevated); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:14px 18px; font-size:0.82rem; font-weight:600; color:rgba(255,255,255,0.65); font-family:'Inter',sans-serif; }
   .faq-section { padding:90px 0; background:var(--surface); }
@@ -193,7 +196,7 @@
   .footer-legal { display:flex; gap:20px; }
   .footer-legal a { font-size:0.78rem; color:rgba(255,255,255,0.25); text-decoration:none; }
   .footer-legal a:hover { color:rgba(255,255,255,0.5); }
-  @media (max-width:900px){ .trio-grid{grid-template-columns:1fr;} .pro-compare{grid-template-columns:1fr;max-width:420px;} .pro-col.reg{border-radius:18px 18px 0 0;} .pro-col.pro{border-radius:0 0 18px 18px;} .pro-vs{padding:12px 0;} .led-gallery{grid-template-columns:repeat(2,1fr);} .chip-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:900px){ .trio-grid{grid-template-columns:1fr;} .pro-compare{grid-template-columns:1fr;max-width:420px;} .pro-col.reg{border-radius:18px 18px 0 0;} .pro-col.pro{border-radius:0 0 18px 18px;} .pro-vs{padding:12px 0;} .led-gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;} .chip-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:768px){ nav{padding:0 20px;} .nav-links{display:none;} .mobile-menu-btn{display:flex;} .hero-content{padding:60px 20px;} .section-inner{padding:0 20px;} .footer-top{grid-template-columns:1fr;gap:26px;} .footer-bottom{flex-direction:column;gap:12px;text-align:center;} }</style>
 <link rel="stylesheet" href="/glow.css"/>
 </head>
@@ -217,7 +220,7 @@
     <p class="hero-sub">App-controlled permanent LED lighting installed across Chilliwack — permanent Christmas &amp; holiday lights, roofline and architectural lighting that looks incredible every night. Installed once, controlled from your phone. Never climb a ladder again.</p>
     <div class="hero-actions">
       <a href="tel:+16043782130" class="btn-primary">📞 Free Chilliwack Quote</a>
-      <a href="/#contact" class="btn-outline">Book a Design Consult</a>
+      <a href="/services/permanent-led-lighting/instant-quote/" class="btn-outline">⚡ Instant Quote</a>
     </div>
     <div class="hero-badges">
       <div class="hero-badge"><span class="icon">🎨</span>16M+ Colours</div>
@@ -257,12 +260,24 @@
       <div class="pro-vs"><span>VS</span></div>
       <div class="pro-col pro"><div class="pro-badge">What We Install</div><div class="pro-tier">The AClean Standard</div><div class="pro-name">30MM 24V Pro Series</div><div class="pro-spec"><span>Beam Angle</span><span>140°</span></div><div class="pro-spec"><span>Lifespan</span><span>100,000+ hrs</span></div><div class="pro-spec"><span>Warranty</span><span>Lifetime</span></div></div>
     </div>
+  </div>
+</section>
+
+<section style="padding:80px 0;background:var(--charcoal);border-top:1px solid rgba(255,255,255,0.05);">
+  <div class="section-inner">
+    <div style="text-align:center;max-width:620px;margin:0 auto;">
+      <p class="kicker" style="display:inline-block;">Real Chilliwack Installs</p>
+      <h2 class="h2">See It <span style="color:var(--green);">In Action</span></h2>
+    </div>
     <div class="led-gallery">
-      <div class="g-item big"><img src="/website pictures/Permanent led light %235.avif" alt="Permanent LED lighting on a Chilliwack area home" loading="lazy"/></div>
-      <div class="g-item "><img src="/website pictures/Permanent led light %233.avif" alt="Permanent LED lighting on a Chilliwack area home" loading="lazy"/></div>
-      <div class="g-item "><img src="/website pictures/permanent led light warm white.webp" alt="Permanent LED lighting on a Chilliwack area home" loading="lazy"/></div>
-      <div class="g-item "><img src="/website pictures/permanent led light christmas.webp" alt="Permanent LED lighting on a Chilliwack area home" loading="lazy"/></div>
-      <div class="g-item "><img src="/website pictures/permanent led light cold white.webp" alt="Permanent LED lighting on a Chilliwack area home" loading="lazy"/></div>
+      <div class="g-item big"><img src="/website pictures/Permanent led light %235.avif" alt="Full RGB permanent LED lighting on a Chilliwack area home" loading="lazy"/><span class="g-tag">Full RGB</span></div>
+      <div class="g-item "><img src="/website pictures/Permanent led light %233.avif" alt="Colour Wash permanent LED lighting on a Chilliwack area home" loading="lazy"/><span class="g-tag">Colour Wash</span></div>
+      <div class="g-item "><img src="/website pictures/Permanent led light %231.avif" alt="Warm White permanent LED lighting on a Chilliwack area home" loading="lazy"/><span class="g-tag">Warm White</span></div>
+      <div class="g-item "><img src="/website pictures/permanent led light cold white.webp" alt="Cool White permanent LED lighting on a Chilliwack area home" loading="lazy"/><span class="g-tag">Cool White</span></div>
+      <div class="g-item "><img src="/website pictures/Permanent LED light %234.avif" alt="Modern permanent LED lighting on a Chilliwack area home" loading="lazy"/><span class="g-tag">Modern</span></div>
+      <div class="g-item wide"><img src="/website pictures/permanent led light christmas.webp" alt="Christmas permanent LED lighting on a Chilliwack area home" loading="lazy"/><span class="g-tag">Christmas</span></div>
+      <div class="g-item "><img src="/website pictures/permanent led light warm white.webp" alt="Everyday permanent LED lighting on a Chilliwack area home" loading="lazy"/><span class="g-tag">Everyday</span></div>
+      <div class="g-item "><img src="/website pictures/permanent led light grinch.webp" alt="Holiday Green permanent LED lighting on a Chilliwack area home" loading="lazy"/><span class="g-tag">Holiday Green</span></div>
     </div>
   </div>
 </section>
