@@ -23,11 +23,12 @@
 <meta property="og:site_name" content="AClean"/>
 <meta property="og:title" content="Permanent LED Lighting Installation Fraser Valley | AClean"/>
 <meta property="og:description" content="App-controlled architectural permanent LED lighting for homes and businesses. IP65+, 16M colours, 50,000hr life. Fraser Valley BC. Free quotes."/>
-<meta property="og:image" content="https://goaclean.com/brand_assets/aclean%20logo.png"/>
+<meta property="og:image" content="https://goaclean.com/website%20pictures/permanent%20led%20light%20christmas.webp"/>
 <meta property="og:locale" content="en_CA"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Permanent LED Lighting Fraser Valley | AClean"/>
 <meta name="twitter:description" content="Permanent architectural LED lighting — app-controlled, weather-rated, 16M+ colours. Year-round holiday lighting for homes and businesses."/>
+<link rel="preload" as="image" href="/website pictures/Permanent LED light %232.avif" fetchpriority="high"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
@@ -60,7 +61,9 @@
         {"@type": "Question", "name": "How is the lighting controlled?", "acceptedAnswer": {"@type": "Answer", "text": "The system is controlled via a dedicated smartphone app (iOS and Android). You can select any colour, brightness, and animation pattern. Pre-programmed holiday themes are available for Christmas, Halloween, Canada Day, and more — one tap to change your display."}},
         {"@type": "Question", "name": "What does installation involve?", "acceptedAnswer": {"@type": "Answer", "text": "Our installation team mounts LED track channels along your roofline, gables, and architectural features. Wiring is concealed as much as possible and connected to a dedicated outdoor power supply. A typical residential installation takes 1–2 days."}},
         {"@type": "Question", "name": "How much does it cost to run permanently installed LED lights?", "acceptedAnswer": {"@type": "Answer", "text": "Permanent LED systems are extremely energy-efficient. A typical residential roofline installation (approx. 100–200 ft) consumes less electricity than a few standard light bulbs when running at full brightness — typically under $10–$20/month depending on usage."}},
-        {"@type": "Question", "name": "What happens if an LED section fails?", "acceptedAnswer": {"@type": "Answer", "text": "Individual LED sections can be replaced without rewiring the entire system. We offer a warranty on parts and labour, and annual maintenance inspections to ensure your system continues to perform reliably year-round."}}
+        {"@type": "Question", "name": "What happens if an LED section fails?", "acceptedAnswer": {"@type": "Answer", "text": "Individual LED sections can be replaced without rewiring the entire system. We offer a warranty on parts and labour, and annual maintenance inspections to ensure your system continues to perform reliably year-round."}},
+        {"@type": "Question", "name": "What lights do you install?", "acceptedAnswer": {"@type": "Answer", "text": "We exclusively install the Prairie Lighting 30MM 24V Pro Series — a premium addressable RGBW system with a 140-degree beam angle, 100,000+ hour lifespan, and a lifetime warranty. As an authorized Prairie Lighting dealer, we never use cheap knock-off products."}},
+        {"@type": "Question", "name": "Do you offer financing?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We offer flexible 0% financing options so you can light up your home now and pay over time. Ask about our Klarna payment plans when you request a quote."}}
       ]
     }
   ]
@@ -210,6 +213,104 @@
   .trust-item { display:inline-flex; align-items:center; gap:7px; padding:0 28px; font-size:0.67rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55); font-family:'Inter',sans-serif; white-space:nowrap; flex-shrink:0; }
   .trust-item .ti { color:var(--lime); }
   .trust-sep { color:rgba(76,187,23,0.38); font-size:0.5rem; padding:0 2px; flex-shrink:0; }
+
+  /* ============ PERMANENT LED — SIGNATURE STYLES ============ */
+  :root { --led-red:#ff3b3b; --led-orange:#ff9e2c; --led-yellow:#ffe14d; --led-green:#4CBB17; --led-blue:#2ca3ff; --led-purple:#a24bff; }
+  .rgb-text { background:linear-gradient(90deg,#ff3b3b,#ff9e2c,#ffe14d,#4CBB17,#2ca3ff,#a24bff,#ff3b3b); background-size:300% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; animation:rgbSlide 7s linear infinite; }
+  @keyframes rgbSlide { to { background-position:300% 0; } }
+  .led-strip { position:relative; height:7px; width:100%; overflow:hidden; background:#04060c; z-index:2; }
+  .led-strip::before { content:''; position:absolute; inset:-3px 0; background:repeating-linear-gradient(90deg, var(--led-red) 0 14px, var(--led-orange) 14px 28px, var(--led-yellow) 28px 42px, var(--led-green) 42px 56px, var(--led-blue) 56px 70px, var(--led-purple) 70px 84px); background-size:84px 100%; filter:blur(0.5px) saturate(1.3) brightness(1.25); box-shadow:0 0 22px rgba(255,255,255,0.25); animation:ledMove 3s linear infinite; }
+  @keyframes ledMove { to { background-position:84px 0; } }
+
+  .led-hero { position:relative; min-height:92vh; display:flex; align-items:center; overflow:hidden; padding-top:130px; }
+  .led-hero-bg { position:absolute; inset:0; background:url('/website pictures/Permanent LED light %232.avif') center 32% / cover no-repeat; }
+  .led-hero-bg::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(4,7,14,0.74) 0%,rgba(4,7,14,0.5) 34%,rgba(4,7,14,0.9) 100%),radial-gradient(ellipse 75% 60% at 50% 38%,rgba(20,42,86,0.4),transparent 70%); }
+  .aurora { position:absolute; width:520px; height:520px; border-radius:50%; filter:blur(85px); opacity:0.32; mix-blend-mode:screen; pointer-events:none; z-index:1; }
+  .aurora.a1 { background:radial-gradient(circle,var(--led-blue),transparent 70%); left:-140px; top:-100px; animation:floatA 15s ease-in-out infinite; }
+  .aurora.a2 { background:radial-gradient(circle,var(--led-purple),transparent 70%); right:-160px; top:14%; animation:floatB 19s ease-in-out infinite; }
+  .aurora.a3 { background:radial-gradient(circle,var(--led-green),transparent 70%); left:34%; bottom:-200px; animation:floatA 17s ease-in-out infinite reverse; }
+  @keyframes floatA { 0%,100%{transform:translate(0,0)} 50%{transform:translate(46px,34px)} }
+  @keyframes floatB { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-54px,24px)} }
+  .dealer-eyebrow { display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.18); border-radius:50px; padding:8px 18px; font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#fff; font-family:'Inter',sans-serif; backdrop-filter:blur(10px); }
+  .dealer-eyebrow .spark { color:var(--lime); font-size:0.9rem; }
+  .led-hero-title { font-family:'Anton',sans-serif; font-size:clamp(52px,8.2vw,116px); line-height:0.88; text-transform:uppercase; letter-spacing:-0.02em; margin:20px 0 12px; color:#fff; }
+  .led-hero-word { display:block; font-family:'Inter',sans-serif; font-size:clamp(14px,1.8vw,22px); font-weight:700; letter-spacing:0.34em; color:rgba(255,255,255,0.72); margin-bottom:6px; }
+  .led-hero-sub2 { font-family:'Anton',sans-serif; font-size:clamp(20px,2.6vw,36px); text-transform:uppercase; letter-spacing:0.01em; margin-bottom:18px; color:#fff; }
+
+  .trio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:52px; }
+  .trio-card { position:relative; background:linear-gradient(160deg,rgba(255,255,255,0.045),rgba(255,255,255,0.012)); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:34px 28px; overflow:hidden; transition:transform .3s cubic-bezier(.34,1.56,.64,1),border-color .3s,box-shadow .3s; }
+  .trio-card:hover { transform:translateY(-6px); border-color:rgba(255,255,255,0.2); box-shadow:0 26px 60px rgba(0,0,0,.55); }
+  .trio-ico { width:58px; height:58px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:1.6rem; margin-bottom:18px; }
+  .trio-card:nth-child(1) .trio-ico { background:rgba(44,163,255,0.14); border:1px solid rgba(44,163,255,0.4); box-shadow:0 0 30px rgba(44,163,255,0.25); }
+  .trio-card:nth-child(2) .trio-ico { background:rgba(162,75,255,0.14); border:1px solid rgba(162,75,255,0.4); box-shadow:0 0 30px rgba(162,75,255,0.25); }
+  .trio-card:nth-child(3) .trio-ico { background:rgba(76,187,23,0.14); border:1px solid rgba(76,187,23,0.4); box-shadow:0 0 30px rgba(76,187,23,0.25); }
+  .trio-title { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.04em; margin-bottom:8px; color:#fff; }
+  .trio-desc { font-size:0.9rem; color:rgba(255,255,255,0.55); line-height:1.6; }
+
+  .scene-section { padding:100px 0; background:linear-gradient(180deg,var(--charcoal),#05080f 50%,var(--charcoal)); }
+  .scene-wrap { display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center; margin-top:48px; }
+  .scene-stage { position:relative; border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,0.09); background:radial-gradient(ellipse 95% 75% at 50% 118%,#12294a 0%,#060b16 62%); aspect-ratio:16/11; box-shadow:0 30px 80px rgba(0,0,0,0.6),inset 0 0 120px rgba(0,0,0,0.55); }
+  .scene-glow { position:absolute; inset:0; background:radial-gradient(ellipse 72% 52% at 50% 32%,var(--scene-color,#ffe9c7),transparent 66%); opacity:0.25; mix-blend-mode:screen; transition:background .5s ease,opacity .5s ease; pointer-events:none; }
+  .scene-svg { position:absolute; inset:0; width:100%; height:100%; }
+  .led-dot { filter:drop-shadow(0 0 5px currentColor); transition:fill .35s ease,color .35s ease; }
+  .scene-caption .sc-name { color:#fff; font-weight:800; font-size:1.15rem; font-family:'Bebas Neue',sans-serif; letter-spacing:0.05em; }
+  .scene-caption .sc-note { color:rgba(255,255,255,0.55); font-size:0.9rem; margin-top:4px; line-height:1.55; min-height:2.8em; }
+  .scene-btns { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+  .scene-btn { display:inline-flex; align-items:center; gap:8px; padding:9px 15px; border-radius:50px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.03); color:rgba(255,255,255,0.75); font-size:0.78rem; font-weight:600; letter-spacing:0.03em; cursor:pointer; font-family:'Inter',sans-serif; transition:border-color .2s,background .2s,color .2s,transform .15s; }
+  .scene-btn:hover { transform:translateY(-2px); color:#fff; border-color:rgba(255,255,255,0.32); }
+  .scene-btn:focus-visible { outline:2px solid var(--lime); outline-offset:2px; }
+  .scene-btn.active { background:#fff; color:#0b0b0b; border-color:#fff; }
+  .scene-btn .swatch { width:11px; height:11px; border-radius:50%; box-shadow:0 0 8px currentColor; flex-shrink:0; }
+  .scene-hint { margin-top:18px; font-size:0.78rem; color:rgba(255,255,255,0.4); font-family:'Inter',sans-serif; }
+
+  .pro-section { padding:100px 0; position:relative; overflow:hidden; }
+  .pro-compare { display:grid; grid-template-columns:1fr auto 1fr; align-items:stretch; margin:56px auto 0; max-width:920px; }
+  .pro-col { background:var(--elevated); border:1px solid rgba(255,255,255,0.08); padding:40px 34px; }
+  .pro-col.reg { border-radius:20px 0 0 20px; opacity:0.92; }
+  .pro-col.pro { border-radius:0 20px 20px 0; border-color:rgba(76,187,23,0.5); background:linear-gradient(160deg,rgba(76,187,23,0.12),var(--elevated) 62%); box-shadow:0 0 0 1px rgba(76,187,23,0.22),0 30px 70px rgba(0,0,0,0.5),0 0 60px rgba(76,187,23,0.12); position:relative; z-index:1; }
+  .pro-vs { display:flex; align-items:center; justify-content:center; padding:0 4px; }
+  .pro-vs span { width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--green),var(--lime)); color:#000; font-family:'Anton',sans-serif; font-size:1.2rem; display:flex; align-items:center; justify-content:center; box-shadow:0 0 30px rgba(76,187,23,0.5); border:3px solid var(--charcoal); }
+  .pro-tier { font-family:'Inter',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.45); }
+  .pro-name { font-family:'Anton',sans-serif; font-size:1.55rem; text-transform:uppercase; margin:4px 0 20px; color:#fff; }
+  .pro-col.pro .pro-name { color:var(--lime); text-shadow:0 0 30px rgba(141,255,79,0.3); }
+  .pro-spec { display:flex; justify-content:space-between; align-items:center; padding:13px 0; border-top:1px solid rgba(255,255,255,0.07); font-size:0.9rem; }
+  .pro-spec span:first-child { color:rgba(255,255,255,0.5); }
+  .pro-spec span:last-child { color:#fff; font-weight:700; }
+  .pro-col.pro .pro-spec span:last-child { color:var(--lime); }
+  .pro-badge { display:inline-block; background:linear-gradient(135deg,var(--green),var(--lime)); color:#000; font-size:0.6rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; padding:5px 12px; border-radius:50px; margin-bottom:14px; }
+
+  .led-gallery { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:200px; grid-auto-flow:dense; gap:14px; margin-top:52px; }
+  .g-item { position:relative; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); }
+  .g-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s cubic-bezier(.2,.8,.2,1); }
+  .g-item:hover img { transform:scale(1.07); }
+  .g-item::after { content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.45),transparent 55%); pointer-events:none; }
+  .g-item.big { grid-column:span 2; grid-row:span 2; }
+  .g-item.wide { grid-column:span 2; }
+  .g-tag { position:absolute; left:14px; bottom:12px; z-index:1; font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.05em; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,0.6); }
+
+  .finance-band { padding:64px 0; background:linear-gradient(120deg,#0a1a2e,#0d0d0d 72%); border-top:1px solid rgba(44,163,255,0.22); border-bottom:1px solid rgba(44,163,255,0.22); }
+  .finance-inner { display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
+  .finance-0 { font-family:'Anton',sans-serif; font-size:clamp(56px,8vw,110px); line-height:0.9; background:linear-gradient(135deg,#2ca3ff,#9bdcff); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+
+  .dealer-band { padding:52px 0; background:var(--surface); border-top:1px solid rgba(76,187,23,0.12); border-bottom:1px solid rgba(76,187,23,0.12); }
+  .dealer-grid { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:18px 40px; }
+  .dealer-item { display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.68); font-size:0.8rem; font-weight:700; letter-spacing:0.05em; font-family:'Inter',sans-serif; text-transform:uppercase; }
+  .dealer-item .di { font-size:1.25rem; }
+
+  @media (max-width:900px) {
+    .scene-wrap { grid-template-columns:1fr; gap:32px; }
+    .pro-compare { grid-template-columns:1fr; max-width:440px; }
+    .pro-col.reg { border-radius:20px 20px 0 0; }
+    .pro-col.pro { border-radius:0 0 20px 20px; }
+    .pro-vs { padding:14px 0; }
+    .led-gallery { grid-template-columns:repeat(2,1fr); grid-auto-rows:150px; }
+    .g-item.big { grid-column:span 2; grid-row:span 2; }
+  }
+  @media (max-width:768px) {
+    .trio-grid { grid-template-columns:1fr; }
+    .led-hero { min-height:auto; padding:120px 0 64px; }
+    .finance-inner { justify-content:center; text-align:center; }
+  }
 </style>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -241,7 +342,7 @@
       </div>
     </div>
     <div class="nav-dropdown">
-      <a href="/#commercial">Commercial</a>
+      <a href="/services/commercial-window-cleaning/">Commercial</a>
       <div class="nav-dropdown-menu">
         <a href="/services/commercial-window-cleaning/"><span class="ddicon">🪟</span>Commercial Window Cleaning</a>
         <a href="/services/commercial-power-washing/"><span class="ddicon">⚡</span>Commercial Power Washing</a>
@@ -262,21 +363,22 @@
   <button class="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<section class="service-hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="service-hero-content">
+<!-- HERO -->
+<section class="led-hero">
+  <div class="led-hero-bg"></div>
+  <div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div>
+  <div class="service-hero-content" style="max-width:980px; position:relative; z-index:2;">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a>
-      <span class="sep">›</span>
+      <span class="sep">&rsaquo;</span>
       <a href="/#services">Services</a>
-      <span class="sep">›</span>
+      <span class="sep">&rsaquo;</span>
       <span class="bc-current">Permanent LED Lighting</span>
     </nav>
-    <span class="service-icon-large">💡</span>
-    <h1 class="service-hero-title">Permanent <span class="green">LED</span> Lighting</h1>
-    <p class="service-hero-sub">App-controlled architectural LED lighting installed permanently along your roofline and architectural features — every colour, every holiday, every occasion. Zero seasonal installation.</p>
+    <div class="dealer-eyebrow"><span class="spark">&#10022;</span> Prairie Lighting Authorized Dealer</div>
+    <h1 class="led-hero-title"><span class="led-hero-word">Professional</span>Permanent <span class="rgb-text">Lighting</span></h1>
+    <div class="led-hero-sub2">Year-Round Beauty. <span style="color:var(--lime);">Zero Hassle.</span></div>
+    <p class="service-hero-sub">App-controlled architectural LED, installed once and enjoyed every night &mdash; millions of colours for holidays, celebrations, game days, or clean everyday curb appeal. Never climb a ladder again.</p>
     <div class="hero-actions">
       <a href="tel:+16043782130" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
@@ -285,206 +387,320 @@
       <a href="/#contact" class="btn-outline">Book a Design Consult</a>
     </div>
     <div class="hero-badges">
-      <div class="hero-badge"><span class="icon">📱</span>App Controlled</div>
-      <div class="hero-badge"><span class="icon">☁️</span>Weather Rated IP65+</div>
-      <div class="hero-badge"><span class="icon">💡</span>50,000hr LED Life</div>
-      <div class="hero-badge"><span class="icon">🏡</span>Residential &amp; Commercial</div>
+      <div class="hero-badge"><span class="icon">&#127912;</span>16M+ Colours</div>
+      <div class="hero-badge"><span class="icon">&#128241;</span>App Controlled</div>
+      <div class="hero-badge"><span class="icon">&#9854;&#65039;</span>Lifetime Warranty</div>
+      <div class="hero-badge"><span class="icon">&#10052;&#65039;</span>Built For BC Winters</div>
     </div>
   </div>
 </section>
+<div class="led-strip" aria-hidden="true"></div>
 
 <div class="stats-strip">
   <div class="section-inner">
     <div class="stats-grid">
-      <div class="stats-item fade-up"><span class="stats-num">16M+</span><div class="stats-label">Colour Options</div></div>
-      <div class="stats-item fade-up" style="transition-delay:0.1s;"><span class="stats-num">50K</span><div class="stats-label">Hour LED Life</div></div>
-      <div class="stats-item fade-up" style="transition-delay:0.2s;"><span class="stats-num">IP65+</span><div class="stats-label">Weather Rating</div></div>
-      <div class="stats-item fade-up" style="transition-delay:0.3s;"><span class="stats-num">1–2</span><div class="stats-label">Day Install</div></div>
+      <div class="stats-item fade-up"><span class="stats-num">16M+</span><div class="stats-label">Colours &amp; Patterns</div></div>
+      <div class="stats-item fade-up" style="transition-delay:0.1s;"><span class="stats-num">100K</span><div class="stats-label">Hour Pro-Series Life</div></div>
+      <div class="stats-item fade-up" style="transition-delay:0.2s;"><span class="stats-num" style="font-size:clamp(44px,4.6vw,64px);">&#8734;</span><div class="stats-label">Lifetime Warranty</div></div>
+      <div class="stats-item fade-up" style="transition-delay:0.3s;"><span class="stats-num">0%</span><div class="stats-label">Financing Available</div></div>
     </div>
   </div>
 </div>
 <div class="divider"></div>
 
+<!-- ELEVATE + TRIO -->
 <section class="features-section" id="included">
   <div class="section-inner">
-    <div class="fade-up">
-      <div class="section-label">What's Included</div>
-      <h2 class="section-title">Full <span style="color:var(--green);">LED System</span> Package</h2>
-      <p class="section-desc">Every installation includes professional-grade hardware, concealed wiring, full app setup, and a complete holiday preset library.</p>
+    <div class="fade-up" style="max-width:660px;">
+      <div class="section-label">Why Homeowners Love It</div>
+      <h2 class="section-title">Elevate Your Home. <span style="color:var(--green);">Every Night.</span></h2>
+      <p class="section-desc">Customize colours, patterns, and brightness right from your phone &mdash; for holidays, celebrations, game days, or clean everyday curb appeal, without ever touching a ladder.</p>
     </div>
-    <div class="features-grid">
-      <div class="feature-card featured fade-up">
-        <div class="feature-icon-wrap">💡</div>
-        <h3 class="feature-title">Architectural LED Channels</h3>
-        <p class="feature-desc">Premium weatherproof LED tracks are mounted along rooflines, gables, soffits, and architectural details — becoming a permanent, professional part of your home's exterior.</p>
+    <div class="trio-grid">
+      <div class="trio-card fade-up">
+        <div class="trio-ico">&#128241;</div>
+        <h3 class="trio-title">Smart Control</h3>
+        <p class="trio-desc">Run the whole system from a free mobile app. Colours, brightness, animations, timers, and one-tap holiday presets &mdash; from anywhere.</p>
       </div>
-      <div class="feature-card fade-up" style="transition-delay:0.1s;">
-        <div class="feature-icon-wrap">📱</div>
-        <h3 class="feature-title">Full App Control</h3>
-        <p class="feature-desc">Control every aspect of your lighting from a smartphone app (iOS &amp; Android). Change colours, brightness, animation speed, and holiday presets in seconds.</p>
+      <div class="trio-card fade-up" style="transition-delay:0.1s;">
+        <div class="trio-ico">&#127752;</div>
+        <h3 class="trio-title">Unlimited Colours</h3>
+        <p class="trio-desc">16 million+ RGBW colours and hundreds of patterns. Warm-white elegance any night, vivid displays for every occasion &mdash; all in one system.</p>
       </div>
-      <div class="feature-card fade-up" style="transition-delay:0.2s;">
-        <div class="feature-icon-wrap">🌈</div>
-        <h3 class="feature-title">16 Million+ Colours</h3>
-        <p class="feature-desc">Full RGB+W colour range with 16 million+ individual colour combinations. From warm white for everyday elegance to vivid greens for Christmas or orange for Halloween.</p>
-      </div>
-      <div class="feature-card fade-up" style="transition-delay:0.1s;">
-        <div class="feature-icon-wrap">☁️</div>
-        <h3 class="feature-title">IP65+ Weather Rating</h3>
-        <p class="feature-desc">All components are rated IP65 or higher — dust-proof and protected against water jets. Designed to withstand Fraser Valley winters, UV exposure, and year-round outdoor conditions.</p>
-      </div>
-      <div class="feature-card fade-up" style="transition-delay:0.2s;">
-        <div class="feature-icon-wrap">🎄</div>
-        <h3 class="feature-title">Holiday Presets</h3>
-        <p class="feature-desc">Pre-programmed holiday themes for Christmas, Halloween, Canada Day, Valentine's Day, and more. One tap in the app to transform your home for any occasion.</p>
-      </div>
-      <div class="feature-card featured fade-up" style="transition-delay:0.3s;">
-        <div class="feature-icon-wrap">⚡</div>
-        <h3 class="feature-title">Energy Efficient</h3>
-        <p class="feature-desc">LED technology uses a fraction of the electricity of traditional incandescent holiday lighting. A full roofline installation typically runs for under $10–$20/month — far less than seasonal string lights.</p>
+      <div class="trio-card fade-up" style="transition-delay:0.2s;">
+        <div class="trio-ico">&#10052;&#65039;</div>
+        <h3 class="trio-title">Weatherproof</h3>
+        <p class="trio-desc">Sealed, weather-rated hardware built tough for Canadian seasons &mdash; snow, rain, UV, and Fraser Valley winters, year after year.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- INTERACTIVE COLOUR SCENE SWITCHER -->
+<section class="scene-section" id="scenes">
+  <div class="section-inner">
+    <div class="fade-up" style="text-align:center; max-width:660px; margin:0 auto;">
+      <div class="section-label" style="justify-content:center;">Tap. Transform.</div>
+      <h2 class="section-title">One System. <span style="color:var(--green);">Every Occasion.</span></h2>
+      <p class="section-desc" style="margin:12px auto 0; max-width:100%;">Your entire roofline, any colour &mdash; changed in a single tap. Try it right here.</p>
+    </div>
+    <div class="scene-wrap">
+      <div class="scene-stage fade-up" id="sceneStage">
+        <div class="scene-glow" id="sceneGlow"></div>
+        <svg class="scene-svg" viewBox="0 0 600 360" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+          <rect x="0" y="332" width="600" height="28" fill="#0a1420"/>
+          <polygon points="96,184 300,84 504,184" fill="#0e1622"/>
+          <rect x="120" y="182" width="360" height="152" fill="#141d2b"/>
+          <rect x="150" y="238" width="82" height="96" rx="4" fill="#1b2636"/>
+          <rect x="246" y="238" width="82" height="96" rx="4" fill="#1b2636"/>
+          <rect x="360" y="252" width="46" height="82" rx="3" fill="#20304a"/>
+          <rect x="360" y="196" width="40" height="34" rx="3" fill="#ffcf87" opacity="0.85"/>
+          <rect x="426" y="196" width="40" height="34" rx="3" fill="#ffcf87" opacity="0.85"/>
+          <g id="ledDots"></g>
+        </svg>
+      </div>
+      <div class="fade-up" style="transition-delay:0.1s;">
+        <div class="scene-caption" id="sceneCaption">
+          <div class="sc-name">Everyday &middot; Warm White</div>
+          <div class="sc-note">Elegant warm-white curb appeal, 365 nights a year.</div>
+        </div>
+        <div class="scene-btns" id="sceneBtns">
+          <button class="scene-btn active" data-scene="everyday"><span class="swatch" style="color:#ffe9c7;background:#ffe9c7;"></span>Everyday</button>
+          <button class="scene-btn" data-scene="christmas"><span class="swatch" style="color:#ff3b3b;background:#ff3b3b;"></span>Christmas</button>
+          <button class="scene-btn" data-scene="halloween"><span class="swatch" style="color:#ff7a18;background:#ff7a18;"></span>Halloween</button>
+          <button class="scene-btn" data-scene="canada"><span class="swatch" style="color:#ff2e2e;background:#ff2e2e;"></span>Canada Day</button>
+          <button class="scene-btn" data-scene="gameday"><span class="swatch" style="color:#2ca3ff;background:#2ca3ff;"></span>Game Day</button>
+          <button class="scene-btn" data-scene="party"><span class="swatch" style="color:#a24bff;background:#a24bff;"></span>Party Mode</button>
+        </div>
+        <p class="scene-hint">Real installs are controlled from the free mobile app &mdash; this is just a taste of the range.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRO SERIES ADVANTAGE -->
+<section class="pro-section" id="pro-series">
+  <div class="section-inner">
+    <div class="fade-up" style="text-align:center; max-width:700px; margin:0 auto;">
+      <div class="section-label" style="justify-content:center;">The Pro Series Advantage</div>
+      <h2 class="section-title">We Use The Best. <span style="color:var(--green);">We Install The Best.</span></h2>
+      <p class="section-desc" style="margin:12px auto 0; max-width:100%;">We exclusively install the <strong style="color:#fff;">Prairie Lighting 30MM 24V Pro Series</strong> &mdash; brighter, longer-lasting, and backed for life. No cheap knock-offs, ever.</p>
+    </div>
+    <div class="pro-compare fade-up">
+      <div class="pro-col reg">
+        <div class="pro-tier">Typical Installer</div>
+        <div class="pro-name">30MM 12V Regular</div>
+        <div class="pro-spec"><span>Beam Angle</span><span>100&deg;</span></div>
+        <div class="pro-spec"><span>Lifespan</span><span>50,000+ hrs</span></div>
+        <div class="pro-spec"><span>Warranty</span><span>5 Years</span></div>
+        <div class="pro-spec"><span>Brightness</span><span>Standard</span></div>
+      </div>
+      <div class="pro-vs"><span>VS</span></div>
+      <div class="pro-col pro">
+        <div class="pro-badge">What We Install</div>
+        <div class="pro-tier">The AClean Standard</div>
+        <div class="pro-name">30MM 24V Pro Series</div>
+        <div class="pro-spec"><span>Beam Angle</span><span>140&deg;</span></div>
+        <div class="pro-spec"><span>Lifespan</span><span>100,000+ hrs</span></div>
+        <div class="pro-spec"><span>Warranty</span><span>Lifetime</span></div>
+        <div class="pro-spec"><span>Brightness</span><span>Superior</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="features-section" id="gallery">
+  <div class="section-inner">
+    <div class="fade-up" style="text-align:center; max-width:620px; margin:0 auto;">
+      <div class="section-label" style="justify-content:center;">Real Fraser Valley Installs</div>
+      <h2 class="section-title">See It <span style="color:var(--green);">In Action</span></h2>
+    </div>
+    <div class="led-gallery fade-up">
+      <div class="g-item big"><img src="/website pictures/Permanent led light %235.avif" alt="Home lit in full RGB rainbow permanent LED lighting" loading="lazy"/><span class="g-tag">Full RGB</span></div>
+      <div class="g-item"><img src="/website pictures/Permanent led light %233.avif" alt="Home with purple permanent LED lighting" loading="lazy"/><span class="g-tag">Colour Wash</span></div>
+      <div class="g-item"><img src="/website pictures/Permanent led light %231.avif" alt="Home with warm white permanent LED lighting" loading="lazy"/><span class="g-tag">Warm White</span></div>
+      <div class="g-item"><img src="/website pictures/permanent led light cold white.webp" alt="Modern home with cool white permanent LED lighting" loading="lazy"/><span class="g-tag">Cool White</span></div>
+      <div class="g-item"><img src="/website pictures/Permanent LED light %234.avif" alt="Modern home with permanent LED lighting and city skyline" loading="lazy"/><span class="g-tag">Modern</span></div>
+      <div class="g-item wide"><img src="/website pictures/permanent led light christmas.webp" alt="Home with red and green Christmas permanent LED lighting" loading="lazy"/><span class="g-tag">Christmas</span></div>
+      <div class="g-item"><img src="/website pictures/permanent led light warm white.webp" alt="Home roofline with warm white permanent LED lighting" loading="lazy"/><span class="g-tag">Everyday</span></div>
+      <div class="g-item"><img src="/website pictures/permanent led light grinch.webp" alt="Home with green holiday permanent LED lighting" loading="lazy"/><span class="g-tag">Holiday Green</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PERMANENT -->
 <section class="benefits-section" id="benefits">
   <div class="section-inner">
     <div class="benefits-inner">
-      <div class="benefits-visual fade-up">
-        <div class="benefits-visual-inner">
-          <span class="benefits-visual-icon">💡</span>
-          <div class="benefits-visual-label">LED SYSTEM</div>
-          <div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
-            <div style="padding:6px 14px;background:rgba(76,187,23,0.15);border:1px solid rgba(76,187,23,0.3);border-radius:50px;font-size:0.7rem;font-family:'Inter',sans-serif;color:var(--lime);font-weight:700;letter-spacing:0.1em;">APP CONTROL</div>
-            <div style="padding:6px 14px;background:rgba(76,187,23,0.15);border:1px solid rgba(76,187,23,0.3);border-radius:50px;font-size:0.7rem;font-family:'Inter',sans-serif;color:var(--lime);font-weight:700;letter-spacing:0.1em;">365 DAYS</div>
-          </div>
-        </div>
-      </div>
-      <div class="fade-up" style="transition-delay:0.15s;">
+      <div class="fade-up">
         <div class="section-label">Why It Matters</div>
-        <h2 class="section-title">Light Up <span style="color:var(--green);">Every Day</span></h2>
+        <h2 class="section-title">Why Go <span style="color:var(--green);">Permanent?</span></h2>
         <div style="margin-top:40px;">
           <div class="benefit-item">
             <div class="benefit-num">01</div>
             <div>
-              <div class="benefit-title">Zero Seasonal Hassle</div>
-              <p class="benefit-text">No more climbing ladders in December to hang lights, no tangled storage bins, and no January removal. Permanently installed means always ready — activated from your phone in seconds.</p>
+              <div class="benefit-title">Never Climb A Ladder Again</div>
+              <p class="benefit-text">No December ladder-hanging, no tangled storage bins, no January takedown. Installed once and always ready &mdash; activated from your phone in seconds.</p>
             </div>
           </div>
           <div class="benefit-item">
             <div class="benefit-num">02</div>
             <div>
-              <div class="benefit-title">Professional, Clean Aesthetic</div>
-              <p class="benefit-text">Integrated channels and concealed wiring produce a clean, architectural look that complements your home's design — not the DIY appearance of clip-on seasonal lights.</p>
+              <div class="benefit-title">A Clean, Architectural Look</div>
+              <p class="benefit-text">Concealed channels and hidden wiring create a crisp, built-in finish that complements your home &mdash; not the DIY look of clip-on seasonal lights.</p>
             </div>
           </div>
           <div class="benefit-item">
             <div class="benefit-num">03</div>
             <div>
-              <div class="benefit-title">Year-Round Value</div>
-              <p class="benefit-text">Christmas lights for 3 weeks a year represent poor value. Permanent LED lighting transforms your home's exterior 365 days — from subtle warm white accents to vivid holiday displays.</p>
+              <div class="benefit-title">Value Every Single Night</div>
+              <p class="benefit-text">Seasonal lights work three weeks a year. Permanent LED transforms your home 365 nights &mdash; subtle warm white on weekdays, vivid displays for every occasion.</p>
             </div>
           </div>
           <div class="benefit-item">
             <div class="benefit-num">04</div>
             <div>
-              <div class="benefit-title">Increases Property Appeal</div>
-              <p class="benefit-text">Professionally installed architectural lighting elevates your home's perceived value and makes it stand out in your neighbourhood — both as a daily feature and during seasonal celebrations.</p>
+              <div class="benefit-title">Boosts Curb Appeal</div>
+              <p class="benefit-text">Professionally installed architectural lighting elevates your home's presence and makes it stand out in the neighbourhood &mdash; every day and every holiday.</p>
             </div>
           </div>
         </div>
+      </div>
+      <div class="benefits-visual fade-up" style="transition-delay:0.15s; background:#060b16; border-color:rgba(255,255,255,0.1);">
+        <img src="/website pictures/Permanent led light %233.avif" alt="Permanent LED lighting on a home at night" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9;"/>
+        <div style="position:absolute; inset:0; background:linear-gradient(to top,rgba(6,11,22,0.8),transparent 55%);"></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FINANCING -->
+<div class="finance-band">
+  <div class="section-inner finance-inner">
+    <div>
+      <div class="section-label" style="color:#7fd4ff;">Own It Sooner</div>
+      <h2 style="font-family:'Anton',sans-serif; font-size:clamp(30px,4vw,52px); text-transform:uppercase; line-height:1; color:#fff;">Flexible <span style="color:#7fd4ff;">0% Financing</span> Available</h2>
+      <p style="color:rgba(255,255,255,0.6); margin-top:14px; max-width:540px; line-height:1.65;">Light up your home now and pay over time. Ask about our 0% payment options through Klarna when you request your quote &mdash; no pressure, no surprises.</p>
+    </div>
+    <div style="text-align:center;">
+      <div class="finance-0">0%</div>
+      <div style="letter-spacing:0.2em; text-transform:uppercase; font-size:0.75rem; color:rgba(255,255,255,0.5); font-family:'Inter',sans-serif;">Financing Options</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
 <section class="process-section" id="process">
   <div class="section-inner">
-    <div class="fade-up" style="text-align:center;max-width:580px;margin:0 auto 0;">
+    <div class="fade-up" style="text-align:center; max-width:580px; margin:0 auto;">
       <div class="section-label" style="justify-content:center;">How It Works</div>
       <h2 class="section-title">Simple <span style="color:var(--green);">4-Step</span> Process</h2>
-      <p class="section-desc" style="max-width:100%;margin:12px auto 0;">From design consultation to year-round enjoyment — here's exactly what to expect.</p>
+      <p class="section-desc" style="max-width:100%; margin:12px auto 0;">From design consultation to year-round enjoyment &mdash; here's exactly what to expect.</p>
     </div>
     <div class="process-steps">
-      <div class="process-step fade-up"><div class="step-circle">1</div><h3 class="step-title">Design Consultation</h3><p class="step-text">We assess your roofline, discuss your design vision, and provide a detailed quote.</p></div>
-      <div class="process-step fade-up" style="transition-delay:0.15s;"><div class="step-circle">2</div><h3 class="step-title">Professional Install</h3><p class="step-text">1–2 day installation by our LED specialists. Wiring concealed, channels mounted.</p></div>
-      <div class="process-step fade-up" style="transition-delay:0.3s;"><div class="step-circle">3</div><h3 class="step-title">App Setup &amp; Training</h3><p class="step-text">Your app is configured, all holiday presets loaded, and you get a full walkthrough.</p></div>
-      <div class="process-step fade-up" style="transition-delay:0.45s;"><div class="step-circle">4</div><h3 class="step-title">Year-Round Enjoyment</h3><p class="step-text">Control your lighting from anywhere. New holiday, new colour — tap of a button.</p></div>
+      <div class="process-step fade-up"><div class="step-circle">1</div><h3 class="step-title">Design Consultation</h3><p class="step-text">We assess your roofline, discuss your vision, and provide a detailed quote.</p></div>
+      <div class="process-step fade-up" style="transition-delay:0.15s;"><div class="step-circle">2</div><h3 class="step-title">Professional Install</h3><p class="step-text">1&ndash;2 day install by our LED specialists. Wiring concealed, Pro Series channels mounted.</p></div>
+      <div class="process-step fade-up" style="transition-delay:0.3s;"><div class="step-circle">3</div><h3 class="step-title">App Setup &amp; Training</h3><p class="step-text">Your app is configured, holiday presets loaded, and you get a full walkthrough.</p></div>
+      <div class="process-step fade-up" style="transition-delay:0.45s;"><div class="step-circle">4</div><h3 class="step-title">Year-Round Enjoyment</h3><p class="step-text">Control your lighting from anywhere. New holiday, new colour &mdash; one tap.</p></div>
     </div>
   </div>
 </section>
 
+<!-- DEALER TRUST BAND -->
+<div class="dealer-band">
+  <div class="section-inner">
+    <div class="dealer-grid fade-up">
+      <div class="dealer-item"><span class="di">&#10022;</span>Prairie Lighting Authorized Dealer</div>
+      <div class="dealer-item"><span class="di">&#127809;</span>Locally Owned &middot; Canadian</div>
+      <div class="dealer-item"><span class="di">&#11088;</span>5-Star Google Rated</div>
+      <div class="dealer-item"><span class="di">&#128737;&#65039;</span>Workmanship Warranty</div>
+      <div class="dealer-item"><span class="di">&#9989;</span>WorkSafeBC Registered</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
 <section class="faq-section" id="faq">
   <div class="section-inner">
-    <div class="fade-up" style="text-align:center;max-width:640px;margin:0 auto;">
+    <div class="fade-up" style="text-align:center; max-width:640px; margin:0 auto;">
       <div class="section-label" style="justify-content:center;">Common Questions</div>
       <h2 class="section-title">LED Lighting <span style="color:var(--green);">FAQs</span></h2>
     </div>
     <div class="faq-list fade-up" style="transition-delay:0.1s;">
       <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><h3>What lights do you install?</h3><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region"><p>We exclusively install the Prairie Lighting 30MM 24V Pro Series &mdash; a premium addressable RGBW system with a 140&deg; beam angle, 100,000+ hour lifespan, and a lifetime warranty. As an authorized Prairie Lighting dealer, we never use cheap knock-off products.</p></div>
+      </div>
+      <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><h3>Is the lighting truly permanent?</h3><span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a" role="region"><p>Yes. Permanent LED lighting is professionally installed with concealed mounting channels, weatherproof connectors, and integrated wiring — designed to remain on your home year-round without seasonal removal. The LEDs themselves are rated for 50,000+ hours of operation.</p></div>
+        <div class="faq-a" role="region"><p>Yes. Permanent LED lighting is professionally installed with concealed mounting channels, weatherproof connectors, and integrated wiring &mdash; designed to remain on your home year-round without seasonal removal. The Pro Series LEDs are rated for 100,000+ hours of operation.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><h3>How is the lighting controlled?</h3><span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a" role="region"><p>The system is controlled via a dedicated smartphone app (iOS and Android). You can select any colour, brightness, and animation pattern. Pre-programmed holiday themes are available for Christmas, Halloween, Canada Day, and more — one tap to change your display.</p></div>
+        <div class="faq-a" role="region"><p>The system is controlled via a dedicated smartphone app (iOS and Android). You can select any colour, brightness, and animation pattern. Pre-programmed holiday themes are available for Christmas, Halloween, Canada Day, and more &mdash; one tap to change your display.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><h3>Do you offer financing?</h3><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region"><p>Yes. We offer flexible 0% financing options so you can light up your home now and pay over time. Ask about our Klarna payment plans when you request a quote.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><h3>What does installation involve?</h3><span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a" role="region"><p>Our installation team mounts LED track channels along your roofline, gables, and architectural features. Wiring is concealed as much as possible and connected to a dedicated outdoor power supply. A typical residential installation takes 1–2 days.</p></div>
+        <div class="faq-a" role="region"><p>Our team mounts Pro Series LED track channels along your roofline, gables, and architectural features. Wiring is concealed as much as possible and connected to a dedicated outdoor power supply. A typical residential installation takes 1&ndash;2 days.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><h3>How much does it cost to run permanently installed LED lights?</h3><span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a" role="region"><p>Permanent LED systems are extremely energy-efficient. A typical residential roofline installation (approx. 100–200 ft) consumes less electricity than a few standard light bulbs when running at full brightness — typically under $10–$20/month depending on usage.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><h3>What happens if an LED section fails?</h3><span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a" role="region"><p>Individual LED sections can be replaced without rewiring the entire system. We offer a warranty on parts and labour, and annual maintenance inspections to ensure your system continues to perform reliably year-round.</p></div>
+        <button class="faq-q" aria-expanded="false"><h3>How much does it cost to run?</h3><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region"><p>Permanent LED systems are extremely energy-efficient. A typical residential roofline installation (approx. 100&ndash;200 ft) consumes less electricity than a few standard light bulbs at full brightness &mdash; typically under $10&ndash;$20/month depending on usage.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-
 <!-- Related Services -->
-<section style="padding:80px 0;background:var(--surface);border-top:1px solid rgba(76,187,23,0.08);">
-  <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
-    <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--lime);margin-bottom:12px;font-family:'Inter',sans-serif;">More From AClean</p>
-    <h2 style="font-family:'Anton',sans-serif;font-size:clamp(26px,3.5vw,40px);letter-spacing:-0.01em;text-transform:uppercase;color:#fff;margin-bottom:36px;">Related Services</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-      <a href="/services/commercial-exterior-cleaning/" style="display:block;padding:24px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;text-decoration:none;" onmouseover="this.style.borderColor='rgba(76,187,23,0.4)';this.style.background='rgba(76,187,23,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
-        <div style="font-size:1.5rem;margin-bottom:10px;">🏢</div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.05em;color:#fff;margin-bottom:6px;">Commercial Exterior Cleaning</div>
-        <div style="font-size:0.78rem;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;line-height:1.5;">Full building exterior clean</div>
-      </a>      <a href="/services/house-washing/" style="display:block;padding:24px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;text-decoration:none;" onmouseover="this.style.borderColor='rgba(76,187,23,0.4)';this.style.background='rgba(76,187,23,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
-        <div style="font-size:1.5rem;margin-bottom:10px;">💧</div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.05em;color:#fff;margin-bottom:6px;">House Washing</div>
-        <div style="font-size:0.78rem;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;line-height:1.5;">Full exterior soft-wash clean</div>
-      </a>      <a href="/services/window-cleaning/" style="display:block;padding:24px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;text-decoration:none;" onmouseover="this.style.borderColor='rgba(76,187,23,0.4)';this.style.background='rgba(76,187,23,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
-        <div style="font-size:1.5rem;margin-bottom:10px;">🪟</div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.05em;color:#fff;margin-bottom:6px;">Window Cleaning</div>
-        <div style="font-size:0.78rem;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;line-height:1.5;">Crystal-clear inside & out</div>
-      </a>      <a href="/services/roof-washing/" style="display:block;padding:24px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;text-decoration:none;" onmouseover="this.style.borderColor='rgba(76,187,23,0.4)';this.style.background='rgba(76,187,23,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
-        <div style="font-size:1.5rem;margin-bottom:10px;">🏠</div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.05em;color:#fff;margin-bottom:6px;">Roof Washing</div>
-        <div style="font-size:0.78rem;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;line-height:1.5;">Soft-wash moss & algae removal</div>
-      </a>    </div>
+<section style="padding:80px 0; background:var(--surface); border-top:1px solid rgba(76,187,23,0.08);">
+  <div style="max-width:1200px; margin:0 auto; padding:0 40px;">
+    <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--lime); margin-bottom:12px; font-family:'Inter',sans-serif;">More From AClean</p>
+    <h2 style="font-family:'Anton',sans-serif; font-size:clamp(26px,3.5vw,40px); letter-spacing:-0.01em; text-transform:uppercase; color:#fff; margin-bottom:36px;">Related Services</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;">
+      <a href="/services/commercial-exterior-cleaning/" style="display:block; padding:24px 20px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:12px; text-decoration:none;" onmouseover="this.style.borderColor='rgba(76,187,23,0.4)';this.style.background='rgba(76,187,23,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
+        <div style="font-size:1.5rem; margin-bottom:10px;">&#127970;</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:0.05em; color:#fff; margin-bottom:6px;">Commercial Exterior Cleaning</div>
+        <div style="font-size:0.78rem; color:rgba(255,255,255,0.4); font-family:'Inter',sans-serif; line-height:1.5;">Full building exterior clean</div>
+      </a>
+      <a href="/services/house-washing/" style="display:block; padding:24px 20px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:12px; text-decoration:none;" onmouseover="this.style.borderColor='rgba(76,187,23,0.4)';this.style.background='rgba(76,187,23,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
+        <div style="font-size:1.5rem; margin-bottom:10px;">&#128167;</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:0.05em; color:#fff; margin-bottom:6px;">House Washing</div>
+        <div style="font-size:0.78rem; color:rgba(255,255,255,0.4); font-family:'Inter',sans-serif; line-height:1.5;">Full exterior soft-wash clean</div>
+      </a>
+      <a href="/services/window-cleaning/" style="display:block; padding:24px 20px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:12px; text-decoration:none;" onmouseover="this.style.borderColor='rgba(76,187,23,0.4)';this.style.background='rgba(76,187,23,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
+        <div style="font-size:1.5rem; margin-bottom:10px;">&#129003;</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:0.05em; color:#fff; margin-bottom:6px;">Window Cleaning</div>
+        <div style="font-size:0.78rem; color:rgba(255,255,255,0.4); font-family:'Inter',sans-serif; line-height:1.5;">Crystal-clear inside &amp; out</div>
+      </a>
+      <a href="/services/roof-washing/" style="display:block; padding:24px 20px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:12px; text-decoration:none;" onmouseover="this.style.borderColor='rgba(76,187,23,0.4)';this.style.background='rgba(76,187,23,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
+        <div style="font-size:1.5rem; margin-bottom:10px;">&#127968;</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:0.05em; color:#fff; margin-bottom:6px;">Roof Washing</div>
+        <div style="font-size:0.78rem; color:rgba(255,255,255,0.4); font-family:'Inter',sans-serif; line-height:1.5;">Soft-wash moss &amp; algae removal</div>
+      </a>
+    </div>
   </div>
 </section>
+
+<!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="cta-bg"></div>
   <div class="section-inner">
     <div class="cta-content fade-up">
-      <div class="section-label" style="justify-content:center;margin-bottom:24px;">Ready To Start?</div>
-      <h2 class="cta-title">Get Your<br/><span class="green-glow">Free Quote</span><br/>Today</h2>
-      <p class="cta-sub">Permanent LED lighting installation for Fraser Valley homes and businesses. Year-round colour, app-controlled, professionally installed. Response within 2 hours.</p>
+      <div class="section-label" style="justify-content:center; margin-bottom:24px;">Ready To Light It Up?</div>
+      <h2 class="cta-title">Light Up<br/><span class="green-glow">Every Night</span></h2>
+      <p class="cta-sub">Prairie Lighting Pro Series permanent LED, professionally installed for Fraser Valley homes and businesses. Lifetime warranty, 0% financing, free design consult. Response within 2 hours.</p>
       <a href="tel:+16043782130" class="cta-phone">(604) 378-2130</a>
       <div class="cta-actions">
-        <a href="tel:+16043782130" class="btn-primary" style="font-size:1rem;padding:18px 44px;">
+        <a href="tel:+16043782130" class="btn-primary" style="font-size:1rem; padding:18px 44px;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           Call Now
         </a>
-        <a href="mailto:aidinzamanibusiness@outlook.com" class="btn-outline" style="font-size:1rem;padding:18px 44px;">Email Us</a>
+        <a href="mailto:aidinzamanibusiness@outlook.com" class="btn-outline" style="font-size:1rem; padding:18px 44px;">Email Us</a>
       </div>
     </div>
   </div>
@@ -555,6 +771,71 @@
       if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
     });
   });
+
+  /* ===== Interactive colour-scene switcher ===== */
+  (function(){
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const dotsGroup = document.getElementById('ledDots');
+    const glow = document.getElementById('sceneGlow');
+    const caption = document.getElementById('sceneCaption');
+    const btns = document.querySelectorAll('#sceneBtns .scene-btn');
+    if (!dotsGroup) return;
+
+    // Roofline segments (peak + eave) in the 600x360 viewBox
+    const segments = [
+      { a:[96,184],  b:[300,84]  },
+      { a:[300,84],  b:[504,184] },
+      { a:[124,181], b:[476,181] }
+    ];
+    const dots = [];
+    segments.forEach(seg => {
+      const dx = seg.b[0]-seg.a[0], dy = seg.b[1]-seg.a[1];
+      const len = Math.hypot(dx, dy);
+      const n = Math.max(2, Math.round(len/24));
+      for (let i=0; i<=n; i++){
+        const t = i/n;
+        const c = document.createElementNS(svgNS,'circle');
+        c.setAttribute('cx', (seg.a[0]+dx*t).toFixed(1));
+        c.setAttribute('cy', (seg.a[1]+dy*t).toFixed(1));
+        c.setAttribute('r', '4.2');
+        c.setAttribute('class','led-dot');
+        dotsGroup.appendChild(c);
+        dots.push(c);
+      }
+    });
+
+    const scenes = {
+      everyday:  { name:'Everyday · Warm White', note:'Elegant warm-white curb appeal, 365 nights a year.', colors:['#ffe9c7'], glow:'#ffe9c7' },
+      christmas: { name:'Christmas', note:'Classic red & green, right across your roofline.', colors:['#ff3b3b','#39d353'], glow:'#39d353' },
+      halloween: { name:'Halloween', note:'Spooky orange & purple — one tap in the app.', colors:['#ff7a18','#a24bff'], glow:'#ff7a18' },
+      canada:    { name:'Canada Day', note:'Red & white — proudly Canadian.', colors:['#ff2e2e','#ffffff'], glow:'#ff5252' },
+      gameday:   { name:'Game Day', note:'Your team colours for every big game.', colors:['#2ca3ff','#ffd23b'], glow:'#2ca3ff' },
+      party:     { name:'Party Mode', note:'Full RGB rainbow — animated and alive.', colors:'rainbow', glow:'#a24bff' }
+    };
+
+    let raf = null;
+    function stopParty(){ if (raf){ cancelAnimationFrame(raf); raf = null; } }
+    function paint(colors){
+      dots.forEach((d,i) => { const col = colors[i % colors.length]; d.style.fill = col; d.style.color = col; });
+    }
+    function startParty(){
+      stopParty();
+      const step = (ts) => {
+        dots.forEach((d,i) => { const hue = ((ts/16) + i*24) % 360; const col = 'hsl('+hue+',90%,58%)'; d.style.fill = col; d.style.color = col; });
+        raf = requestAnimationFrame(step);
+      };
+      raf = requestAnimationFrame(step);
+    }
+    function setScene(key){
+      const sc = scenes[key]; if (!sc) return;
+      glow.style.setProperty('--scene-color', sc.glow);
+      caption.innerHTML = '<div class="sc-name">'+sc.name+'</div><div class="sc-note">'+sc.note+'</div>';
+      if (sc.colors === 'rainbow') startParty(); else { stopParty(); paint(sc.colors); }
+      btns.forEach(b => b.classList.toggle('active', b.dataset.scene === key));
+    }
+    btns.forEach(b => b.addEventListener('click', () => setScene(b.dataset.scene)));
+    setScene('everyday');
+  })();
 </script>
 </body>
 </html>
