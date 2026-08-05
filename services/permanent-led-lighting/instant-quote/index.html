@@ -114,6 +114,15 @@
   .qz-cta.call{ background:transparent; border:1.5px solid rgba(76,187,23,0.5); color:#fff; }
   .qz-cta:hover{ transform:translateY(-2px); }
   .qz-fine{ text-align:center; font-family:'Inter',sans-serif; font-size:0.75rem; color:rgba(255,255,255,0.35); margin-top:22px; line-height:1.6; max-width:560px; margin-left:auto; margin-right:auto; }
+  /* Intro / cover screen */
+  .qz-intro{ max-width:560px; margin:0 auto; text-align:center; animation:fade .4s ease; }
+  .qz-intro-media{ position:relative; border-radius:18px; overflow:hidden; margin-bottom:24px; border:1px solid rgba(255,255,255,0.08); box-shadow:0 20px 50px rgba(0,0,0,0.5); }
+  .qz-intro-media img{ width:100%; height:220px; object-fit:cover; display:block; }
+  .qz-intro-media::after{ content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.4),transparent 55%); pointer-events:none; }
+  .qz-intro-title{ font-family:'Anton',sans-serif; font-size:clamp(25px,3.4vw,38px); line-height:1.06; text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:6px; }
+  .qz-intro .qz-continue{ margin-top:26px; }
+  .qz-intro-meta{ font-family:'Inter',sans-serif; font-size:0.85rem; color:rgba(255,255,255,0.5); margin-top:14px; letter-spacing:0.02em; }
+  .qz-intro-reviews{ margin-top:30px; padding-top:26px; border-top:1px solid rgba(255,255,255,0.08); }
   @media (max-width:640px){
     .qz-grid.three{ grid-template-columns:repeat(2,1fr); }
     .qz-card img{ height:130px; }
@@ -124,6 +133,7 @@
     .qz-est{ font-size:1.15rem; }
     .qz-x{ font-size:1.55rem; }
     .qz-close{ right:14px; }
+    .qz-intro-media img{ height:180px; }
   }
 </style>
 </head>
@@ -145,14 +155,29 @@
     </div>
     <a href="/services/permanent-led-lighting/" class="qz-close" aria-label="Close estimator">&times;</a>
   </div>
-  <div class="qz-progress"><div class="qz-progress-fill" id="bar"></div></div>
+  <div class="qz-progress" id="progress" style="display:none;"><div class="qz-progress-fill" id="bar"></div></div>
 </div>
 
 <div class="qz-wrap">
+
+  <!-- INTRO / COVER SCREEN -->
+  <div id="qzIntro" class="qz-intro">
+    <div class="qz-intro-media">
+      <img src="/website pictures/Permanent LED light %234.avif" alt="Home with AClean permanent LED lighting installed along the roofline"/>
+    </div>
+    <h1 class="qz-intro-title">Tell us about your home &amp; get an <span class="rgb-text">instant estimate</span> — without a phone call</h1>
+    <button type="button" class="qz-continue qz-intro-btn" id="startBtn">Get My Instant Estimate</button>
+    <p class="qz-intro-meta">Free · Takes about 2 minutes</p>
+    <div class="qz-intro-reviews">
+      <!-- Trustindex Google Reviews widget -->
+      <script defer async src='https://cdn.trustindex.io/loader.js?71ac58c78fb3524102768ed9101'></script>
+    </div>
+  </div>
+
   <button class="qz-back" id="back" style="visibility:hidden;">&lsaquo; Back</button>
 
   <!-- STEP 1: SIZE -->
-  <section class="qz-step active" data-step="0">
+  <section class="qz-step" data-step="0">
     <h2 class="qz-title">How big is your home?</h2>
     <p class="qz-sub">Approximately — you can fine-tune later.</p>
     <div class="qz-grid">
@@ -430,7 +455,12 @@
     try{ fetch('https://formspree.io/f/meenyplk',{method:'POST',body:new FormData(document.getElementById('postForm')),headers:{'Accept':'application/json'}}); }catch(e){}
   }
 
-  show(0);
+  // Intro cover -> start the wizard
+  document.getElementById('startBtn').addEventListener('click', ()=>{
+    document.getElementById('qzIntro').style.display = 'none';
+    document.getElementById('progress').style.display = '';
+    show(0);
+  });
 })();
 </script>
 </body>
