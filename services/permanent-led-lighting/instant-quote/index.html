@@ -22,22 +22,27 @@
   :root{ --green:#4CBB17; --lime:#8DFF4F; --charcoal:#0D0D0D; --surface:#141414; --elevated:#1c1c1c; }
   *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
   html{ scroll-behavior:smooth; }
-  body{ background:var(--charcoal); color:#fff; font-family:'Montserrat',sans-serif; -webkit-font-smoothing:antialiased; min-height:100vh; }
-  body::before{ content:''; position:fixed; inset:0; background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(76,187,23,0.08),transparent 60%); pointer-events:none; z-index:0; }
+  body{ background:var(--charcoal); color:#fff; font-family:'Montserrat',sans-serif; -webkit-font-smoothing:antialiased; height:100vh; overflow:hidden; }
+  /* ---- Popup shell: landing page visible behind, press off to learn more ---- */
+  .qz-bg-frame{ position:fixed; inset:0; width:100vw; height:100vh; border:0; z-index:0; pointer-events:none; }
+  .qz-scrim{ position:fixed; inset:0; z-index:1; display:flex; align-items:center; justify-content:center; padding:32px 20px; background:rgba(4,6,10,0.62); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); cursor:pointer; animation:qzfade .35s ease; }
+  @keyframes qzfade{ from{ opacity:0; } to{ opacity:1; } }
+  .qz-modal{ position:relative; z-index:2; width:100%; max-width:680px; max-height:92vh; display:flex; flex-direction:column; background:var(--charcoal); border:1px solid rgba(255,255,255,0.1); border-radius:22px; overflow:hidden; cursor:default; box-shadow:0 40px 120px rgba(0,0,0,0.7),0 0 0 1px rgba(76,187,23,0.14),0 0 60px rgba(76,187,23,0.08); animation:qzpop .4s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes qzpop{ from{ opacity:0; transform:translateY(18px) scale(.97); } to{ opacity:1; transform:none; } }
   .rgb-text{ background:linear-gradient(90deg,#ff3b3b,#ff9e2c,#ffe14d,#4CBB17,#2ca3ff,#a24bff,#ff3b3b); background-size:300% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; animation:rgb 7s linear infinite; }
   @keyframes rgb{ to{ background-position:300% 0; } }
-  .qz-top{ position:sticky; top:0; z-index:20; background:rgba(10,10,10,0.9); backdrop-filter:blur(16px); border-bottom:1px solid rgba(255,255,255,0.06); }
-  .qz-top-inner{ position:relative; max-width:960px; margin:0 auto; padding:16px 22px; display:flex; align-items:center; justify-content:center; }
-  .qz-brand{ display:flex; align-items:center; gap:22px; }
+  .qz-top{ position:relative; z-index:20; flex-shrink:0; background:rgba(10,10,10,0.9); backdrop-filter:blur(16px); border-bottom:1px solid rgba(255,255,255,0.06); }
+  .qz-top-inner{ position:relative; max-width:960px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:center; }
+  .qz-brand{ display:flex; align-items:center; gap:15px; }
   .qz-logo{ display:flex; align-items:center; text-decoration:none; }
-  .qz-logo img{ height:118px; width:auto; }
-  .qz-x{ font-family:'Anton',sans-serif; font-size:3.1rem; font-weight:400; color:rgba(255,255,255,0.42); line-height:1; transform:translateY(-1px); }
-  .qz-est{ font-family:'Anton',sans-serif; font-size:2rem; letter-spacing:0.02em; text-transform:uppercase; color:#fff; line-height:1; }
+  .qz-logo img{ height:60px; width:auto; display:block; transform:translateY(4px); }
+  .qz-x{ font-family:'Anton',sans-serif; font-size:2rem; font-weight:400; color:rgba(255,255,255,0.42); line-height:1; }
+  .qz-est{ font-family:'Anton',sans-serif; font-size:1.5rem; letter-spacing:0.02em; text-transform:uppercase; color:#fff; line-height:1; }
   .qz-close{ position:absolute; right:22px; top:50%; transform:translateY(-50%); width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.04); color:#fff; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:1.1rem; transition:border-color .2s,background .2s; }
   .qz-close:hover{ border-color:var(--lime); background:rgba(76,187,23,0.1); }
   .qz-progress{ height:6px; background:rgba(255,255,255,0.07); }
   .qz-progress-fill{ height:100%; width:12%; background:linear-gradient(90deg,#ff3b3b,#ff9e2c,#ffe14d,#4CBB17,#2ca3ff,#a24bff); background-size:200% 100%; animation:rgb 5s linear infinite; border-radius:0 4px 4px 0; transition:width .5s cubic-bezier(.4,0,.2,1); box-shadow:0 0 16px rgba(141,255,79,0.4); }
-  .qz-wrap{ position:relative; z-index:1; max-width:900px; margin:0 auto; padding:44px 22px 100px; }
+  .qz-wrap{ position:relative; z-index:1; flex:1; overflow-y:auto; max-width:900px; width:100%; margin:0 auto; padding:32px 22px 40px; }
   .qz-back{ background:none; border:none; color:var(--lime); font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px; margin-bottom:22px; padding:6px 0; }
   .qz-back:hover{ text-decoration:underline; }
   .qz-step{ display:none; animation:fade .4s ease; }
@@ -112,15 +117,24 @@
   @media (max-width:640px){
     .qz-grid.three{ grid-template-columns:repeat(2,1fr); }
     .qz-card img{ height:130px; }
-    .qz-brand{ gap:12px; }
-    .qz-logo img{ height:80px; }
-    .qz-est{ font-size:1.2rem; }
-    .qz-x{ font-size:1.9rem; }
+    .qz-scrim{ padding:0; align-items:flex-end; }
+    .qz-modal{ max-width:none; width:100%; height:94vh; max-height:94vh; border-radius:20px 20px 0 0; border-left:0; border-right:0; border-bottom:0; }
+    .qz-brand{ gap:11px; }
+    .qz-logo img{ height:46px; }
+    .qz-est{ font-size:1.15rem; }
+    .qz-x{ font-size:1.55rem; }
     .qz-close{ right:14px; }
   }
 </style>
 </head>
 <body>
+
+<!-- Landing page visible behind the popup -->
+<iframe class="qz-bg-frame" src="/services/permanent-led-lighting/" title="AClean Permanent LED Lighting" aria-hidden="true" tabindex="-1" scrolling="no" loading="eager"></iframe>
+
+<!-- Dimmed backdrop — press off to close and learn more -->
+<div class="qz-scrim" id="scrim">
+<div class="qz-modal" role="dialog" aria-modal="true" aria-label="Instant permanent lighting estimator">
 
 <div class="qz-top">
   <div class="qz-top-inner">
@@ -265,6 +279,8 @@
   </div>
   </section>
 </div>
+</div><!-- /qz-modal -->
+</div><!-- /qz-scrim -->
 
 <!-- hidden lead form posted to Formspree -->
 <form id="postForm" action="https://formspree.io/f/meenyplk" method="POST" style="display:none;">
@@ -290,9 +306,16 @@
     const pct = Math.min(100, Math.round((i/(LAST_INPUT+1))*100)) || 12;
     bar.style.width = (i>=8?100:Math.max(12,pct)) + '%';
     back.style.visibility = (i>0 && i<7) ? 'visible' : 'hidden';
-    window.scrollTo({top:0,behavior:'smooth'});
+    const wrap = document.querySelector('.qz-wrap');
+    if(wrap) wrap.scrollTo({top:0,behavior:'smooth'});
   }
   back.addEventListener('click', ()=>{ if(cur>0) show(cur-1); });
+
+  // Press off (backdrop) or Escape -> close popup and return to the landing page to learn more
+  const HOME = '/services/permanent-led-lighting/';
+  const scrim = document.getElementById('scrim');
+  scrim.addEventListener('click', e=>{ if(e.target === scrim) window.location.href = HOME; });
+  document.addEventListener('keydown', e=>{ if(e.key === 'Escape') window.location.href = HOME; });
 
   // Single-select cards / rows -> auto advance
   document.querySelectorAll('[data-single]').forEach(el=>{
