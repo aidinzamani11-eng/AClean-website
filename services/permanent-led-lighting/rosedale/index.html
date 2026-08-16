@@ -199,14 +199,72 @@
   @media (max-width:900px){ .trio-grid{grid-template-columns:1fr;} .pro-compare{grid-template-columns:1fr;max-width:420px;} .pro-col.reg{border-radius:18px 18px 0 0;} .pro-col.pro{border-radius:0 0 18px 18px;} .pro-vs{padding:12px 0;} .led-gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;} .chip-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:768px){ nav{padding:0 20px;} .nav-links{display:none;} .mobile-menu-btn{display:flex;} .hero-content{padding:60px 20px;} .section-inner{padding:0 20px;} .footer-top{grid-template-columns:1fr;gap:26px;} .footer-bottom{flex-direction:column;gap:12px;text-align:center;} }</style>
 <link rel="stylesheet" href="/glow.css"/>
+<style id="nav-unify">
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
+.nav-dropdown > a::after { content: ''; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform 0.2s ease; display: inline-block; opacity: 0.7; }
+.nav-dropdown:hover > a::after { transform: rotate(-135deg) translateY(-2px); }
+.nav-dropdown-menu { position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%) translateY(-8px); width: 280px; background: rgba(10,10,10,0.97); border: 1px solid rgba(76,187,23,0.2); border-radius: 16px; padding: 8px; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease; backdrop-filter: blur(20px); box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(76,187,23,0.08); z-index: 200; }
+.nav-dropdown-menu::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%) rotate(45deg); width: 10px; height: 10px; background: rgba(10,10,10,0.97); border-left: 1px solid rgba(76,187,23,0.2); border-top: 1px solid rgba(76,187,23,0.2); }
+.nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.nav-dropdown-menu a { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; color: rgba(255,255,255,0.7) !important; font-size: 0.8rem !important; font-weight: 500 !important; letter-spacing: 0.03em !important; text-transform: none !important; transition: background 0.15s ease, color 0.15s ease !important; white-space: nowrap; }
+.nav-dropdown-menu a:hover { background: rgba(76,187,23,0.1); color: var(--lime) !important; }
+.nav-dropdown-menu a .ddicon { font-size: 1.1rem; flex-shrink: 0; width: 28px; text-align: center; }
+.nav-dropdown-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 4px 8px; }
+.nav-led-btn{display:inline-block;padding:8px 18px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.16);white-space:nowrap;box-shadow:0 0 18px rgba(141,255,79,0.18);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;}
+.nav-led-btn:hover{transform:translateY(-1px);border-color:rgba(141,255,79,0.55);box-shadow:0 0 30px rgba(141,255,79,0.45);}
+.nav-led-txt{display:inline-block;background:linear-gradient(90deg,#ff3b3b,#ff9e2c,#ffe14d,#4CBB17,#2ca3ff,#a24bff,#ff3b3b);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:navRGB 7s linear infinite;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;font-size:0.76rem;font-family:'Inter',sans-serif;}
+@keyframes navRGB{to{background-position:300% 0;}}
+@media (max-width: 768px){ .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,10,10,0.97); padding: 20px; gap: 20px; border-top: 1px solid rgba(255,255,255,0.08); } }
+</style>
 </head>
 <body>
 <div class="trust-ticker" aria-hidden="true"><div class="trust-track"><span class="trust-item"><span class="ti">✅</span>WorkSafeBC Registered</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">🛡️</span>Fully Insured — $5M</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">📍</span>Serving Rosedale BC</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">⭐</span>5-Star Rated</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">✦</span>Prairie Lighting Authorized Dealer</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">💡</span>Lifetime Warranty</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">💬</span>0% Financing Available</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">✅</span>WorkSafeBC Registered</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">🛡️</span>Fully Insured — $5M</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">📍</span>Serving Rosedale BC</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">⭐</span>5-Star Rated</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">✦</span>Prairie Lighting Authorized Dealer</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">💡</span>Lifetime Warranty</span><span class="trust-sep">◆</span><span class="trust-item"><span class="ti">💬</span>0% Financing Available</span><span class="trust-sep">◆</span></div></div>
 <nav id="navbar">
-  <a href="/" class="nav-logo"><img src="/brand_assets/aclean logo.webp" alt="AClean" fetchpriority="high" width="370" height="130"/></a>
-  <div class="nav-links"><a href="/">Home</a><a href="/#services">Services</a><a href="/services/commercial-window-cleaning/">Commercial</a><a href="/#areas">Areas</a><a href="/careers/">Careers</a><a href="/contact/">Contact</a></div>
-  <div class="nav-cta"><a href="tel:+16043782130" class="nav-phone">📞 (604) 378-2130</a></div>
-  <button class="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="/" class="nav-logo">
+    <img src="/brand_assets/aclean logo.webp" alt="AClean" fetchpriority="high" width="370" height="130"/>
+  </a>
+  <div class="nav-links">
+    <div class="nav-dropdown">
+      <a href="/#services">Services</a>
+      <div class="nav-dropdown-menu">
+        <a href="/services/exterior-window-cleaning/"><span class="ddicon">🪟</span>Exterior Window Cleaning</a>
+        <a href="/services/interior-window-cleaning/"><span class="ddicon">🏠</span>Interior Window Cleaning</a>
+        <a href="/services/screen-cleaning/"><span class="ddicon">🔲</span>Screen Cleaning</a>
+        <a href="/services/track-detailing/"><span class="ddicon">🔧</span>Track Detailing</a>
+        <a href="/services/solar-panel-cleaning/"><span class="ddicon">☀️</span>Solar Panel Cleaning</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/gutter-cleaning/"><span class="ddicon">🍃</span>Gutter Cleaning</a>
+        <a href="/services/soft-washing/"><span class="ddicon">🌊</span>Soft Washing</a>
+        <a href="/services/pressure-washing/"><span class="ddicon">⚡</span>Pressure Washing</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/permanent-led-lighting/"><span class="ddicon">💡</span>Permanent LED Lighting</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="/services/commercial-window-cleaning/">Commercial</a>
+      <div class="nav-dropdown-menu">
+        <a href="/services/commercial-window-cleaning/"><span class="ddicon">🪟</span>Commercial Window Cleaning</a>
+        <a href="/services/commercial-power-washing/"><span class="ddicon">⚡</span>Commercial Power Washing</a>
+        <a href="/services/storefront-cleaning/"><span class="ddicon">🏪</span>Storefront Cleaning</a>
+        <a href="/services/building-soft-washing/"><span class="ddicon">🏗️</span>Building Soft Washing</a>
+        <a href="/services/parking-lot-cleaning/"><span class="ddicon">🅿️</span>Parking Lot Cleaning</a>
+        <a href="/services/gas-station-cleaning/"><span class="ddicon">⛽</span>Gas Station Cleaning</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/commercial-window-cleaning/"><span class="ddicon">🏢</span>All Commercial Services</a>
+      </div>
+    </div>
+    <a href="/services/permanent-led-lighting/" class="nav-led-btn"><span class="nav-led-txt">Permanent Lighting</span></a>
+    <a href="/#reviews">Reviews</a>
+    <a href="/careers/">Careers</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div class="nav-cta">
+    <a href="tel:+16043782130" class="nav-phone">📞 (604) 378-2130</a>
+  </div>
+  <button class="mobile-menu-btn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <section class="page-hero">
@@ -350,5 +408,6 @@
   </div>
 </footer>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');btn.setAttribute('aria-expanded',!isOpen);});});</script>
+<script id="nav-unify-js">(function(){var b=document.querySelector('.mobile-menu-btn'),n=document.querySelector('.nav-links');if(b&&n){b.addEventListener('click',function(){b.classList.toggle('open');n.classList.toggle('open');});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){b.classList.remove('open');n.classList.remove('open');});});}})();</script>
 </body>
 </html>
