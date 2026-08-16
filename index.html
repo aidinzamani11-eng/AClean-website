@@ -257,6 +257,8 @@
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
+  /* Offset in-page anchor jumps so the fixed ticker+navbar don't cover the heading */
+  #services, #reviews, #areas { scroll-margin-top: 120px; }
   body {
     background: var(--charcoal);
     color: #fff;
@@ -3128,6 +3130,54 @@
       handle.style.left = '50%';
     });
   }, 900);
+</script>
+<script>
+  // Accurate in-page anchor scrolling. Lazy-loaded imagery above a target keeps
+  // shifting the layout for a while, so a single jump/smooth-scroll lands short of
+  // #reviews (etc.). This re-aligns repeatedly until the target position stabilises —
+  // both when arriving via /#reviews from another page and on same-page nav clicks.
+  function acScrollToHash(hash, smoothFirst) {
+    var el;
+    try { el = document.querySelector(hash); } catch (e) { return false; }
+    if (!el) return false;
+    var last = -1, tries = 0;
+    (function align() {
+      var target = Math.max(0, el.getBoundingClientRect().top + window.pageYOffset - 120);
+      window.scrollTo({ top: target, behavior: (smoothFirst && tries === 0) ? 'smooth' : 'instant' });
+      tries++;
+      if (Math.abs(target - last) > 2 && tries < 20) {
+        last = target;
+        setTimeout(align, 120);
+      }
+    })();
+    return true;
+  }
+  window.addEventListener('load', function () {
+    if (location.hash) acScrollToHash(location.hash, false);
+  });
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var hash = a.getAttribute('href');
+      if (hash.length > 1 && acScrollToHash(hash, true)) {
+        e.preventDefault();
+        history.replaceState(null, '', hash);
+      }
+    });
+  });
+</script>
+<script>
+  // Bulletproof quote-form pills. Selection normally relies on native label[for] +
+  // a visually-hidden radio, but some mobile browsers (notably iOS Safari) don't
+  // reliably toggle a hidden radio from a label tap — so select it explicitly.
+  document.querySelectorAll('.qf-pill, .qf-freq-item').forEach(function (item) {
+    item.addEventListener('click', function () {
+      var input = item.querySelector('input[type="radio"]');
+      if (input && !input.checked) {
+        input.checked = true;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+  });
 </script>
 <script>
   const menuBtn = document.querySelector('.mobile-menu-btn');

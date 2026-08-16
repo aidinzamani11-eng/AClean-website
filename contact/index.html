@@ -2519,6 +2519,20 @@
   }, 900);
 </script>
 <script>
+  // Bulletproof quote-form pills. Selection normally relies on native label[for] +
+  // a visually-hidden radio, but some mobile browsers (notably iOS Safari) don't
+  // reliably toggle a hidden radio from a label tap — so select it explicitly.
+  document.querySelectorAll('.qf-pill, .qf-freq-item').forEach(function (item) {
+    item.addEventListener('click', function () {
+      var input = item.querySelector('input[type="radio"]');
+      if (input && !input.checked) {
+        input.checked = true;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+  });
+</script>
+<script>
   const menuBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
   menuBtn.addEventListener('click', () => {
