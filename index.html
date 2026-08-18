@@ -3180,6 +3180,28 @@
   });
 </script>
 <script>
+  // Plan "Get Your Quote" buttons scroll to the quote form and preselect the plan's frequency.
+  document.querySelectorAll('.plan-cta').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var card = btn.closest('.plan-card');
+      var freq = card && card.querySelector('.plan-freq') ? card.querySelector('.plan-freq').textContent : '';
+      var map = { biannual: 'cf-fb', quarterly: 'cf-fq', monthly: 'cf-fm' };
+      var radio = document.getElementById(map[(freq || '').trim().toLowerCase()]);
+      if (radio) { radio.checked = true; radio.dispatchEvent(new Event('change', { bubbles: true })); }
+      var target = document.getElementById('contact');
+      if (!target) return;
+      // Converge on the target (lazy imagery keeps shifting layout during the scroll).
+      var last = -1, tries = 0;
+      (function align() {
+        var y = Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - 120);
+        window.scrollTo({ top: y, behavior: tries === 0 ? 'smooth' : 'instant' });
+        tries++;
+        if (Math.abs(y - last) > 2 && tries < 20) { last = y; setTimeout(align, 120); }
+      })();
+    });
+  });
+</script>
+<script>
   const menuBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
   menuBtn.addEventListener('click', () => {
