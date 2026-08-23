@@ -123,18 +123,17 @@
   .qz-cta.call{ background:transparent; border:1.5px solid rgba(76,187,23,0.5); color:#fff; }
   .qz-cta:hover{ transform:translateY(-2px); }
   /* Our-work gallery */
-  .qz-gallery-head{ text-align:center; font-family:'Bebas Neue',sans-serif; font-size:clamp(20px,3.6vw,30px); letter-spacing:0.02em; color:#fff; margin:30px 0 4px; }
-  .qz-gallery-sub{ text-align:center; font-family:'Inter',sans-serif; font-size:0.8rem; color:rgba(255,255,255,0.5); margin:0 0 14px; }
-  .qz-gallery{ display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding:2px 2px 12px; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,0.25) transparent; }
-  .qz-gallery::-webkit-scrollbar{ height:6px; }
-  .qz-gallery::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.2); border-radius:50px; }
-  .qz-shot{ position:relative; flex:0 0 240px; scroll-snap-align:center; margin:0; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 12px 30px rgba(0,0,0,0.4); }
-  .qz-shot img{ display:block; width:100%; height:180px; object-fit:cover; }
+  .qz-gallery-head{ text-align:center; font-family:'Bebas Neue',sans-serif; font-size:clamp(20px,3.6vw,30px); letter-spacing:0.02em; color:#fff; margin:36px 0 4px; }
+  .qz-gallery-sub{ text-align:center; font-family:'Inter',sans-serif; font-size:0.8rem; color:rgba(255,255,255,0.5); margin:0 0 16px; }
+  .qz-gallery{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; }
+  .qz-shot{ position:relative; margin:0; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 12px 30px rgba(0,0,0,0.4); }
+  .qz-shot img{ display:block; width:100%; height:150px; object-fit:cover; }
   .qz-shot::after{ content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(to top,rgba(0,0,0,0.6),transparent 45%); pointer-events:none; }
   .qz-shot figcaption{ position:absolute; z-index:2; left:10px; bottom:10px; background:rgba(0,0,0,0.5); backdrop-filter:blur(4px); color:#fff; font-family:'Inter',sans-serif; font-size:0.76rem; font-weight:700; letter-spacing:0.02em; padding:5px 12px; border-radius:50px; border:1px solid rgba(255,255,255,0.18); }
   .qz-gallery-note{ text-align:center; font-family:'Inter',sans-serif; font-size:0.9rem; color:rgba(255,255,255,0.6); margin:4px 0 2px; }
   .qz-gallery-note strong{ color:var(--lime); }
   /* Exact-quote queue confirmation */
+  .qz-step[data-step="9"].active{ display:flex; flex-direction:column; justify-content:center; min-height:100%; }
   .qz-confirm{ padding-top:34px; }
   .qz-confirm-check{ position:relative; width:64px; height:64px; margin:0 auto 16px; border-radius:50%; display:grid; place-items:center; font-size:32px; font-weight:700; color:#022; background:linear-gradient(135deg,#12b76a,#3ddc84); box-shadow:0 0 0 8px rgba(76,187,23,0.14),0 14px 34px rgba(61,220,132,0.4); }
   .qz-confirm-title{ position:relative; font-family:'Anton',sans-serif; font-size:clamp(30px,6vw,50px); line-height:1; letter-spacing:-0.01em; color:#fff; margin:8px 0 12px; text-transform:uppercase; }
@@ -191,7 +190,7 @@
   <div id="qzIntro" class="qz-intro">
     <div class="qz-intro-reviews">
       <!-- Trustindex Google Reviews widget -->
-      <script defer async src='https://cdn.trustindex.io/loader.js?1a3ded779e998224cf663e79751'></script>
+      <script defer async src='https://cdn.trustindex.io/loader.js?71ac58c78fb3524102768ed9101'></script>
     </div>
     <h1 class="qz-intro-title">Tell us about your home and receive an <span style="color:var(--lime);">instant estimate</span> without a phone call</h1>
     <button type="button" class="qz-continue qz-intro-btn" id="startBtn">Get My Instant Estimate →</button>
@@ -201,7 +200,7 @@
     </div>
   </div>
 
-  <button class="qz-back" id="back" style="visibility:hidden;">&lsaquo; Back</button>
+  <button class="qz-back" id="back" style="display:none;">&lsaquo; Back</button>
 
   <!-- STEP 1: SIZE -->
   <section class="qz-step" data-step="0">
@@ -322,18 +321,6 @@
       <div class="qz-save" id="save"></div>
     </div>
 
-    <div class="qz-gallery-head">See it on real Fraser Valley homes</div>
-    <p class="qz-gallery-sub">Swipe through a few of our recent installs →</p>
-    <div class="qz-gallery">
-      <figure class="qz-shot"><img src="/website pictures/architectural-gallery-32.avif" alt="Home with warm white permanent LED lighting" loading="lazy"/><figcaption>Everyday White</figcaption></figure>
-      <figure class="qz-shot"><img src="/website pictures/festive-gallery-11.avif" alt="Home with red and green Christmas permanent lighting" loading="lazy"/><figcaption>Christmas</figcaption></figure>
-      <figure class="qz-shot"><img src="/website pictures/festive-gallery-8.avif" alt="Home with purple permanent LED lighting" loading="lazy"/><figcaption>Halloween</figcaption></figure>
-      <figure class="qz-shot"><img src="/website pictures/festive-gallery-16.avif" alt="Home with red permanent LED lighting" loading="lazy"/><figcaption>Canada Day</figcaption></figure>
-      <figure class="qz-shot"><img src="/website pictures/festive-gallery-34.avif" alt="Home with purple and pink game-day lighting" loading="lazy"/><figcaption>Game Day</figcaption></figure>
-      <figure class="qz-shot"><img src="/website pictures/commercial-gallery-7.avif" alt="Commercial building with permanent LED lighting" loading="lazy"/><figcaption>Commercial</figcaption></figure>
-    </div>
-    <p class="qz-gallery-note">…and <strong>400+ more</strong> colours &amp; scenes — all changeable from your phone.</p>
-
     <div style="text-align:center;">
       <div class="qz-urgency" id="urgency">🔥 4 of 15 model-home spots left this month</div>
     </div>
@@ -344,6 +331,18 @@
     <div class="qz-reviews">
       <script defer async src='https://cdn.trustindex.io/loader.js?1a3ded779e998224cf663e79751'></script>
     </div>
+
+    <div class="qz-gallery-head">See it on real Fraser Valley homes</div>
+    <p class="qz-gallery-sub">A few of our recent installs — 400+ looks to choose from</p>
+    <div class="qz-gallery">
+      <figure class="qz-shot"><img src="/website pictures/architectural-gallery-32.avif" alt="Home with warm white permanent LED lighting" loading="lazy"/><figcaption>Everyday White</figcaption></figure>
+      <figure class="qz-shot"><img src="/website pictures/festive-gallery-11.avif" alt="Home with red and green Christmas permanent lighting" loading="lazy"/><figcaption>Christmas</figcaption></figure>
+      <figure class="qz-shot"><img src="/website pictures/festive-gallery-8.avif" alt="Home with purple permanent LED lighting" loading="lazy"/><figcaption>Halloween</figcaption></figure>
+      <figure class="qz-shot"><img src="/website pictures/festive-gallery-16.avif" alt="Home with red permanent LED lighting" loading="lazy"/><figcaption>Canada Day</figcaption></figure>
+      <figure class="qz-shot"><img src="/website pictures/festive-gallery-34.avif" alt="Home with purple and pink game-day lighting" loading="lazy"/><figcaption>Game Day</figcaption></figure>
+      <figure class="qz-shot"><img src="/website pictures/commercial-gallery-7.avif" alt="Commercial building with permanent LED lighting" loading="lazy"/><figcaption>Commercial</figcaption></figure>
+    </div>
+    <p class="qz-gallery-note">…all <strong>changeable from your phone</strong> — one app, endless scenes.</p>
   </div>
   </section>
 
@@ -353,7 +352,7 @@
       <div class="qz-confirm-check">✓</div>
       <div class="qz-selline">Request received</div>
       <h2 class="qz-confirm-title">You're in the queue!</h2>
-      <p class="qz-confirm-sub">A Fraser Valley estimator will reach out within <strong>one business day</strong> to book your free on-site measure and lock in your exact, guaranteed price.</p>
+      <p class="qz-confirm-sub">A lighting professional will reach out within <strong>one business day</strong> to book your free on-site measure and lock in your exact, guaranteed price.</p>
     </div>
     <div style="text-align:center;">
       <div class="qz-urgency">📋 Typical response time: under 24 hours</div>
@@ -389,7 +388,7 @@
     steps.forEach(s => s.classList.toggle('active', +s.dataset.step === i));
     const pct = Math.min(100, Math.round((i/(LAST_INPUT+1))*100)) || 12;
     bar.style.width = (i>=8?100:Math.max(12,pct)) + '%';
-    back.style.visibility = (i>0 && i<7) ? 'visible' : 'hidden';
+    back.style.display = (i>0 && i<7) ? 'inline-flex' : 'none';
     const wrap = document.querySelector('.qz-wrap');
     if(wrap) wrap.scrollTo({top:0,behavior:'smooth'});
   }
