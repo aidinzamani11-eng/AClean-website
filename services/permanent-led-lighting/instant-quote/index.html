@@ -98,13 +98,14 @@
   .qz-loadbar span{ display:block; height:100%; width:0; background:linear-gradient(90deg,#ff3b3b,#ff9e2c,#ffe14d,#4CBB17,#2ca3ff,#a24bff); background-size:200% 100%; animation:rgb 4s linear infinite; }
   .qz-loadpct{ font-family:'Anton',sans-serif; font-size:2rem; }
   /* Result */
-  .qz-result-card{ position:relative; border-radius:26px; overflow:hidden; padding:44px 32px; text-align:center; background:linear-gradient(150deg,#123 0%,#0a0a0a 70%); border:1px solid rgba(76,187,23,0.3); box-shadow:0 30px 80px rgba(0,0,0,0.55); }
+  .qz-result-card{ position:relative; border-radius:22px; overflow:hidden; padding:26px 28px; text-align:center; background:linear-gradient(150deg,#123 0%,#0a0a0a 70%); border:1px solid rgba(76,187,23,0.3); box-shadow:0 24px 60px rgba(0,0,0,0.5); }
   .qz-result-card::before{ content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(76,187,23,0.16),transparent 65%); pointer-events:none; }
-  .qz-selline{ position:relative; display:inline-block; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:50px; padding:6px 18px; font-family:'Inter',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--lime); margin-bottom:18px; }
-  .qz-esthead{ position:relative; font-family:'Inter',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:8px; }
-  .qz-price{ position:relative; font-family:'Anton',sans-serif; font-size:clamp(42px,8vw,84px); line-height:1; letter-spacing:-0.01em; }
-  .qz-save{ position:relative; font-family:'Bebas Neue',sans-serif; font-size:clamp(18px,3vw,26px); letter-spacing:0.03em; color:var(--lime); margin-top:12px; }
-  .qz-chips{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:26px auto 0; max-width:640px; }
+  .qz-selline{ position:relative; display:inline-block; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:50px; padding:5px 15px; font-family:'Inter',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--lime); margin-bottom:12px; }
+  .qz-esthead{ position:relative; font-family:'Inter',sans-serif; font-size:0.68rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:6px; }
+  .qz-price{ position:relative; font-family:'Anton',sans-serif; font-size:clamp(34px,6vw,60px); line-height:1; letter-spacing:-0.01em; }
+  .qz-save{ position:relative; font-family:'Bebas Neue',sans-serif; font-size:clamp(15px,2.2vw,20px); letter-spacing:0.03em; color:var(--lime); margin-top:9px; }
+  .qz-chips-head{ text-align:center; font-family:'Inter',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:12px; }
+  .qz-chips{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:0 auto 18px; max-width:640px; }
   .qz-chip{ padding:9px 16px; border-radius:50px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.03); color:rgba(255,255,255,0.7); font-family:'Inter',sans-serif; font-size:0.8rem; font-weight:600; cursor:pointer; transition:border-color .2s,background .2s,color .2s; }
   .qz-chip.on{ background:var(--green); color:#000; border-color:var(--green); }
   .qz-urgency{ display:inline-block; margin:26px 0 6px; background:rgba(255,193,7,0.14); color:#ffd23b; border-radius:50px; padding:7px 18px; font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:700; }
@@ -286,13 +287,14 @@
 
   <!-- STEP 9: RESULT -->
   <section class="qz-step" data-step="8">
+    <div class="qz-chips-head">Add areas to your quote</div>
+    <div class="qz-chips" id="chips"></div>
     <div class="qz-result-card">
       <div class="qz-selline" id="selLine">Your estimate</div>
       <div class="qz-esthead" id="estHead">Estimated Investment</div>
       <div class="qz-price" id="price">$0 – $0</div>
       <div class="qz-save" id="save"></div>
     </div>
-    <div class="qz-chips" id="chips"></div>
     <div style="text-align:center;">
       <div class="qz-urgency" id="urgency">🔥 4 of 15 model-home spots left this month</div>
     </div>
