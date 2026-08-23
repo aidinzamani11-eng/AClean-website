@@ -222,7 +222,9 @@
   .led-strip::before { content:''; position:absolute; inset:-3px 0; background:repeating-linear-gradient(90deg, var(--led-red) 0 14px, var(--led-orange) 14px 28px, var(--led-yellow) 28px 42px, var(--led-green) 42px 56px, var(--led-blue) 56px 70px, var(--led-purple) 70px 84px); background-size:84px 100%; filter:blur(0.5px) saturate(1.3) brightness(1.25); box-shadow:0 0 22px rgba(255,255,255,0.25); animation:ledMove 3s linear infinite; }
   @keyframes ledMove { to { background-position:84px 0; } }
 
-  .led-hero { position:relative; min-height:92vh; display:flex; align-items:center; overflow:hidden; padding-top:130px; }
+  .led-hero { position:relative; min-height:62vh; display:flex; align-items:center; overflow:hidden; padding:130px 0 28px; }
+  .led-hero .service-hero-content { padding-bottom:16px; }
+  .led-hero .hero-actions { margin-bottom:0; }
   .led-hero-bg { position:absolute; inset:0; background:url('/website pictures/Permanent LED light %232.avif') center 32% / cover no-repeat; }
   .led-hero-bg::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(4,7,14,0.74) 0%,rgba(4,7,14,0.5) 34%,rgba(4,7,14,0.9) 100%),radial-gradient(ellipse 75% 60% at 50% 38%,rgba(20,42,86,0.4),transparent 70%); }
   .aurora { position:absolute; width:520px; height:520px; border-radius:50%; filter:blur(85px); opacity:0.32; mix-blend-mode:screen; pointer-events:none; z-index:1; }
