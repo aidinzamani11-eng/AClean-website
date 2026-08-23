@@ -42,7 +42,7 @@
   .qz-close:hover{ border-color:var(--lime); background:rgba(76,187,23,0.1); }
   .qz-progress{ height:6px; background:rgba(255,255,255,0.07); }
   .qz-progress-fill{ height:100%; width:12%; background:linear-gradient(90deg,#ff3b3b,#ff9e2c,#ffe14d,#4CBB17,#2ca3ff,#a24bff); background-size:200% 100%; animation:rgb 5s linear infinite; border-radius:0 4px 4px 0; transition:width .5s cubic-bezier(.4,0,.2,1); box-shadow:0 0 16px rgba(141,255,79,0.4); }
-  .qz-wrap{ position:relative; z-index:1; flex:1; overflow-y:auto; max-width:900px; width:100%; margin:0 auto; padding:32px 22px 40px; }
+  .qz-wrap{ position:relative; z-index:1; flex:1; overflow-y:auto; max-width:900px; width:100%; margin:0 auto; padding:20px 22px 40px; }
   .qz-back{ background:none; border:none; color:var(--lime); font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px; margin-bottom:22px; padding:6px 0; }
   .qz-back:hover{ text-decoration:underline; }
   .qz-step{ display:none; animation:fade .4s ease; }
@@ -122,6 +122,24 @@
   .qz-cta.exact{ background:linear-gradient(135deg,#ff7a18,#ff9e2c); color:#201000; box-shadow:0 0 24px rgba(255,122,24,0.35); }
   .qz-cta.call{ background:transparent; border:1.5px solid rgba(76,187,23,0.5); color:#fff; }
   .qz-cta:hover{ transform:translateY(-2px); }
+  /* Our-work gallery */
+  .qz-gallery-head{ text-align:center; font-family:'Bebas Neue',sans-serif; font-size:clamp(20px,3.6vw,30px); letter-spacing:0.02em; color:#fff; margin:30px 0 4px; }
+  .qz-gallery-sub{ text-align:center; font-family:'Inter',sans-serif; font-size:0.8rem; color:rgba(255,255,255,0.5); margin:0 0 14px; }
+  .qz-gallery{ display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding:2px 2px 12px; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,0.25) transparent; }
+  .qz-gallery::-webkit-scrollbar{ height:6px; }
+  .qz-gallery::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.2); border-radius:50px; }
+  .qz-shot{ position:relative; flex:0 0 240px; scroll-snap-align:center; margin:0; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 12px 30px rgba(0,0,0,0.4); }
+  .qz-shot img{ display:block; width:100%; height:180px; object-fit:cover; }
+  .qz-shot::after{ content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(to top,rgba(0,0,0,0.6),transparent 45%); pointer-events:none; }
+  .qz-shot figcaption{ position:absolute; z-index:2; left:10px; bottom:10px; background:rgba(0,0,0,0.5); backdrop-filter:blur(4px); color:#fff; font-family:'Inter',sans-serif; font-size:0.76rem; font-weight:700; letter-spacing:0.02em; padding:5px 12px; border-radius:50px; border:1px solid rgba(255,255,255,0.18); }
+  .qz-gallery-note{ text-align:center; font-family:'Inter',sans-serif; font-size:0.9rem; color:rgba(255,255,255,0.6); margin:4px 0 2px; }
+  .qz-gallery-note strong{ color:var(--lime); }
+  /* Exact-quote queue confirmation */
+  .qz-confirm{ padding-top:34px; }
+  .qz-confirm-check{ position:relative; width:64px; height:64px; margin:0 auto 16px; border-radius:50%; display:grid; place-items:center; font-size:32px; font-weight:700; color:#022; background:linear-gradient(135deg,#12b76a,#3ddc84); box-shadow:0 0 0 8px rgba(76,187,23,0.14),0 14px 34px rgba(61,220,132,0.4); }
+  .qz-confirm-title{ position:relative; font-family:'Anton',sans-serif; font-size:clamp(30px,6vw,50px); line-height:1; letter-spacing:-0.01em; color:#fff; margin:8px 0 12px; text-transform:uppercase; }
+  .qz-confirm-sub{ position:relative; font-family:'Inter',sans-serif; font-size:0.98rem; line-height:1.6; color:rgba(255,255,255,0.72); max-width:440px; margin:0 auto; }
+  .qz-confirm-sub strong{ color:var(--lime); }
   .qz-fine{ text-align:center; font-family:'Inter',sans-serif; font-size:0.75rem; color:rgba(255,255,255,0.35); margin-top:22px; line-height:1.6; max-width:560px; margin-left:auto; margin-right:auto; }
   /* Intro / cover screen */
   .qz-intro{ max-width:560px; margin:0 auto; text-align:center; animation:fade .4s ease; }
@@ -303,18 +321,45 @@
       <div class="qz-price" id="price">$0 – $0</div>
       <div class="qz-save" id="save"></div>
     </div>
+
+    <div class="qz-gallery-head">See it on real Fraser Valley homes</div>
+    <p class="qz-gallery-sub">Swipe through a few of our recent installs →</p>
+    <div class="qz-gallery">
+      <figure class="qz-shot"><img src="/website pictures/architectural-gallery-32.avif" alt="Home with warm white permanent LED lighting" loading="lazy"/><figcaption>Everyday White</figcaption></figure>
+      <figure class="qz-shot"><img src="/website pictures/festive-gallery-11.avif" alt="Home with red and green Christmas permanent lighting" loading="lazy"/><figcaption>Christmas</figcaption></figure>
+      <figure class="qz-shot"><img src="/website pictures/festive-gallery-8.avif" alt="Home with purple permanent LED lighting" loading="lazy"/><figcaption>Halloween</figcaption></figure>
+      <figure class="qz-shot"><img src="/website pictures/festive-gallery-16.avif" alt="Home with red permanent LED lighting" loading="lazy"/><figcaption>Canada Day</figcaption></figure>
+      <figure class="qz-shot"><img src="/website pictures/festive-gallery-34.avif" alt="Home with purple and pink game-day lighting" loading="lazy"/><figcaption>Game Day</figcaption></figure>
+      <figure class="qz-shot"><img src="/website pictures/commercial-gallery-7.avif" alt="Commercial building with permanent LED lighting" loading="lazy"/><figcaption>Commercial</figcaption></figure>
+    </div>
+    <p class="qz-gallery-note">…and <strong>400+ more</strong> colours &amp; scenes — all changeable from your phone.</p>
+
     <div style="text-align:center;">
       <div class="qz-urgency" id="urgency">🔥 4 of 15 model-home spots left this month</div>
     </div>
     <a href="tel:+16043782130" class="qz-cta demo">📞 Ask If My Home Can Be a Model Home</a>
     <p style="text-align:center;font-family:'Inter',sans-serif;color:rgba(255,255,255,0.6);margin:22px 0 6px;">Want us to measure for an exact, guaranteed price?</p>
-    <a href="tel:+16043782130" class="qz-cta exact">Get an Exact Quote</a>
-    <a href="tel:+16043782130" class="qz-cta call">Call (604) 378-2130</a>
+    <button type="button" class="qz-cta exact" id="exactBtn">Get an Exact Quote</button>
     <p class="qz-fine">This is a ballpark estimate based on typical Fraser Valley homes at $25–$35 per linear foot of professionally installed Prairie Lighting Pro Series. Your final price depends on exact rooflines, peaks, and access — confirmed with a free on-site measure. Lifetime warranty &amp; 0% financing available.</p>
     <div class="qz-reviews">
       <script defer async src='https://cdn.trustindex.io/loader.js?1a3ded779e998224cf663e79751'></script>
     </div>
   </div>
+  </section>
+
+  <!-- STEP 10: EXACT-QUOTE QUEUE CONFIRMATION -->
+  <section class="qz-step" data-step="9">
+    <div class="qz-result-card qz-confirm">
+      <div class="qz-confirm-check">✓</div>
+      <div class="qz-selline">Request received</div>
+      <h2 class="qz-confirm-title">You're in the queue!</h2>
+      <p class="qz-confirm-sub">A Fraser Valley estimator will reach out within <strong>one business day</strong> to book your free on-site measure and lock in your exact, guaranteed price.</p>
+    </div>
+    <div style="text-align:center;">
+      <div class="qz-urgency">📋 Typical response time: under 24 hours</div>
+    </div>
+    <p style="text-align:center;font-family:'Inter',sans-serif;color:rgba(255,255,255,0.6);margin:22px 0 6px;">Don't want to wait? Skip the queue — call us right now.</p>
+    <a href="tel:+16043782130" class="qz-cta demo">📞 Call (604) 378-2130</a>
   </section>
 </div>
 </div><!-- /qz-modal -->
@@ -322,7 +367,8 @@
 
 <!-- hidden lead form posted to Formspree -->
 <form id="postForm" action="https://formspree.io/f/meenyplk" method="POST" style="display:none;">
-  <input name="_subject" value="New Instant Quote Lead — Permanent Lighting"/>
+  <input name="_subject" id="p_subject" value="New Instant Quote Lead — Permanent Lighting"/>
+  <input name="request_type" id="p_reqtype" value="Instant estimate"/>
   <input name="lead_name" id="p_name"/><input name="lead_phone" id="p_phone"/><input name="lead_email" id="p_email"/>
   <input name="home_size" id="p_size"/><input name="areas" id="p_areas"/><input name="usage" id="p_usage"/>
   <input name="goals" id="p_goals"/><input name="timing" id="p_timing"/><input name="city" id="p_city"/><input name="address" id="p_address"/>
@@ -467,6 +513,17 @@
     document.getElementById('p_demo').value= state.disc>0 ? ('Yes ('+Math.round(state.disc*100)+'% off)') : 'Standard';
     try{ fetch('https://formspree.io/f/meenyplk',{method:'POST',body:new FormData(document.getElementById('postForm')),headers:{'Accept':'application/json'}}); }catch(e){}
   }
+
+  // Exact-quote button -> flag the lead as priority + show queue confirmation
+  document.getElementById('exactBtn').addEventListener('click', ()=>{
+    const {low,high}=compute();
+    document.getElementById('p_areas').value=[...state.areas.values()].map(a=>a.label).join(', ')||'Front';
+    document.getElementById('p_estimate').value=money(low)+' – '+money(high);
+    document.getElementById('p_reqtype').value='EXACT QUOTE REQUESTED — priority on-site measure';
+    document.getElementById('p_subject').value='🔥 EXACT QUOTE REQUEST — Permanent Lighting';
+    try{ fetch('https://formspree.io/f/meenyplk',{method:'POST',body:new FormData(document.getElementById('postForm')),headers:{'Accept':'application/json'}}); }catch(e){}
+    show(9);
+  });
 
   // Intro cover -> start the wizard
   document.getElementById('startBtn').addEventListener('click', ()=>{
