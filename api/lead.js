@@ -1,18 +1,16 @@
 // Vercel serverless function — receives a website lead and creates it in Rotor CRM.
 //
 // SETUP (one time):
-//   1. In Rotor: Integrations → generate an API key (Enterprise plan). It looks like
-//      rotor_<keyId>_<keySecret>.
+//   1. In Rotor: Integrations → create an API key with the "Create Leads" scope
+//      (looks like rotor_<keyId>_<keySecret>).
 //   2. In Vercel: Project → Settings → Environment Variables → add
-//      ROTOR_API_KEY = the full key above  (for Production + Preview).
-//   3. Redeploy.
+//      ROTOR_API_KEY = the full key above (Production + Preview) → redeploy.
 //
-// Until ROTOR_API_KEY is set, this falls back to Formspree so no lead is ever lost.
-// The Rotor API must be called server-side only (the key must never reach the browser),
-// which is exactly what this function is for.
+// The Rotor API must be called server-side only (the key must never reach the
+// browser), which is exactly what this function is for. All website lead forms
+// POST here; this forwards them into Rotor.
 
 const ROTOR_ENDPOINT = 'https://api.getrotor.com/open-api/leads';
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/meenyplk'; // fallback email during setup
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -28,6 +26,12 @@ module.exports = async (req, res) => {
     return;
   }
 
+  const ROTOR_KEY = process.env.ROTOR_API_KEY;
+  if (!ROTOR_KEY) {
+    res.status(500).json({ ok: false, error: 'ROTOR_API_KEY is not configured' });
+    return;
+  }
+
   const isExact = /exact quote/i.test(String(data.request_type || ''));
 
   const lead = {
@@ -38,30 +42,26 @@ module.exports = async (req, res) => {
     address_city: data.city || undefined,
     address_state: 'BC',
     address_country: 'Canada',
-    source: data.source || 'Website — Instant Quote',
-    service_type: 'Permanent LED Lighting',
+    source: data.source || 'Website',
+    service_type: data.service_type || 'Permanent LED Lighting',
     priority: isExact ? 'high' : 'medium',
-    tags: ['website', isExact ? 'exact-quote' : 'instant-estimate'],
+    tags: ['website'].concat(
+      isExact ? ['exact-quote'] : (data.request_type ? ['instant-estimate'] : []),
+      Array.isArray(data.tags) ? data.tags : []
+    ),
     notes: [
       data.home_size && `Home: ${data.home_size}`,
+      data.services && `Services: ${data.services}`,
       data.areas && `Areas: ${data.areas}`,
       data.usage && `Usage: ${data.usage}`,
       data.goals && `Goals: ${data.goals}`,
       data.timing && `Timing: ${data.timing}`,
       data.estimate_range && `Estimate: ${data.estimate_range}`,
       data.model_home_eligible && `Model home: ${data.model_home_eligible}`,
+      data.message && `Message: ${data.message}`,
       data.request_type && `Request: ${data.request_type}`,
     ].filter(Boolean).join('\n') || undefined,
   };
-
-  const ROTOR_KEY = process.env.ROTOR_API_KEY;
-
-  // No key configured yet → keep leads flowing via Formspree.
-  if (!ROTOR_KEY) {
-    await sendFormspree(data);
-    res.status(200).json({ ok: true, crm: 'formspree-fallback' });
-    return;
-  }
 
   try {
     const r = await fetch(ROTOR_ENDPOINT, {
@@ -79,23 +79,12 @@ module.exports = async (req, res) => {
       return;
     }
 
-    // Rotor rejected it — don't drop the lead, email it via Formspree as a backstop.
     const detail = (await r.text()).slice(0, 500);
-    await sendFormspree(data);
-    res.status(200).json({ ok: true, crm: 'formspree-fallback', rotorError: r.status, detail });
+    res.status(502).json({ ok: false, error: 'Rotor rejected the lead', rotorStatus: r.status, detail });
   } catch (err) {
-    await sendFormspree(data).catch(() => {});
-    res.status(200).json({ ok: true, crm: 'formspree-fallback', note: 'rotor request failed' });
+    res.status(502).json({ ok: false, error: 'Rotor request failed', detail: String(err).slice(0, 300) });
   }
 };
-
-async function sendFormspree(data) {
-  await fetch(FORMSPREE_ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify(data),
-  });
-}
 
 function safeParse(body) {
   try { return JSON.parse(body || '{}'); } catch { return {}; }

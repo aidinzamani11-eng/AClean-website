@@ -2448,10 +2448,15 @@
     btn.disabled = true;
 
     const fd = new FormData(form);
+    const payload = Object.fromEntries(fd.entries());
+    payload.source = 'Website — Contact Form';
+    payload.service_type = 'Exterior Cleaning';
+    payload.tags = ['exterior-cleaning'];
 
-    // Submit to Formspree — replace YOUR_FORM_ID after signing up at formspree.io
-    fetch('https://formspree.io/f/meenyplk', {
-      method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+    // Send the lead to our /api/lead endpoint (forwards into Rotor CRM)
+    fetch('/api/lead', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     }).finally(() => {
       const card = form.closest('.quote-form-card');
       const header = card.querySelector('.qf-header');
