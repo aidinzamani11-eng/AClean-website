@@ -495,31 +495,33 @@
     });
   }
 
-  function postLead(){
+  // Build the lead payload from the wizard state, then send it to our own
+  // /api/lead endpoint (a Vercel function that forwards it into Rotor CRM,
+  // falling back to Formspree until the Rotor API key is configured).
+  function leadPayload(extra){
     const {low,high}=compute();
-    document.getElementById('p_name').value=state.name;
-    document.getElementById('p_phone').value=state.phone;
-    document.getElementById('p_email').value=state.email;
-    document.getElementById('p_size').value=state.sizeLabel;
-    document.getElementById('p_areas').value=[...state.areas.values()].map(a=>a.label).join(', ')||'Front';
-    document.getElementById('p_usage').value=[...state.usage].join(', ');
-    document.getElementById('p_goals').value=[...state.goals].join(', ');
-    document.getElementById('p_timing').value=state.timingLabel;
-    document.getElementById('p_city').value=state.city;
-    document.getElementById('p_address').value=state.address;
-    document.getElementById('p_estimate').value=money(low)+' – '+money(high);
-    document.getElementById('p_demo').value= state.disc>0 ? ('Yes ('+Math.round(state.disc*100)+'% off)') : 'Standard';
-    try{ fetch('https://formspree.io/f/meenyplk',{method:'POST',body:new FormData(document.getElementById('postForm')),headers:{'Accept':'application/json'}}); }catch(e){}
+    return Object.assign({
+      name: state.name, phone: state.phone, email: state.email,
+      home_size: state.sizeLabel,
+      areas: [...state.areas.values()].map(a=>a.label).join(', ')||'Front',
+      usage: [...state.usage].join(', '),
+      goals: [...state.goals].join(', '),
+      timing: state.timingLabel,
+      city: state.city, address: state.address,
+      estimate_range: money(low)+' – '+money(high),
+      model_home_eligible: state.disc>0 ? ('Yes ('+Math.round(state.disc*100)+'% off)') : 'Standard',
+      source: 'Website — Instant Quote',
+      request_type: 'Instant estimate'
+    }, extra||{});
   }
+  function sendLead(extra){
+    try{ fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(leadPayload(extra))}); }catch(e){}
+  }
+  function postLead(){ sendLead(); }
 
   // Exact-quote button -> flag the lead as priority + show queue confirmation
   document.getElementById('exactBtn').addEventListener('click', ()=>{
-    const {low,high}=compute();
-    document.getElementById('p_areas').value=[...state.areas.values()].map(a=>a.label).join(', ')||'Front';
-    document.getElementById('p_estimate').value=money(low)+' – '+money(high);
-    document.getElementById('p_reqtype').value='EXACT QUOTE REQUESTED — priority on-site measure';
-    document.getElementById('p_subject').value='🔥 EXACT QUOTE REQUEST — Permanent Lighting';
-    try{ fetch('https://formspree.io/f/meenyplk',{method:'POST',body:new FormData(document.getElementById('postForm')),headers:{'Accept':'application/json'}}); }catch(e){}
+    sendLead({ request_type: 'EXACT QUOTE REQUESTED — priority on-site measure' });
     show(9);
   });
 
