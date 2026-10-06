@@ -1,4 +1,5 @@
-// Vercel serverless function — receives a website lead and creates it in Rotor CRM.
+// Vercel serverless function — receives a website lead, forwards every submitted
+// field to the Flyra inbound webhook, and creates the lead in Rotor CRM.
 //
 // SETUP (one time):
 //   1. In Rotor: Integrations → create an API key with the "Create Leads" scope
@@ -11,6 +12,7 @@
 // POST here; this forwards them into Rotor.
 
 const ROTOR_ENDPOINT = 'https://api.getrotor.com/open-api/leads';
+const FLYRA_WEBHOOK = 'https://app.flyra.io/api/public/hooks/7d89c0ec9a8d479ab20977ad64b2379e';
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -26,11 +28,39 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const ROTOR_KEY = process.env.ROTOR_API_KEY;
-  if (!ROTOR_KEY) {
-    res.status(500).json({ ok: false, error: 'ROTOR_API_KEY is not configured' });
+  // Send both in parallel so a failure in one never blocks the other.
+  const [flyra, rotor] = await Promise.all([sendToFlyra(data, req), sendToRotor(data, name)]);
+
+  if (flyra.ok || rotor.ok) {
+    res.status(200).json({ ok: true, flyra, rotor });
     return;
   }
+  res.status(502).json({ ok: false, error: 'Lead was not delivered', flyra, rotor });
+};
+
+// Forwards every submitted field, untouched, to the Flyra inbound webhook.
+async function sendToFlyra(data, req) {
+  const payload = Object.assign({}, data, {
+    submitted_at: new Date().toISOString(),
+    page_url: req.headers.referer || undefined,
+  });
+
+  try {
+    const r = await fetch(FLYRA_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (r.ok) return { ok: true, status: r.status };
+    return { ok: false, status: r.status, detail: (await r.text()).slice(0, 500) };
+  } catch (err) {
+    return { ok: false, error: 'Flyra request failed', detail: String(err).slice(0, 300) };
+  }
+}
+
+async function sendToRotor(data, name) {
+  const ROTOR_KEY = process.env.ROTOR_API_KEY;
+  if (!ROTOR_KEY) return { ok: false, error: 'ROTOR_API_KEY is not configured' };
 
   const isExact = /exact quote/i.test(String(data.request_type || ''));
 
@@ -74,17 +104,12 @@ module.exports = async (req, res) => {
       body: JSON.stringify(lead),
     });
 
-    if (r.ok) {
-      res.status(200).json({ ok: true, crm: 'rotor', status: r.status });
-      return;
-    }
-
-    const detail = (await r.text()).slice(0, 500);
-    res.status(502).json({ ok: false, error: 'Rotor rejected the lead', rotorStatus: r.status, detail });
+    if (r.ok) return { ok: true, status: r.status };
+    return { ok: false, error: 'Rotor rejected the lead', status: r.status, detail: (await r.text()).slice(0, 500) };
   } catch (err) {
-    res.status(502).json({ ok: false, error: 'Rotor request failed', detail: String(err).slice(0, 300) });
+    return { ok: false, error: 'Rotor request failed', detail: String(err).slice(0, 300) };
   }
-};
+}
 
 function safeParse(body) {
   try { return JSON.parse(body || '{}'); } catch { return {}; }
