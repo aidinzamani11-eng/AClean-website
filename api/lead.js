@@ -62,7 +62,6 @@ async function sendToRotor(data, name) {
   const ROTOR_KEY = process.env.ROTOR_API_KEY;
   if (!ROTOR_KEY) return { ok: false, error: 'ROTOR_API_KEY is not configured' };
 
-  const isExact = /exact quote/i.test(String(data.request_type || ''));
 
   const lead = {
     name,
@@ -73,12 +72,9 @@ async function sendToRotor(data, name) {
     address_state: 'BC',
     address_country: 'Canada',
     source: data.source || 'Website',
-    service_type: data.service_type || 'Permanent LED Lighting',
-    priority: isExact ? 'high' : 'medium',
-    tags: ['website'].concat(
-      isExact ? ['exact-quote'] : (data.request_type ? ['instant-estimate'] : []),
-      Array.isArray(data.tags) ? data.tags : []
-    ),
+    service_type: data.service_type || 'Exterior Cleaning',
+    priority: 'medium',
+    tags: ['website'].concat(Array.isArray(data.tags) ? data.tags : []),
     notes: [
       data.home_size && `Home: ${data.home_size}`,
       data.services && `Services: ${data.services}`,

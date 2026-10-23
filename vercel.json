@@ -1,0 +1,134 @@
+{
+  "redirects": [
+    {
+      "source": "/services/permanent-led-lighting/abbotsford",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/abbotsford/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/abbotsford/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/abbotsford/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/agassiz",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/agassiz/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/agassiz/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/agassiz/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/chilliwack",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/chilliwack/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/chilliwack/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/chilliwack/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/cloverdale",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/cloverdale/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/cloverdale/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/cloverdale/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/cultus-lake",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/cultus-lake/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/cultus-lake/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/cultus-lake/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/harrison",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/harrison/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/harrison/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/harrison/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/hope",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/hope/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/hope/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/hope/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/langley",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/langley/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/langley/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/langley/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/maple-ridge",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/maple-ridge/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/maple-ridge/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/maple-ridge/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/mission",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/mission/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/mission/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/mission/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/rosedale",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/rosedale/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/rosedale/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/rosedale/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/surrey",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/surrey/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/surrey/",
+      "destination": "https://www.zlighting.ca/permanent-led-lighting/surrey/",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/instant-quote",
+      "destination": "https://www.zlighting.ca/contact/?ref=aclean",
+      "permanent": true
+    },
+    {
+      "source": "/services/permanent-led-lighting/instant-quote/",
+      "destination": "https://www.zlighting.ca/contact/?ref=aclean",
+      "permanent": true
+    }
+  ]
+}
