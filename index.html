@@ -494,6 +494,43 @@
     background-position: center 35%;
     background-repeat: no-repeat;
   }
+
+  /* Hero video (2026-10-23): real drone footage of an AClean job behind the headline and form.
+   * The source is vertical, so desktop shows a landscape slice biased to the lower frame (crew,
+   * poles and van); phones show it whole in the top band. Grid lines and particles hide over it. */
+  .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 64%; z-index: 0; }
+  .hero--video .hero-bg {
+    z-index: 1;
+    background:
+      linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.70) 38%, rgba(0,0,0,0.45) 62%, rgba(0,0,0,0.55) 100%),
+      linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 38%),
+      linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 25%);
+  }
+  .hero--video .hero-grid, .hero--video .particle { display: none; }
+  .hero--video .hero-glow { z-index: 1; opacity: 0.6; }
+  .hero-video-toggle {
+    position: absolute; left: 24px; bottom: 24px; z-index: 3;
+    width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+    background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.25); color: #fff;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: transform .2s ease, border-color .2s ease;
+  }
+  .hero-video-toggle svg { width: 16px; height: 16px; fill: currentColor; }
+  .hero-video-toggle .i-play { display: none; }
+  .hero-video-toggle[aria-pressed="true"] .i-play { display: block; }
+  .hero-video-toggle[aria-pressed="true"] .i-pause { display: none; }
+  .hero-video-toggle:hover { border-color: var(--lime); transform: scale(1.06); }
+  .hero-video-toggle:active { transform: scale(0.94); }
+  .hero-video-toggle:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+  @media (max-width: 768px) {
+    .hero-video { inset: 0 0 auto 0; height: 100svh; object-position: 50% 40%; }
+    .hero--video .hero-bg {
+      inset: 0 0 auto 0; height: 100svh;
+      background:
+        linear-gradient(to bottom, rgba(13,13,13,0) 50%, rgba(13,13,13,0.8) 82%, var(--charcoal) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.45) 65%, rgba(0,0,0,0.6) 100%);
+    }
+    .hero-video-toggle { top: calc(100svh - 64px); bottom: auto; left: auto; right: 16px; }
+  }
   /* Cinematic grid lines */
   .hero-grid {
     position: absolute;
@@ -2039,7 +2076,8 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="home">
+<section class="hero hero--video" id="home">
+  <video class="hero-video" id="hero-video" muted loop playsinline autoplay preload="metadata" poster="/website pictures/video/aclean-at-work-poster.jpg" aria-hidden="true" tabindex="-1"></video>
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
@@ -2051,6 +2089,27 @@
   <div class="particle" style="left:55%;bottom:25%;--dur:6s;--delay:0.5s;"></div>
   <div class="particle" style="left:70%;bottom:35%;--dur:9s;--delay:1.5s;"></div>
 
+  <button class="hero-video-toggle" type="button" aria-label="Pause background video" aria-pressed="false">
+    <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+    <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+  </button>
+  <script>
+    // Hero video: lighter encode on phones; reduced-motion visitors get the still poster.
+    (function () {
+      var v = document.getElementById('hero-video');
+      var btn = document.querySelector('.hero-video-toggle');
+      if (!v || !btn) return;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function setBtn(paused) { btn.setAttribute('aria-pressed', String(paused)); btn.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video'); }
+      v.src = window.matchMedia('(max-width: 768px)').matches
+        ? '/website pictures/video/aclean-at-work-480.mp4'
+        : '/website pictures/video/aclean-at-work-720.mp4';
+      if (reduced) { v.removeAttribute('autoplay'); setBtn(true); } else { v.play().catch(function () {}); }
+      btn.addEventListener('click', function () {
+        if (v.paused) { v.play().catch(function () {}); setBtn(false); } else { v.pause(); setBtn(true); }
+      });
+    })();
+  </script>
   <div class="hero-content">
     <div class="hero-left">
       <div class="hero-eyebrow" style="background:none;border:none;padding:0;display:block;text-transform:none;letter-spacing:normal;">
