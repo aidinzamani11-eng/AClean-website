@@ -2039,6 +2039,9 @@
 
     /* Cards get a little more air between them */
     .svc-grid { gap: 16px; }
+    /* Commercial card: full row (fills the gap) + the storefront window shot */
+    .svc-card.svc-commercial { grid-column: 1 / -1; }
+    .svc-commercial .svc-bg { background-image: url('/website pictures/window-cleaning-hero-wide.jpg') !important; background-position: center !important; }
     .ba-grid { gap: 32px; margin-top: 48px; }
     .areas-grid { gap: 16px; margin-top: 48px; }
     .area-card { padding: 28px 20px; }
@@ -2422,7 +2425,7 @@
           <div class="svc-cta">View Service →</div>
         </div>
       </a>
-      <a href="/services/commercial-window-cleaning/" class="svc-card wide fade-up">
+      <a href="/services/commercial-window-cleaning/" class="svc-card wide svc-commercial fade-up">
         <div class="svc-bg" style="background-image:url('/website pictures/web hero pic.webp');background-size:cover;background-position:center;"></div>
         <div class="svc-overlay"></div>
         <div class="svc-content">
