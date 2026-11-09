@@ -2101,6 +2101,123 @@
     .footer-inner { padding: 0 24px; }
     .footer-top { gap: 40px; }
   }
+
+  /* ── HERO, CLEAN LAYOUT (2026-11-09) ─────────────────────────────────
+     One quiet column on the left (eyebrow, headline, one line, call + rating, trust line)
+     and a white three-step quote card on the right. Scoped with .qf-light so the
+     dark contact form further down stays as it is. */
+  .hero-content { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 72px; }
+  .hero-left .hero-eyebrow {
+    display: flex; align-items: center; gap: 10px;
+    background: none; border: 0; padding: 0; border-radius: 0;
+    font-size: 0.8rem; letter-spacing: 0.16em; color: rgba(255,255,255,0.85);
+    margin: 0 0 20px;
+  }
+  .hero-left .hero-eyebrow::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px rgba(76,187,23,0.8); flex-shrink: 0; }
+  .hero-left .hero-headline { font-size: clamp(56px, 6.4vw, 96px); line-height: 0.98; margin: 0; }
+  .hero-left .hero-headline .green { background: linear-gradient(100deg, #4CBB17 0%, #8DFF4F 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-left .hero-sub { font-size: 1.15rem; line-height: 1.6; color: rgba(255,255,255,0.82); margin: 28px 0 36px; max-width: 30em; }
+  .hero-left .hero-actions { gap: 24px; margin-bottom: 36px; }
+  .hero-call { border-radius: 12px; padding: 18px 30px; }
+  .hero-call:hover { transform: translateY(-2px); }
+  .hero-call:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+  .hero-call:active { transform: translateY(0) scale(0.98); }
+  .hero-rating { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.78); text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.98rem; border-radius: 8px; padding: 4px 2px; transition: opacity 0.2s ease; }
+  .hero-rating strong { color: #fff; font-weight: 700; }
+  .hero-stars { color: #FFC531; letter-spacing: 2px; font-size: 1.1rem; }
+  .hero-rating:hover { opacity: 0.85; }
+  .hero-rating:hover span:last-child { text-decoration: underline; text-underline-offset: 3px; }
+  .hero-rating:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+  .hero-rating:active { opacity: 0.65; }
+  .hero-left .hero-badges { list-style: none; margin: 0; padding: 0; border: 0; display: flex; flex-wrap: wrap; gap: 10px 0; }
+  .hero-left .hero-badges li { font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.62); display: flex; align-items: center; }
+  .hero-left .hero-badges li + li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--green); margin: 0 16px; }
+
+  .quote-form-card.qf-light {
+    background: #fff; border: 0; border-radius: 18px; padding: 40px 36px 32px;
+    backdrop-filter: none; overflow: visible; color: #17191a;
+    box-shadow: 0 1px 2px rgba(10,30,5,0.08), 0 12px 32px rgba(10,30,5,0.18), 0 40px 90px rgba(0,0,0,0.45);
+  }
+  .qf-light::before { display: none; }
+  .qf-light .qf-header { text-align: center; margin-bottom: 28px; }
+  .qf-light .qf-title { color: #121413; font-size: clamp(1.9rem, 2.6vw, 2.5rem); line-height: 1; }
+  .qf-light .qf-lede { font-family: 'Inter', sans-serif; font-size: 0.98rem; color: #5b615d; margin: 12px 0 0; line-height: 1.5; }
+  .qf-steps { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
+  .qf-steps::before { content: ''; position: absolute; top: 15px; left: 16.66%; right: 16.66%; height: 2px; background: #e4e7e2; }
+  .qf-steps li { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .qf-step-dot { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: #fff; border: 2px solid #d9ddd6; color: #8a908b; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.85rem; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+  .qf-step-name { font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 600; color: #8a908b; }
+  .qf-steps li.is-active .qf-step-dot { background: var(--green); border-color: var(--green); color: #fff; transform: scale(1.08); box-shadow: 0 0 0 5px rgba(76,187,23,0.16); }
+  .qf-steps li.is-active .qf-step-name { color: #2c7a0a; }
+  .qf-steps li.is-done .qf-step-dot { border-color: var(--green); color: #2c7a0a; }
+
+  .qf-light .qf-row { gap: 16px; margin-bottom: 20px; }
+  .qf-light .qf-field label { font-size: 0.74rem; letter-spacing: 0.08em; color: #2a2e2b; margin-bottom: 8px; }
+  .qf-light .qf-field input { background: #f4f5f3; border: 1px solid #e2e5e0; border-radius: 10px; color: #121413; padding: 16px; font-family: 'Inter', sans-serif; font-size: 1rem; }
+  .qf-light .qf-field input::placeholder { color: #9aa09b; }
+  .qf-light .qf-field input:hover { border-color: #cdd2ca; }
+  .qf-light .qf-field input:focus { background: #fff; border-color: var(--green); box-shadow: 0 0 0 4px rgba(76,187,23,0.14); }
+  .qf-light .qf-field-error { color: #c62828; }
+  .qf-light .qf-field.has-error input { border-color: #e05555 !important; }
+  .qf-light .qf-section-label { font-size: 0.74rem; letter-spacing: 0.08em; color: #2a2e2b; margin: 0 0 14px; }
+  .qf-light .qf-section-label ~ .qf-section-label { margin-top: 28px; }
+  .qf-light .qf-checks { gap: 6px 16px; }
+  .qf-light .qf-check { padding: 8px 0; }
+  .qf-light .qf-check-box { border-color: #c4cac1; background: #fff; }
+  .qf-light .qf-check-label { color: #3d423e; font-size: 0.9rem; }
+  .qf-light .qf-check input:checked ~ .qf-check-label { color: #121413; }
+  .qf-light .qf-check input:checked ~ .qf-check-box::after { border-color: #fff; }
+  .qf-light .qf-check input:focus-visible ~ .qf-check-box { outline: 2px solid var(--green); outline-offset: 2px; }
+  .qf-light .qf-pills, .qf-light .qf-freq { gap: 8px; }
+  .qf-light .qf-pill label, .qf-light .qf-freq-item label { background: #f4f5f3; border: 1px solid #e2e5e0; color: #3d423e; padding: 10px 16px; font-size: 0.85rem; border-radius: 10px; transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease; }
+  .qf-light .qf-pill label:hover, .qf-light .qf-freq-item label:hover { border-color: #b9c0b5; color: #121413; }
+  .qf-light .qf-pill input:checked + label, .qf-light .qf-freq-item input:checked + label { background: #eef8e8; border-color: var(--green); color: #256b08; }
+  .qf-light .qf-pill input:focus-visible + label, .qf-light .qf-freq-item input:focus-visible + label { outline: 2px solid var(--green); outline-offset: 2px; }
+  .qf-light .qf-z-note { margin: 18px 0 0; font-family: 'Inter', sans-serif; font-size: 0.82rem; line-height: 1.5; color: #6b716c; }
+  .qf-light .qf-z-note a { color: #2c7a0a; text-decoration: underline; text-underline-offset: 3px; }
+  .qf-light .qf-z-note a:hover { color: #121413; }
+  .qf-light .qf-z-note a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 2px; }
+  .qf-light .qf-submit { margin-top: 8px; padding: 18px; font-size: 0.95rem; border-radius: 12px; box-shadow: 0 6px 18px rgba(76,187,23,0.35); }
+  .qf-light .qf-submit:hover { box-shadow: 0 10px 26px rgba(76,187,23,0.45); }
+  .qf-light .qf-submit:focus-visible { outline: 2px solid #121413; outline-offset: 3px; }
+  .qf-light .qf-nav { display: grid; grid-template-columns: auto 1fr; gap: 12px; margin-top: 28px; }
+  .qf-light .qf-nav .qf-submit { margin-top: 0; }
+  .qf-back { background: none; border: 1px solid #d9ddd6; border-radius: 12px; padding: 0 22px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; color: #3d423e; cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease; }
+  .qf-back:hover { border-color: #9ea59b; color: #121413; }
+  .qf-back:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+  .qf-back:active { transform: scale(0.97); }
+  .qf-light .qf-privacy { color: #7a807b; font-size: 0.78rem; margin-top: 14px; }
+  .qf-light .qf-success-title { color: #121413; }
+  .qf-light .qf-success-sub { color: #5b615d; }
+  .qf-light .qf-success-note { color: #7a807b; }
+  .qf-light .qf-success-phone { color: #2c7a0a; }
+  .qf-step[hidden] { display: none; }
+  @media (min-width: 1025px) {
+    /* Two-line headline like the reference; card top stays put while steps change height */
+    .hero { align-items: flex-start; }
+    .hero-content { align-items: start; padding-top: 96px; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+    .hero-left { padding-top: 40px; }
+    .hero-left .hero-headline { white-space: nowrap; font-size: clamp(52px, 4.9vw, 80px); }
+  }
+
+  @media (max-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr; gap: 56px; }
+  }
+  @media (max-width: 768px) {
+    .hero-left .hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 16px; }
+    .hero-left .hero-headline { font-size: clamp(46px, 13vw, 64px); }
+    .hero-left .hero-sub { font-size: 1.02rem; margin: 20px 0 32px; }
+    .hero-left .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
+    .hero-left .hero-actions .hero-call { align-self: stretch; justify-content: center; }
+    .hero-left .hero-badges { display: flex; padding: 0; }
+    .hero-left .hero-badges li { font-size: 0.7rem; }
+    .hero-left .hero-badges { gap: 10px 18px; }
+    .hero-left .hero-badges li::before, .hero-left .hero-badges li + li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--green); margin: 0 8px 0 0; }
+    .quote-form-card.qf-light { padding: 32px 22px 26px; border-radius: 18px; }
+    .qf-light .qf-row { grid-template-columns: 1fr; gap: 16px; margin-bottom: 16px; }
+    .qf-light .qf-field input { padding: 15px 16px !important; }
+    .qf-step-name { font-size: 0.72rem; }
+  }
 </style>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -2216,96 +2333,111 @@
   </script>
   <div class="hero-content">
     <div class="hero-left">
-      <div class="hero-eyebrow" style="background:none;border:none;padding:0;display:block;text-transform:none;letter-spacing:normal;">
-        <!-- Trustindex hero review widget -->
-        <script defer async src='https://cdn.trustindex.io/loader.js?f591a237853230154b8632b90a1'></script>
-      </div>
+      <p class="hero-eyebrow">Chilliwack &amp; Fraser Valley exterior cleaning</p>
       <h1 class="hero-headline">
-        Dirty Windows?<br/>
-        <span class="green">We Can</span><br/>
-        Fix That.
+        Dirty windows?<br/>
+        <span class="green">We can fix that.</span>
       </h1>
-      <p class="hero-sub">Top-rated exterior cleaning in Chilliwack &amp; Fraser Valley. Local, professional exterior cleaning that keeps your property looking its best.</p>
+      <p class="hero-sub">Windows, gutters, roofs and siding, cleaned by a local crew that shows up on time and leaves your place looking its best.</p>
       <div class="hero-actions">
-        <a href="/contact/" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Get Your Quote
+        <a href="tel:+12364731857" class="btn-primary hero-call">Call (236) 473-1857</a>
+        <a href="#reviews" class="hero-rating" aria-label="Rated 5.0 from 190+ Google reviews, read reviews">
+          <span class="hero-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <strong>5.0</strong><span>190+ Google reviews</span>
         </a>
-        <a href="#services" class="btn-outline">View Services</a>
       </div>
-      <div class="hero-badges">
-        <div class="hero-badge"><span class="icon">🛡</span>Fully Insured</div>
-        <div class="hero-badge"><span class="icon">✅</span>WorkSafeBC</div>
-      </div>
+      <ul class="hero-badges">
+        <li>Fully insured</li>
+        <li>WorkSafeBC covered</li>
+        <li>Replies within 2 hours</li>
+      </ul>
     </div>
     <div class="hero-visual">
-      <div class="quote-form-card fade-up" style="transition-delay:0.15s;">
+      <div class="quote-form-card qf-light fade-up" style="transition-delay:0.15s;">
         <div class="qf-header">
-          <div class="qf-eyebrow">No Obligation, Free Quote</div>
-          <div class="qf-title">Get Your <span>Free</span> Quote</div>
+          <div class="qf-title">Get your free quote</div>
+          <p class="qf-lede">About a minute. We reply within 2 hours.</p>
+          <ol class="qf-steps" aria-label="Quote steps">
+            <li class="is-active" aria-current="step"><span class="qf-step-dot">1</span><span class="qf-step-name">Your details</span></li>
+            <li><span class="qf-step-dot">2</span><span class="qf-step-name">Services</span></li>
+            <li><span class="qf-step-dot">3</span><span class="qf-step-name">Your home</span></li>
+          </ol>
         </div>
-        <form id="form-hero" onsubmit="handleQuote(event,this)">
+        <form id="form-hero" data-steps onsubmit="handleQuote(event,this)" novalidate>
           <input type="hidden" name="_subject" value="New Quote Request — AClean"/>
           <input type="hidden" name="services" value=""/>
-          <div class="qf-row">
-            <div class="qf-field">
-              <label for="qf-name">First Name</label>
-              <input type="text" id="qf-name" name="name" placeholder="Your first name" required/>
-              <span class="qf-field-error">Please enter a valid name</span>
+
+          <div class="qf-step" data-step="1">
+            <div class="qf-row">
+              <div class="qf-field">
+                <label for="qf-name">First name</label>
+                <input type="text" id="qf-name" name="name" autocomplete="given-name" required/>
+                <span class="qf-field-error">Please enter a valid name</span>
+              </div>
+              <div class="qf-field">
+                <label for="qf-phone">Mobile phone</label>
+                <input type="tel" id="qf-phone" name="phone" autocomplete="tel" placeholder="(604) 555-0123" required/>
+                <span class="qf-field-error">Please enter a valid 10-digit phone number</span>
+              </div>
             </div>
-            <div class="qf-field">
-              <label for="qf-phone">Phone</label>
-              <input type="tel" id="qf-phone" name="phone" placeholder="(604) 000-0000" required/>
-              <span class="qf-field-error">Please enter a valid 10-digit phone number</span>
+            <div class="qf-row">
+              <div class="qf-field">
+                <label for="qf-email">Email</label>
+                <input type="email" id="qf-email" name="email" autocomplete="email" placeholder="you@email.com" required/>
+                <span class="qf-field-error">Please enter a valid email address</span>
+              </div>
+              <div class="qf-field">
+                <label for="qf-address">Address or city</label>
+                <input type="text" id="qf-address" name="address" autocomplete="street-address" placeholder="Chilliwack" required/>
+                <span class="qf-field-error">Please enter a valid address or city</span>
+              </div>
             </div>
+            <button type="button" class="qf-submit qf-next">Continue</button>
           </div>
-          <div class="qf-row">
-            <div class="qf-field">
-              <label for="qf-email">Email</label>
-              <input type="email" id="qf-email" name="email" placeholder="your@email.com" required/>
-              <span class="qf-field-error">Please enter a valid email address</span>
+
+          <div class="qf-step" data-step="2" hidden>
+            <div class="qf-section-label">What should we clean?</div>
+            <div class="qf-checks">
+              <label class="qf-check"><input type="checkbox" checked/><span class="qf-check-box"></span><span class="qf-check-label">Exterior Window Cleaning</span></label>
+              <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Interior Window Cleaning</span></label>
+              <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Pressure Washing</span></label>
+              <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Gutter Cleaning</span></label>
+              <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Gutter Guards</span></label>
+              <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Roof Washing</span></label>
+              <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">House Washing</span></label>
+              <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Solar Panels</span></label>
+              <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Commercial</span></label>
+              <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Screen Cleaning</span></label>
             </div>
-            <div class="qf-field">
-              <label>Address</label>
-              <input type="text" id="qf-address" name="address" placeholder="Your address or city" required/>
-              <span class="qf-field-error">Please enter a valid address or city</span>
+            <p class="qf-z-note">Looking for permanent lighting? Our sister company <a href="https://www.zlighting.ca/?ref=aclean">Z Lighting</a> handles it.</p>
+            <div class="qf-nav">
+              <button type="button" class="qf-back">Back</button>
+              <button type="button" class="qf-submit qf-next">Continue</button>
             </div>
           </div>
 
-          <div class="qf-section-label">Property Type</div>
-          <div class="qf-pills">
-            <div class="qf-pill"><input type="radio" name="property_type" id="pt-sfh" value="Single Family" checked/><label for="pt-sfh">Single Family</label></div>
-            <div class="qf-pill"><input type="radio" name="property_type" id="pt-th" value="Townhouse"/><label for="pt-th">Townhouse</label></div>
-            <div class="qf-pill"><input type="radio" name="property_type" id="pt-co" value="Condo"/><label for="pt-co">Condo</label></div>
-            <div class="qf-pill"><input type="radio" name="property_type" id="pt-cm" value="Commercial"/><label for="pt-cm">Commercial</label></div>
-            <div class="qf-pill"><input type="radio" name="property_type" id="pt-mu" value="Multi-Unit"/><label for="pt-mu">Multi-Unit</label></div>
+          <div class="qf-step" data-step="3" hidden>
+            <div class="qf-section-label">Property type</div>
+            <div class="qf-pills">
+              <div class="qf-pill"><input type="radio" name="property_type" id="pt-sfh" value="Single Family" checked/><label for="pt-sfh">Single Family</label></div>
+              <div class="qf-pill"><input type="radio" name="property_type" id="pt-th" value="Townhouse"/><label for="pt-th">Townhouse</label></div>
+              <div class="qf-pill"><input type="radio" name="property_type" id="pt-co" value="Condo"/><label for="pt-co">Condo</label></div>
+              <div class="qf-pill"><input type="radio" name="property_type" id="pt-cm" value="Commercial"/><label for="pt-cm">Commercial</label></div>
+              <div class="qf-pill"><input type="radio" name="property_type" id="pt-mu" value="Multi-Unit"/><label for="pt-mu">Multi-Unit</label></div>
+            </div>
+            <div class="qf-section-label">How often?</div>
+            <div class="qf-freq">
+              <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-q" value="Tri-Annual" checked/><label for="fr-q">Tri-Annual</label></div>
+              <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-b" value="Bi-Annual"/><label for="fr-b">Bi-Annual</label></div>
+              <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-m" value="Monthly"/><label for="fr-m">Monthly</label></div>
+              <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-o" value="One-Time"/><label for="fr-o">One-Time</label></div>
+            </div>
+            <div class="qf-nav">
+              <button type="button" class="qf-back">Back</button>
+              <button type="submit" class="qf-submit">Get my free quote</button>
+            </div>
+            <p class="qf-privacy">No spam. We only use this to send your quote.</p>
           </div>
-
-          <div class="qf-section-label">Services Needed</div>
-          <div class="qf-checks">
-            <label class="qf-check"><input type="checkbox" checked/><span class="qf-check-box"></span><span class="qf-check-label">Exterior Window Cleaning</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Interior Window Cleaning</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Pressure Washing</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Gutter Cleaning</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Gutter Guards</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Roof Washing</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">House Washing</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Solar Panels</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Commercial</span></label>
-            <label class="qf-check"><input type="checkbox"/><span class="qf-check-box"></span><span class="qf-check-label">Screen Cleaning</span></label>
-          </div>
-          <p class="qf-z-note" style="margin:10px 0 2px;font-family:'Inter',sans-serif;font-size:0.74rem;line-height:1.5;color:rgba(255,255,255,0.55);">Looking for permanent lighting? Our sister company <a href="https://www.zlighting.ca/?ref=aclean" style="color:#8dff4f;text-decoration:underline;text-underline-offset:3px;">Z Lighting</a> handles it &rarr;</p>
-
-          <div class="qf-section-label">Preferred Frequency</div>
-          <div class="qf-freq">
-            <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-q" value="Tri-Annual" checked/><label for="fr-q">Tri-Annual</label></div>
-            <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-b" value="Bi-Annual"/><label for="fr-b">Bi-Annual</label></div>
-            <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-m" value="Monthly"/><label for="fr-m">Monthly</label></div>
-            <div class="qf-freq-item"><input type="radio" name="frequency" id="fr-o" value="One-Time"/><label for="fr-o">One-Time</label></div>
-          </div>
-
-          <button type="submit" class="qf-submit">Get My Free Quote →</button>
-          <p class="qf-privacy">🔒 No spam. We respond within 2 hours.</p>
         </form>
         <div class="qf-success">
           <div class="qf-success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -3186,6 +3318,8 @@
 
   window.handleQuote = function(e, form) {
     e.preventDefault();
+    // Stepped form: Enter on an earlier step moves forward instead of sending
+    if (form.hasAttribute('data-steps') && form.qfStep && form.qfStep() < 3) { form.qfGo(form.qfStep() + 1); return; }
     var valid = true;
     var firstError = null;
     function check(input, isValidFn) {
@@ -3204,7 +3338,7 @@
         setFieldError(inp, true);
       }, { once: true });
     });
-    if (!valid) { if (firstError) firstError.focus(); return; }
+    if (!valid) { if (form.qfGo) form.qfGo(1, true); if (firstError) firstError.focus(); return; }
     // Collect checked services from checkboxes (no name attr on checkboxes)
     const services = [...form.querySelectorAll('input[type="checkbox"]:checked')]
       .map(cb => cb.closest('.qf-check').querySelector('.qf-check-label').textContent)
@@ -3212,7 +3346,7 @@
     const svcField = form.querySelector('input[name="services"]');
     if (svcField) svcField.value = services || 'None selected';
 
-    const btn = form.querySelector('.qf-submit');
+    const btn = form.querySelector('button[type="submit"]');
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
@@ -3235,6 +3369,43 @@
       if (success) success.classList.add('active');
     });
   };
+
+  // ── STEPPED HERO FORM ────────────────────────────────────────────────
+  document.querySelectorAll('form[data-steps]').forEach(function(form) {
+    var card = form.closest('.quote-form-card');
+    var steps = form.querySelectorAll('.qf-step');
+    var dots = card.querySelectorAll('.qf-steps li');
+    var current = 1;
+    function contactOk() {
+      var first = null;
+      [['name', isValidName], ['phone', isValidPhone], ['email', isValidEmail], ['address', isValidAddress]].forEach(function(f) {
+        var inp = form.querySelector('input[name="' + f[0] + '"]');
+        var ok = f[1](inp.value);
+        setFieldError(inp, ok);
+        if (!ok && !first) first = inp;
+        if (!ok) inp.addEventListener('input', function() { setFieldError(inp, true); }, { once: true });
+      });
+      if (first) first.focus();
+      return !first;
+    }
+    form.qfStep = function() { return current; };
+    form.qfGo = function(n, skipCheck) {
+      if (n > current && current === 1 && !skipCheck && !contactOk()) return;
+      current = n;
+      steps.forEach(function(s) { s.hidden = +s.dataset.step !== n; });
+      dots.forEach(function(d, i) {
+        d.classList.toggle('is-active', i + 1 === n);
+        d.classList.toggle('is-done', i + 1 < n);
+        if (i + 1 === n) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current');
+      });
+      if (!skipCheck) {
+        var focusEl = form.querySelector('.qf-step[data-step="' + n + '"] input, .qf-step[data-step="' + n + '"] button');
+        if (focusEl && n > 1) focusEl.focus({ preventScroll: true });
+      }
+    };
+    form.querySelectorAll('.qf-next').forEach(function(b) { b.addEventListener('click', function() { form.qfGo(current + 1); }); });
+    form.querySelectorAll('.qf-back').forEach(function(b) { b.addEventListener('click', function() { form.qfGo(current - 1); }); });
+  });
 
   // ── FAQ ACCORDION ─────────────────────────────────────────────────────
   document.querySelectorAll('.faq-q').forEach(btn => {
